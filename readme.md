@@ -11,40 +11,69 @@ A Python-based REST and WebSocket API that provides a clean interface to DAHDI (
 - Audio streaming support
 - WebSocket-based event system
 - Comprehensive error handling and diagnostics
+- Docker containerized deployment
+- Host-Container architecture for hardware access
 
 ## Getting Started
 
 ### Prerequisites
 
-- Linux system with DAHDI drivers installed
-- Docker and Docker Compose
+#### Hardware Requirements
+- Linux system with kernel version 4.x or higher
 - OpenVox/Digium FXS card (TDM400P supported)
+- Minimum 2GB RAM
+- 20GB available disk space
+
+#### Software Requirements
+- Docker Engine 20.10+
+- Docker Compose 2.0+
 - Python 3.9+
+- Linux kernel headers
+- Build tools (gcc, make)
 
-### Hardware Setup
+### Host System Setup
 
-1. Install DAHDI drivers on the host machine:
+1. Install kernel headers and build tools:
 ```bash
 sudo apt-get update
-sudo apt-get install dahdi dahdi-linux dahdi-tools
+sudo apt-get install linux-headers-$(uname -r) build-essential gcc make
 ```
 
-2. Load DAHDI kernel modules:
+2. Install DAHDI kernel modules:
+```bash
+# Download and install DAHDI Linux
+wget http://downloads.asterisk.org/pub/telephony/dahdi-linux/dahdi-linux-current.tar.gz
+tar xvfz dahdi-linux-current.tar.gz
+cd dahdi-linux-*
+make
+sudo make install
+sudo make config
+```
+
+3. Load DAHDI kernel modules:
 ```bash
 sudo modprobe dahdi
-sudo modprobe opvxa1200
+sudo modprobe your_card_module  # Replace with your specific card module (e.g., opvxa1200)
 ```
 
-3. Configure DAHDI:
+4. Configure DAHDI:
 ```bash
 sudo dahdi_genconf
 sudo dahdi_cfg -vv
 ```
 
-4. Verify card detection:
+5. Set up device permissions:
+```bash
+sudo chown root:dialout /dev/dahdi/*
+sudo chmod 660 /dev/dahdi/*
+sudo usermod -a -G dialout $USER  # Add your user to dialout group
+```
+
+6. Verify hardware detection:
 ```bash
 sudo dahdi_hardware
 sudo dahdi_scan
+ls -l /dev/dahdi/*  # Verify device nodes exist
 ```
 
 ### Development Setup
@@ -55,14 +84,20 @@ git clone https://github.com/yourusername/dahdi-phone-api.git
 cd dahdi-phone-api
 ```
 
-2. Start the development environment:
+2. Build and start the container:
 ```bash
+docker-compose build
 docker-compose up -d
 ```
 
 3. View logs:
 ```bash
 docker-compose logs -f
+```
+
+4. Verify the installation:
+```bash
+curl http://localhost:8000/status  # Should return phone line status
 ```
 
 ## API Documentation
@@ -102,9 +137,7 @@ Real-time events are sent through WebSocket connections:
 
 Full API documentation available in `/docs/api.md`
 
-## Development
-
-### Project Structure
+## Project Structure
 
 ```
 src/
@@ -125,7 +158,7 @@ src/
 │       └── config.py
 ```
 
-### Configuration
+## Configuration
 
 Configuration is managed through YAML files in the `config` directory:
 
@@ -142,7 +175,7 @@ dahdi:
   buffer_size: 320  # 20ms @ 8kHz/16-bit
 ```
 
-### Running Tests
+## Running Tests
 
 ```bash
 # Run all tests
@@ -155,7 +188,7 @@ docker-compose run --rm api pytest tests/test_hardware.py
 docker-compose run --rm api pytest --cov=dahdi_phone
 ```
 
-### Debugging
+## Debugging
 
 1. Access debug console:
 ```bash
@@ -172,34 +205,49 @@ docker-compose exec api dahdi_status
 docker-compose exec api python -m dahdi_phone.tools.event_monitor
 ```
 
-## Error Handling
+## Troubleshooting
 
-The API uses structured error responses:
+### Common Issues
 
-```json
-{
-  "error": {
-    "code": "HARDWARE_ERROR",
-    "message": "Failed to open DAHDI device",
-    "details": {
-      "device": "/dev/dahdi/channel001",
-      "errno": 13
-    }
-  }
-}
-```
+1. Device Permission Errors
+   - Verify host device permissions: `ls -l /dev/dahdi/*`
+   - Check group membership: `groups $USER`
+   - Review container logs: `docker-compose logs api`
 
-Common error codes are documented in `/docs/errors.md`
+2. Module Loading Issues
+   - Check kernel module status: `lsmod | grep dahdi`
+   - View kernel messages: `dmesg | grep dahdi`
+   - Verify module parameters: `modinfo dahdi`
+
+3. Container Access Problems
+   - Check volume mounts: `docker-compose config`
+   - Verify SELinux context: `ls -Z /dev/dahdi/*`
+   - Review container privileges: `docker inspect dahdi-api`
+
+4. API Connection Issues
+   - Verify ports are exposed: `docker-compose ps`
+   - Check network connectivity: `curl localhost:8000/status`
+   - Review API logs: `docker-compose logs api | grep ERROR`
+
+### Logging
+
+Logs are available in several locations:
+
+1. Container Logs:
+   - API logs: `/var/log/dahdi_phone/api.log`
+   - Installation logs: `/var/log/dahdi_phone/install.log`
+
+2. Host System Logs:
+   - Kernel messages: `dmesg`
+   - System logs: `/var/log/syslog`
 
 ## Contributing
 
 1. Fork the repository
-2. Create a feature branch
+2. Create a feature branch: `git checkout -b feature/new-feature`
 3. Make your changes
-4. Add tests
+4. Add tests for new functionality
 5. Submit a pull request
-
-Please read CONTRIBUTING.md for details on our code of conduct and development process.
 
 ### Development Guidelines
 
@@ -209,26 +257,23 @@ Please read CONTRIBUTING.md for details on our code of conduct and development p
 - Document all public interfaces
 - Add logging for significant operations
 
-## Architecture Decisions
+## Architecture
 
-Key architectural decisions are documented in `/docs/architecture.md`, including:
+Key architectural components are documented in `/docs/architecture.md`, including:
 
+- Host-Container relationship
 - DAHDI hardware abstraction approach
 - Event system design
 - Buffer management strategy
 - Error handling philosophy
 - API contract design
 
-## Troubleshooting
+## Security
 
-Common issues and solutions are documented in `/docs/troubleshooting.md`, covering:
-
-- Hardware detection problems
-- Driver configuration issues
-- Audio quality problems
-- Event timing issues
-- Resource conflicts
-
+- API uses token-based authentication
+- All device access is read-only where possible
+- Container runs with minimal required privileges
+- Regular security updates via Docker base image
 
 ## License
 
@@ -239,3 +284,23 @@ This project is licensed under the MIT License - see LICENSE.md
 - DAHDI Project Team
 - OpenVox Hardware Documentation
 - Python Telephony Community
+- Docker Community
+
+## Support
+
+For support:
+1. Check the documentation in `/docs`
+2. Review closed issues on GitHub
+3. Open a new issue with logs and configuration
+4. Join our community chat
+
+## Roadmap
+
+Planned features:
+1. Multiple line support
+2. Advanced audio processing
+3. Call recording capabilities
+4. WebRTC integration
+5. Enhanced monitoring tools
+
+For detailed status, see our project roadmap in `/docs/roadmap.md`

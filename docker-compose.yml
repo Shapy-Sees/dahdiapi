@@ -1,15 +1,31 @@
 # dahdi-phone-api/docker-compose.yml
+
 version: '3.8'
+
 services:
   dahdi-api:
-    build: .
+    build: 
+      context: .
+      dockerfile: Dockerfile
     volumes:
-      - /dev/dahdi:/dev/dahdi:ro  # Read-only mount of DAHDI devices
+      - /dev/dahdi:/dev/dahdi:ro  # Read-only mount of host DAHDI devices
+      - /etc/dahdi:/etc/dahdi:ro  # Read-only mount of host DAHDI configuration
+      - ./config:/etc/dahdi_phone:ro  # Mount API configuration
+      - ./logs:/var/log/dahdi_phone  # Mount logs directory
     ports:
       - "8000:8000"  # REST API
       - "8001:8001"  # WebSocket
     devices:
-      - "/dev/dahdi/channel001:/dev/dahdi/channel001"
-      - "/dev/dahdi/ctl:/dev/dahdi/ctl"
-    cap_add:
-      - SYS_RAWIO  # Required for DAHDI access
+      - "/dev/dahdi/channel001:/dev/dahdi/channel001"  # Map specific DAHDI channels
+      - "/dev/dahdi/ctl:/dev/dahdi/ctl"  # Map DAHDI control device
+    privileged: true  # Required for hardware access
+    environment:
+      - LOG_LEVEL=INFO
+      - CONFIG_PATH=/etc/dahdi_phone/config.yml
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/status"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s

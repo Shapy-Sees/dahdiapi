@@ -4,19 +4,64 @@ This document details the architectural decisions, system design, and implementa
 
 ## System Overview
 
-The DAHDI Phone API serves as a bridge between traditional telephony hardware and modern software systems. It transforms low-level DAHDI interactions into a clean, RESTful API with WebSocket support for real-time events. The system is designed to handle the complexities of analog telephony while presenting a simple, modern interface to clients.
+The DAHDI Phone API serves as a bridge between traditional telephony hardware and modern software systems. It transforms low-level DAHDI interactions into a clean, RESTful API with WebSocket support for real-time events. The system operates in a containerized environment while maintaining direct hardware access through the host system.
+
+### Host-Container Architecture
+
+The system utilizes a split architecture where components are divided between the host system and Docker container:
+
+#### Host System Components
+1. Kernel Layer
+   - DAHDI kernel modules
+   - Hardware drivers
+   - Interrupt handling
+   - Device management
+   - Kernel-level configuration
+
+2. Device Layer
+   - Device nodes (/dev/dahdi/*)
+   - Hardware access permissions
+   - System resource allocation
+   - Buffer management
+
+#### Container Components
+1. Application Layer
+   - REST API endpoints
+   - WebSocket server
+   - Business logic
+   - State management
+
+2. DAHDI Tools Layer
+   - Userspace utilities
+   - Configuration tools
+   - Diagnostic tools
+   - Device communication
 
 ### Core Principles
 
-Our architecture adheres to several key principles:
+1. Hardware Isolation
+   - Host system handles all kernel-level operations
+   - Container restricted to userspace operations
+   - Clear separation between hardware and API layers
+   - Minimal privileged access requirements
 
-1. Hardware Isolation: All DAHDI and hardware interactions are isolated within specific components to prevent hardware complexity from leaking into the rest of the system.
+2. Real-time Event Handling
+   - Direct hardware event propagation
+   - Minimal latency overhead
+   - Event buffering and queuing
+   - Proper resource cleanup
 
-2. Real-time Event Handling: The system maintains real-time responsiveness for critical phone events while ensuring proper resource management.
+3. Type Safety
+   - Strong typing throughout the system
+   - Input validation at all layers
+   - Clear interface contracts
+   - Error type hierarchies
 
-3. Type Safety: Strong typing and validation throughout the system helps prevent errors and provides clear interface contracts.
-
-4. Error Resilience: Comprehensive error handling and recovery mechanisms ensure system stability even during hardware issues.
+4. Error Resilience
+   - Comprehensive error handling
+   - Automatic recovery mechanisms
+   - Graceful degradation
+   - Detailed error reporting
 
 ## Component Architecture
 
@@ -47,7 +92,7 @@ class DAHDIInterface:
             raise DAHDIError("Failed to initialize device") from e
 ```
 
-This layer provides:
+Key responsibilities:
 - Raw device access through ioctl calls
 - Buffer management for audio streaming
 - Direct hardware control operations
@@ -81,7 +126,7 @@ class FXSPort:
             await self._handle_ring_error(e)
 ```
 
-This layer provides:
+Key responsibilities:
 - High-level phone operations
 - State management
 - Event generation
@@ -113,7 +158,7 @@ class PhoneService:
         self._emit_state_change(PhoneState.OFF_HOOK)
 ```
 
-This layer provides:
+Key responsibilities:
 - Business logic coordination
 - Service integration
 - State transitions
@@ -145,7 +190,7 @@ class PhoneAPI:
             await self._handle_api_error(e)
 ```
 
-This layer provides:
+Key responsibilities:
 - REST endpoint implementation
 - WebSocket event distribution
 - Request validation
@@ -158,12 +203,12 @@ This layer provides:
 Our audio processing follows a streaming architecture:
 
 ```
-[DAHDI] → [CircularBuffer] → [AudioProcessor] → [DTMFDetector]
-                                             → [VoiceDetector]
-                                             → [Clients]
+[DAHDI Hardware] → [Host Kernel Buffer] → [Container Buffer] → [AudioProcessor] → [DTMFDetector]
+                                                                              → [VoiceDetector]
+                                                                              → [Clients]
 ```
 
-Key design decisions:
+Design decisions:
 1. Use circular buffers to prevent memory growth
 2. Process audio in 20ms frames (160 samples at 8kHz)
 3. Implement non-blocking stream processing
@@ -174,8 +219,8 @@ Key design decisions:
 Events flow through the system in a structured way:
 
 ```
-[Hardware Events] → [Event Bus] → [State Manager] → [WebSocket Server]
-                               → [Service Layer] → [REST Responses]
+[Hardware Events] → [Kernel] → [DAHDI Device] → [Container] → [Event Bus] → [State Manager] → [WebSocket Server]
+                                                                         → [Service Layer] → [REST Responses]
 ```
 
 Event handling features:
@@ -240,6 +285,34 @@ except DAHDIError as e:
 - Rate limiting
 - Authentication
 
+## Container Security Architecture
+
+### Principle of Least Privilege
+1. Container Access Controls
+   - Read-only access to DAHDI devices
+   - Minimal required capabilities
+   - No root access requirement
+   - Isolated network access
+
+2. Resource Limitations
+   - Memory limits
+   - CPU constraints
+   - File descriptor limits
+   - Network restrictions
+
+### Security Considerations
+1. Device Access
+   - Proper permissions on host devices
+   - Group-based access control
+   - SELinux/AppArmor profiles
+   - Device node isolation
+
+2. API Security
+   - Token-based authentication
+   - Request validation
+   - Rate limiting
+   - Error message sanitization
+
 ## Performance Considerations
 
 ### Buffer Management
@@ -260,20 +333,6 @@ except DAHDIError as e:
 - Resource cleanup
 - Memory limits
 
-## Security Architecture
-
-### Access Control
-- Device permissions
-- API authentication
-- Operation validation
-- Resource limits
-
-### Data Protection
-- Input sanitization
-- Output encoding
-- Error message safety
-- Logging security
-
 ## Monitoring and Diagnostics
 
 ### Health Checks
@@ -281,18 +340,21 @@ except DAHDIError as e:
 - Service status
 - Resource usage
 - Error rates
+- Container health
 
 ### Logging Architecture
 - Structured logging
 - Log levels
 - Context preservation
-- Rotation policies
+- Log rotation
+- Container log management
 
 ### Metrics
 - Operation latency
 - Resource usage
 - Error rates
 - Client activity
+- Container performance
 
 ## Future Considerations
 
@@ -301,12 +363,14 @@ except DAHDIError as e:
 - Load balancing
 - Resource pooling
 - Client scaling
+- Container orchestration
 
 ### Enhancement Paths
 - Additional audio codecs
 - Extended DTMF features
 - Voice processing
 - Call recording
+- Container optimization
 
 ## Development Guidelines
 
@@ -330,10 +394,16 @@ When extending the system, consider:
    - Implement filtering
    - Manage resources
 
-4. Error Handling
-   - Implement recovery
+4. Container Development
+   - Follow Docker best practices
+   - Maintain minimal image size
+   - Implement proper health checks
+   - Handle graceful shutdown
+
+5. Error Handling
+   - Implement recovery mechanisms
    - Provide context
    - Log appropriately
    - Notify clients
 
-This architecture provides a solid foundation for building reliable telephone integration while maintaining clean abstractions and proper resource management.
+This architecture provides a solid foundation for building reliable telephone integration while maintaining clean abstractions and proper resource management in a containerized environment.

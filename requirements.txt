@@ -1,0 +1,12 @@
+# dahdi-phone-api/requirements.txt
+
+fastapi==0.68.0
+uvicorn==0.15.0
+websockets==10.1
+pydantic==1.8.2
+PyYAML==6.0
+python-multipart==0.0.5
+asyncio==3.4.3
+aiofiles==0.8.0
+typing-extensions==4.0.1
+structlog==21.5.0
