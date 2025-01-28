@@ -1,0 +1,15 @@
+# dahdi-phone-api/docker-compose.yml
+version: '3.8'
+services:
+  dahdi-api:
+    build: .
+    volumes:
+      - /dev/dahdi:/dev/dahdi:ro  # Read-only mount of DAHDI devices
+    ports:
+      - "8000:8000"  # REST API
+      - "8001:8001"  # WebSocket
+    devices:
+      - "/dev/dahdi/channel001:/dev/dahdi/channel001"
+      - "/dev/dahdi/ctl:/dev/dahdi/ctl"
+    cap_add:
+      - SYS_RAWIO  # Required for DAHDI access
