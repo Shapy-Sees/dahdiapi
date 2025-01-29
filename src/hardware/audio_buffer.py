@@ -1,4 +1,4 @@
-# src/dahdi_phone/hardware/audio_buffer.py
+# src/hardware/audio_buffer.py
 """
 Audio buffer implementation for DAHDI phone system.
 Provides thread-safe circular buffer for audio data with overflow protection,

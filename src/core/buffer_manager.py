@@ -1,4 +1,4 @@
-# src/dahdi_phone/core/buffer_manager.py
+# src/core/buffer_manager.py
 """
 Circular buffer implementation for audio data management with extensive logging.
 """

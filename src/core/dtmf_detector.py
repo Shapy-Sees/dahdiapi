@@ -1,4 +1,4 @@
-# src/dahdi_phone/core/dtmf_detector.py
+# src/core/dtmf_detector.py
 """
 DTMF tone detection module for DAHDI Phone API.
 Implements Goertzel algorithm for efficient DTMF frequency detection.

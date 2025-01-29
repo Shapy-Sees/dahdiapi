@@ -1,4 +1,4 @@
-# dahdi-phone-api/src/dahdi_phone/api/websocket.py
+# dahdi-phone-api/src/api/websocket.py
 
 class PhoneEventTypes(str, Enum):
     """Types of events that can be sent over WebSocket"""

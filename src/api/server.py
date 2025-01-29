@@ -1,4 +1,4 @@
-# src/dahdi_phone/api/server.py
+# src/api/server.py
 """
 Main server implementation for the DAHDI Phone API.
 Initializes FastAPI application, sets up logging and configuration,

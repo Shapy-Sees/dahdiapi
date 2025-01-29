@@ -1,4 +1,4 @@
-# src/dahdi_phone/core/audio_processor.py
+# src/core/audio_processor.py
 """
 Core audio processing module for DAHDI Phone API.
 Handles audio buffer management, processing, and streaming with extensive logging.

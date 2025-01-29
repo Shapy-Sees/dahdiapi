@@ -1,4 +1,4 @@
-# src/dahdi_phone/utils/logger.py
+# src/utils/logger.py
 """
 Centralized logging configuration for the DAHDI Phone API.
 Provides consistent, configurable logging across all modules with support for
