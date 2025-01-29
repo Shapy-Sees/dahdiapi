@@ -1,0 +1,6 @@
+logging:
+  level: "DEBUG"  # or desired level
+  format: "json"
+  output: "/var/log/dahdi_phone/api.log"
+  rotation: "1 day"
+  retention: "30 days"

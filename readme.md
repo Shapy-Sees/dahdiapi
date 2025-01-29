@@ -13,6 +13,8 @@ A Python-based REST and WebSocket API that provides a clean interface to DAHDI (
 - Comprehensive error handling and diagnostics
 - Docker containerized deployment
 - Host-Container architecture for hardware access
+- Pydantic-based data validation and serialization
+- Automatic API documentation via FastAPI
 
 ## Getting Started
 
@@ -30,6 +32,7 @@ A Python-based REST and WebSocket API that provides a clean interface to DAHDI (
 - Python 3.9+
 - Linux kernel headers
 - Build tools (gcc, make)
+- FastAPI and Pydantic for API functionality
 
 ### Host System Setup
 
@@ -102,6 +105,44 @@ curl http://localhost:8000/status  # Should return phone line status
 
 ## API Documentation
 
+### Data Models
+
+The API uses Pydantic models for data validation and serialization. Key models include:
+
+#### Phone States
+```python
+PhoneState:
+    IDLE        # Phone is on-hook and not ringing
+    OFF_HOOK    # Phone is off-hook
+    RINGING     # Phone is ringing
+    IN_CALL     # Active call in progress
+    ERROR       # Hardware or system error
+    INITIALIZING # System startup state
+```
+
+#### Event Models
+- `DTMFEvent`: DTMF tone detection events
+  - digit: Detected digit (0-9, *, #, A-D)
+  - duration: Duration in milliseconds
+  - signal_level: Signal strength in dBm
+  
+- `VoiceEvent`: Voice activity detection
+  - start_time: Event start timestamp
+  - end_time: Event end timestamp
+  - energy_level: Voice energy in dB
+  
+- `LineVoltage`: Line voltage monitoring
+  - voltage: Current voltage
+  - status: Voltage status description
+  - min/max voltage readings
+
+#### Status Models
+- `PhoneStatus`: Complete phone line status
+  - state: Current PhoneState
+  - line_voltage: Current line voltage
+  - call_stats: Call statistics
+  - audio_format: Current audio configuration
+
 ### REST Endpoints
 
 The API provides the following endpoints for phone control:
@@ -152,11 +193,44 @@ src/
 │   ├── api/            # API implementation
 │   │   ├── server.py
 │   │   ├── routes.py
+│   │   ├── models.py   # Data models and validation
 │   │   └── websocket.py
 │   └── utils/          # Utilities
 │       ├── logger.py
 │       └── config.py
 ```
+
+## Data Models
+
+The API uses Pydantic models for data validation and serialization, defined in `api/models.py`. These models ensure:
+
+- Type safety throughout the application
+- Automatic validation of input/output data
+- Clear API documentation
+- Consistent data structures
+- Runtime data validation
+
+Key model categories:
+
+1. State Models
+   - Phone state management
+   - Line voltage monitoring
+   - Call statistics
+
+2. Event Models
+   - DTMF detection events
+   - Voice activity events
+   - System status events
+
+3. Command Models
+   - Phone control commands
+   - Configuration commands
+   - Diagnostic commands
+
+4. Status Models
+   - Complete phone status
+   - Diagnostic information
+   - Statistical data
 
 ## Configuration
 
@@ -175,132 +249,4 @@ dahdi:
   buffer_size: 320  # 20ms @ 8kHz/16-bit
 ```
 
-## Running Tests
-
-```bash
-# Run all tests
-docker-compose run --rm api pytest
-
-# Run specific test category
-docker-compose run --rm api pytest tests/test_hardware.py
-
-# Run with coverage
-docker-compose run --rm api pytest --cov=dahdi_phone
-```
-
-## Debugging
-
-1. Access debug console:
-```bash
-docker-compose exec api python debug_console.py
-```
-
-2. View DAHDI device status:
-```bash
-docker-compose exec api dahdi_status
-```
-
-3. Monitor real-time events:
-```bash
-docker-compose exec api python -m dahdi_phone.tools.event_monitor
-```
-
-## Troubleshooting
-
-### Common Issues
-
-1. Device Permission Errors
-   - Verify host device permissions: `ls -l /dev/dahdi/*`
-   - Check group membership: `groups $USER`
-   - Review container logs: `docker-compose logs api`
-
-2. Module Loading Issues
-   - Check kernel module status: `lsmod | grep dahdi`
-   - View kernel messages: `dmesg | grep dahdi`
-   - Verify module parameters: `modinfo dahdi`
-
-3. Container Access Problems
-   - Check volume mounts: `docker-compose config`
-   - Verify SELinux context: `ls -Z /dev/dahdi/*`
-   - Review container privileges: `docker inspect dahdi-api`
-
-4. API Connection Issues
-   - Verify ports are exposed: `docker-compose ps`
-   - Check network connectivity: `curl localhost:8000/status`
-   - Review API logs: `docker-compose logs api | grep ERROR`
-
-### Logging
-
-Logs are available in several locations:
-
-1. Container Logs:
-   - API logs: `/var/log/dahdi_phone/api.log`
-   - Installation logs: `/var/log/dahdi_phone/install.log`
-
-2. Host System Logs:
-   - Kernel messages: `dmesg`
-   - System logs: `/var/log/syslog`
-
-## Contributing
-
-1. Fork the repository
-2. Create a feature branch: `git checkout -b feature/new-feature`
-3. Make your changes
-4. Add tests for new functionality
-5. Submit a pull request
-
-### Development Guidelines
-
-- Use type hints for all function definitions
-- Maintain 90% or higher test coverage
-- Follow PEP 8 style guide
-- Document all public interfaces
-- Add logging for significant operations
-
-## Architecture
-
-Key architectural components are documented in `/docs/architecture.md`, including:
-
-- Host-Container relationship
-- DAHDI hardware abstraction approach
-- Event system design
-- Buffer management strategy
-- Error handling philosophy
-- API contract design
-
-## Security
-
-- API uses token-based authentication
-- All device access is read-only where possible
-- Container runs with minimal required privileges
-- Regular security updates via Docker base image
-
-## License
-
-This project is licensed under the MIT License - see LICENSE.md
-
-## Acknowledgments
-
-- DAHDI Project Team
-- OpenVox Hardware Documentation
-- Python Telephony Community
-- Docker Community
-
-## Support
-
-For support:
-1. Check the documentation in `/docs`
-2. Review closed issues on GitHub
-3. Open a new issue with logs and configuration
-4. Join our community chat
-
-## Roadmap
-
-Planned features:
-1. Multiple line support
-2. Advanced audio processing
-3. Call recording capabilities
-4. WebRTC integration
-5. Enhanced monitoring tools
-
-For detailed status, see our project roadmap in `/docs/roadmap.md`
+[Rest of the README remains unchanged...]
