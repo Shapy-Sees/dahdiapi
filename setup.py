@@ -21,7 +21,11 @@ setup(
         "python-json-logger==2.0.7"
     ],
     python_requires=">=3.9",
-    author="DAHDI Phone API Team",
+        entry_points={
+        "console_scripts": [
+            "dahdi-phone-api=dahdi_phone.api.server:run_server"
+        ]
+    },
     description="REST and WebSocket API for DAHDI telephony hardware",
     classifiers=[
         "Development Status :: 4 - Beta",

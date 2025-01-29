@@ -1,3 +1,5 @@
+An AI has written all of this... so far.
+
 # DAHDI Phone API
 
 A Python-based REST and WebSocket API that provides a clean interface to DAHDI (Digium Asterisk Hardware Device Interface) telephony hardware. This service enables high-level control of analog telephone lines through FXS (Foreign Exchange Station) hardware.

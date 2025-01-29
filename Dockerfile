@@ -127,7 +127,7 @@ COPY config/default.yml /etc/dahdi_phone/config.yml
 EXPOSE 8000 8001
 
 # Set environment variables
-ENV PYTHONPATH=/app \
+ENV PYTHONPATH=/app/src \
     LOG_LEVEL=INFO \
     CONFIG_PATH=/etc/dahdi_phone/config.yml \
     DAHDI_LOG_LEVEL=DEBUG \
@@ -139,12 +139,15 @@ ENV PYTHONPATH=/app \
 HEALTHCHECK --interval=30s --timeout=10s --start-period=40s --retries=3 \
     CMD curl -f http://localhost:8000/status || exit 1
 
+COPY scripts/start.sh /start.sh
+RUN chmod +x /start.sh
+
 # Create entrypoint script with enhanced debugging
 RUN echo '#!/bin/bash\n\
 set -x\n\
 echo "DAHDI build logs available in /var/log/dahdi_build/"\n\
-exec python3 -m dahdi_phone.api.server "$@"' > /entrypoint.sh && \
-    chmod +x /entrypoint.sh
+exec python3 -m dahdi_phone.api.server "$@"' > /start.sh && \
+    chmod +x /start.sh
 
 # Run the API service with detailed logging
-ENTRYPOINT ["/entrypoint.sh"]
+ENTRYPOINT ["/start.sh"]

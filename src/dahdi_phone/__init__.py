@@ -1,18 +1,48 @@
 # src/dahdi_phone/__init__.py
 """
 DAHDI Phone API package.
-Provides REST and WebSocket APIs for controlling DAHDI telephony hardware.
+Main package initialization for the DAHDI Phone API project.
 """
 
-import logging
-from .utils.logger import DAHDILogger
+from . import api
+from . import core
+from . import hardware
+from . import utils
 
-# Initialize package-level logger
-logger = DAHDILogger().get_logger(__name__)
-
-# Package metadata
 __version__ = "1.0.0"
-__author__ = "DAHDI Phone API Team"
-__description__ = "REST and WebSocket API for DAHDI telephony hardware"
 
-logger.info(f"DAHDI Phone API {__version__} initialized")
+# src/dahdi_phone/api/__init__.py
+"""
+API package initialization.
+Contains REST and WebSocket API implementations.
+"""
+
+from .server import run_server
+from .models import PhoneState, PhoneStatus
+
+# src/dahdi_phone/core/__init__.py
+"""
+Core package initialization.
+Contains core DAHDI interface and processing components.
+"""
+
+from .dahdi_interface import DAHDIInterface
+from .audio_processor import AudioProcessor
+
+# src/dahdi_phone/hardware/__init__.py
+"""
+Hardware package initialization.
+Contains hardware abstraction layer components.
+"""
+
+from .fxs import FXSPort
+from .audio_buffer import AudioBuffer
+
+# src/dahdi_phone/utils/__init__.py
+"""
+Utilities package initialization.
+Contains shared utility functions and classes.
+"""
+
+from .config import Config
+from .logger import DAHDILogger, log_function_call
