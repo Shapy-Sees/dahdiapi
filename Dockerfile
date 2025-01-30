@@ -4,8 +4,8 @@
 FROM ubuntu:22.04
 
 # Add labels for maintainability
-LABEL maintainer="DAHDI Phone API Team"
-LABEL description="DAHDI Phone API service with WebSocket support"
+LABEL maintainer="no one, really"
+LABEL description="no one????"
 
 # Prevent interactive prompts during package installation
 ENV DEBIAN_FRONTEND=noninteractive

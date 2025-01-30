@@ -30,6 +30,10 @@ class RingPattern(IntEnum):
     DISTINCTIVE1 = 1  # Short-short-long
     DISTINCTIVE2 = 2  # Short-long-short
     CONTINUOUS = 3    # Continuous ring
+    SINGLE = 4       # Single short ring for notifications
+    TIMER = 5        # Three quick rings for timer completion
+    URGENT = 6       # Short ring repeated quickly for urgent notifications
+    CUSTOM = 7       # Customizable pattern
 
 # DAHDI-specific command codes for voltage control
 # These match the Linux kernel DAHDI driver definitions
@@ -48,6 +52,49 @@ class VoltageData(ctypes.Structure):
         ("channel", ctypes.c_int),      # DAHDI channel number
         ("flags", ctypes.c_uint32)      # Control flags
     ]
+
+@dataclass
+class RingPattern:
+    """Ring pattern configuration"""
+    on_times: List[int]    # List of ring-on durations in ms
+    off_times: List[int]   # List of ring-off durations in ms
+    repeat: int = 1        # Number of times to repeat pattern (0 for infinite)
+
+# Predefined patterns
+RING_PATTERNS = {
+    RingPattern.NORMAL: RingPattern(
+        on_times=[2000],
+        off_times=[4000]
+    ),
+    RingPattern.DISTINCTIVE1: RingPattern(
+        on_times=[500, 500, 2000],
+        off_times=[500, 500, 4000]
+    ),
+    RingPattern.DISTINCTIVE2: RingPattern(
+        on_times=[500, 2000, 500],
+        off_times=[500, 500, 4000]
+    ),
+    RingPattern.CONTINUOUS: RingPattern(
+        on_times=[5000],
+        off_times=[100]
+    ),
+    RingPattern.SINGLE: RingPattern(
+        on_times=[500],
+        off_times=[0],
+        repeat=1
+    ),
+    RingPattern.TIMER: RingPattern(
+        on_times=[200, 200, 200],
+        off_times=[200, 200, 0],
+        repeat=1
+    ),
+    RingPattern.URGENT: RingPattern(
+        on_times=[300],
+        off_times=[300],
+        repeat=5
+    )
+}
+
 
 @dataclass
 class FXSConfig:
@@ -168,34 +215,39 @@ class FXSPort:
                 await asyncio.sleep(1)  # Longer delay after error
 
     @log_function_call(level="DEBUG")
-    async def ring(self, pattern: RingPattern = RingPattern.NORMAL, duration: int = 2000) -> None:
+    async def ring(self, 
+                  pattern: Union[RingPattern, Tuple[List[int], List[int]]] = RingPattern.NORMAL,
+                  repeat: int = 1) -> None:
         """
         Generate ring signal with specified pattern.
         
         Args:
-            pattern: Ring pattern to generate
-            duration: Total ring duration in milliseconds
+            pattern: RingPattern enum or tuple of (on_times, off_times) in milliseconds
+            repeat: Number of times to repeat pattern (0 for infinite)
         """
         try:
             self.log.info("ring_start",
                          message="Starting ring signal",
-                         pattern=pattern.name,
-                         duration=duration)
+                         pattern=pattern,
+                         repeat=repeat)
             
             if self._ring_task and not self._ring_task.done():
                 self.log.warning("ring_busy",
                                message="Ring already in progress, canceling previous")
                 self._ring_task.cancel()
-                
+            
+            # Get pattern configuration
+            if isinstance(pattern, RingPattern):
+                pattern_config = RING_PATTERNS[pattern]
+            else:
+                on_times, off_times = pattern
+                pattern_config = RingPattern(on_times, off_times, repeat)
+            
             self._ring_task = asyncio.create_task(
-                self._generate_ring_pattern(pattern, duration)
+                self._generate_ring_pattern(pattern_config)
             )
             
             await self._ring_task
-            
-            self.log.info("ring_complete",
-                         message="Ring signal completed",
-                         pattern=pattern.name)
             
         except asyncio.CancelledError:
             self.log.info("ring_cancelled", message="Ring signal cancelled")
@@ -204,34 +256,41 @@ class FXSPort:
                           message="Ring signal failed",
                           error=str(e),
                           exc_info=True)
-            self.debug_stats['hardware_errors'] += 1
-            raise FXSError(f"Ring generation failed: {str(e)}") from e
+            raise
 
-    async def _generate_ring_pattern(self, pattern: RingPattern, duration: int) -> None:
-        """Generate specific ring pattern"""
-        end_time = asyncio.get_event_loop().time() + (duration / 1000)
+    async def _generate_ring_pattern(self, pattern: RingPattern) -> None:
+        """
+        Generate specific ring pattern.
         
+        Args:
+            pattern: RingPattern configuration to generate
+        """
         try:
-            while asyncio.get_event_loop().time() < end_time:
-                if pattern == RingPattern.NORMAL:
-                    await self._ring_cycle(2000, 4000)  # 2s on, 4s off
-                elif pattern == RingPattern.DISTINCTIVE1:
-                    await self._ring_cycle(500, 500)    # Short
-                    await self._ring_cycle(500, 500)    # Short
-                    await self._ring_cycle(2000, 4000)  # Long
-                elif pattern == RingPattern.DISTINCTIVE2:
-                    await self._ring_cycle(500, 500)    # Short
-                    await self._ring_cycle(2000, 500)   # Long
-                    await self._ring_cycle(500, 4000)   # Short
-                elif pattern == RingPattern.CONTINUOUS:
-                    await self._ring_cycle(5000, 100)   # Almost continuous
+            repeat_count = 0
+            while pattern.repeat == 0 or repeat_count < pattern.repeat:
+                # Execute one complete pattern cycle
+                for on_time, off_time in zip(pattern.on_times, pattern.off_times):
+                    # Set ring voltage
+                    await self._set_voltage(self.config.ring_voltage)
+                    await asyncio.sleep(on_time / 1000)
                     
+                    # Set idle voltage
+                    await self._set_voltage(self.config.idle_voltage)
+                    if off_time > 0:  # Skip final off time if 0
+                        await asyncio.sleep(off_time / 1000)
+                
+                repeat_count += 1
                 self.debug_stats['ring_cycles'] += 1
                 
+                self.log.debug("ring_cycle_complete",
+                             message="Completed ring pattern cycle",
+                             cycle=repeat_count,
+                             max_cycles=pattern.repeat)
+                
         finally:
-            # Ensure voltage is reset
+            # Ensure we return to idle voltage
             await self._set_voltage(self.config.idle_voltage)
-
+            
     async def _ring_cycle(self, on_time: int, off_time: int) -> None:
         """Execute single ring cycle"""
         try:

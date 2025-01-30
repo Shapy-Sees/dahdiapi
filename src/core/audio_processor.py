@@ -10,7 +10,7 @@ import numpy as np
 import asyncio
 from typing import Optional, Tuple, Set, Callable
 from dataclasses import dataclass
-from .buffer_manager import CircularBuffer
+from .buffer_manager import CircularBuffer, BufferError
 from .dtmf_detector import DTMFDetector, DTMFConfig
 from ..api.models import DTMFEvent
 

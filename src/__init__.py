@@ -1,4 +1,4 @@
-# src/dahdi_phone/__init__.py
+# src/__init__.py
 """
 DAHDI Phone API package.
 Main package initialization for the DAHDI Phone API project.

@@ -1,7 +1,11 @@
-# dahdi-phone-api/src/dahdi_phone/api/routes.py
+# dahdi-phone-api/src/api/routes.py
 
 from fastapi import APIRouter, WebSocket
 from .models import *
+from ..core.dahdi_interface import DAHDIInterface
+from ..core.audio_processor import AudioProcessor
+from ..hardware.fxs import FXSPort
+from .models import PhoneState, PhoneStatus
 
 router = APIRouter()
 

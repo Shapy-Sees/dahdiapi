@@ -20,6 +20,7 @@ from ..utils.logger import DAHDILogger, LoggerConfig, log_function_call
 from ..core.dahdi_interface import DAHDIInterface
 from ..core.audio_processor import AudioProcessor, AudioConfig
 from .models import PhoneState, PhoneStatus
+
 from .routes import router as api_router
 from .websocket import PhoneEventTypes
 

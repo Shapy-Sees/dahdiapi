@@ -107,6 +107,8 @@ curl http://localhost:8000/status  # Should return phone line status
 
 ## API Documentation
 
+Detailed API documentation is available in [docs/api.md](docs/api.md)
+
 ### Data Models
 
 The API uses Pydantic models for data validation and serialization. Key models include:
@@ -183,23 +185,57 @@ Full API documentation available in `/docs/api.md`
 ## Project Structure
 
 ```
-src/
-├── dahdi_phone/          # Main package
-│   ├── core/            # Core DAHDI interaction
-│   │   ├── dahdi_interface.py
-│   │   ├── audio_processor.py
-│   │   └── state_manager.py
-│   ├── hardware/        # Hardware abstraction
-│   │   ├── fxs.py
-│   │   └── audio_buffer.py
-│   ├── api/            # API implementation
-│   │   ├── server.py
-│   │   ├── routes.py
-│   │   ├── models.py   # Data models and validation
-│   │   └── websocket.py
-│   └── utils/          # Utilities
-│       ├── logger.py
-│       └── config.py
+dahdi-phone-api/
+├── config/                     # Configuration files
+│   ├── default.yml            # Default configuration
+│   └── config.yml             # Primary configuration
+│
+├── docs/                      # Documentation
+│   └── api.md                 # API documentation
+│
+├── scripts/                   # Utility scripts
+│   └── start.sh              # Service startup script
+│
+├── src/                       # Source code
+│   ├── dahdi_phone/          # Main package
+│   │   ├── api/              # API implementation
+│   │   │   ├── __init__.py
+│   │   │   ├── __main__.py   # Entry point
+│   │   │   ├── models.py     # Data models
+│   │   │   ├── routes.py     # API endpoints
+│   │   │   ├── server.py     # Server implementation
+│   │   │   └── websocket.py  # WebSocket handling
+│   │   │
+│   │   ├── core/             # Core functionality
+│   │   │   ├── __init__.py
+│   │   │   ├── audio_processor.py    # Audio processing
+│   │   │   ├── buffer_manager.py     # Buffer handling
+│   │   │   ├── dahdi_interface.py    # DAHDI communication
+│   │   │   ├── dtmf_detector.py      # DTMF detection
+│   │   │   └── state_manager.py      # State management
+│   │   │
+│   │   ├── hardware/         # Hardware abstraction
+│   │   │   ├── __init__.py
+│   │   │   ├── audio_buffer.py       # Audio buffering
+│   │   │   └── fxs.py               # FXS port handling
+│   │   │
+│   │   ├── utils/            # Utility modules
+│   │   │   ├── __init__.py
+│   │   │   ├── config.py     # Configuration management
+│   │   │   └── logger.py     # Logging system
+│   │   │
+│   │   └── __init__.py
+│   │
+│   └── __init__.py
+│
+├── tests/                     # Test suite
+│   └── __init__.py
+│
+├── docker-compose.yml         # Docker Compose configuration
+├── Dockerfile                 # Docker build instructions
+├── README.md                 # Project documentation
+├── requirements.txt          # Python dependencies
+└── setup.py                 # Package setup
 ```
 
 ## Data Models

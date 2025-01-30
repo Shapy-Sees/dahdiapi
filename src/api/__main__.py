@@ -1,4 +1,4 @@
-# src/dahdi_phone/api/__main__.py
+# src/api/__main__.py
 """
 Main entry point for the DAHDI Phone API service.
 Handles startup configuration and server initialization.
