@@ -6,8 +6,7 @@ Handles startup configuration and server initialization.
 
 import sys
 import logging
-from .server import run_server
-from ..utils.logger import DAHDILogger
+from ..utils.logger import DAHDILogger, LoggerConfig
 from ..utils.config import Config, ConfigurationError
 
 def main():
@@ -16,14 +15,28 @@ def main():
     Configures logging and starts the server.
     """
     try:
-        # Initialize logging
-        logger = logging.getLogger(__name__)
-        logger.info("Initializing DAHDI Phone API service...")
-
-        # Load configuration
+        # Load configuration first
         config = Config()
         config.load("/etc/dahdi_phone/config.yml")
 
+        # Configure logger before any other imports
+        logger = DAHDILogger()
+        log_config = LoggerConfig(
+            level=config.logging.level,
+            format=config.logging.format,
+            output_file=config.logging.output,
+            max_bytes=10_485_760,  # 10MB
+            backup_count=5
+        )
+        logger.configure(log_config)
+
+        # Get logger for this module
+        module_logger = logger.get_logger(__name__)
+        module_logger.info("Initializing DAHDI Phone API service...")
+
+        # Import server module after logger is configured
+        from .server import run_server
+        
         # Start server
         run_server()
 

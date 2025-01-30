@@ -7,9 +7,21 @@ Uses Pydantic for automatic validation and serialization.
 Includes comprehensive DTMF event handling and tracking.
 """
 
-from enum import Enum
+from enum import Enum, auto
 from typing import Optional, List, Dict, Union, Any
 from datetime import datetime
+
+class PhoneEventTypes(str, Enum):
+    """
+    Defines the types of events that can be emitted by the phone system.
+    Used for categorizing events in WebSocket notifications and event handling.
+    """
+    DTMF = "dtmf"           # DTMF digit detected
+    VOLTAGE = "voltage"     # Line voltage event
+    STATE = "state"         # Phone state change
+    AUDIO = "audio"         # Audio-related event
+    ERROR = "error"         # Error event
+
 from pydantic import BaseModel, Field, validator
 import logging
 

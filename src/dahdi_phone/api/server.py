@@ -47,30 +47,11 @@ class DAHDIPhoneAPI:
         self.active_connections = set()
         
         # Initialize API
-        self._setup_logging()
         self._setup_middleware()
         self._setup_exception_handlers()
         self._setup_routes()
         
         logger.info("DAHDI Phone API server initialized")
-
-    @log_function_call(level="DEBUG")
-    def _setup_logging(self) -> None:
-        """Configure logging system with current configuration"""
-        try:
-            log_config = LoggerConfig(
-                level=self.config.logging.level,
-                format=self.config.logging.format,
-                output_file=self.config.logging.output,
-                max_bytes=10_485_760,  # 10MB
-                backup_count=5
-            )
-            self.logger.configure(log_config)
-            logger.debug("Logging system configured successfully")
-            
-        except Exception as e:
-            logger.error(f"Failed to configure logging: {str(e)}", exc_info=True)
-            raise
 
     @log_function_call(level="DEBUG")
     def _setup_middleware(self) -> None:
@@ -204,12 +185,11 @@ class DAHDIPhoneAPI:
 def run_server():
     """Start the DAHDI Phone API server"""
     try:
-        # Load configuration
-        config = Config()
-        config.load("/etc/dahdi_phone/config.yml")
-        
         # Create and configure server
         api = DAHDIPhoneAPI()
+        
+        # Get configuration
+        config = Config()
         
         # Start server
         uvicorn.run(
@@ -220,8 +200,6 @@ def run_server():
         )
         
     except Exception as e:
+        logger = logging.getLogger(__name__)
         logger.error(f"Server startup failed: {str(e)}", exc_info=True)
         raise
-
-if __name__ == "__main__":
-    run_server()
