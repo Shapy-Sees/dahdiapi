@@ -1,4 +1,4 @@
-# src/core/dahdi_interface.py
+# src/dahdi_phone/core/dahdi_interface.py
 """
 Core DAHDI hardware interface implementation.
 Provides direct communication with DAHDI hardware through ioctl calls and manages

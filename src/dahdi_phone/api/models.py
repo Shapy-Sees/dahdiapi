@@ -1,4 +1,4 @@
-# dahdi-phone-api/src/api/models.py
+# dahdi-phone-api/src/dahdi_phone/api/models.py
 """
 Data models for the DAHDI Phone API.
 Defines the core data structures and type definitions used throughout the API,

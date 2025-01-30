@@ -1,4 +1,4 @@
-# src/hardware/fxs.py
+# src/dahdi_phone/hardware/fxs.py
 """
 FXS (Foreign Exchange Station) hardware interface implementation.
 Provides high-level interface to FXS ports through DAHDI, handling voltage control,

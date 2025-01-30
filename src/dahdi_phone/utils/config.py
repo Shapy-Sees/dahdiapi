@@ -1,4 +1,4 @@
-# src/utils/config.py
+# src/dahdi_phone/utils/config.py
 """
 Configuration management for DAHDI Phone API.
 Handles loading and validating configuration from YAML files and environment variables.

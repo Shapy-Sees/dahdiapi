@@ -1,4 +1,4 @@
-# src/core/state_manager.py
+# src/dahdi_phone/core/state_manager.py
 """
 Core state management module for DAHDI Phone API.
 Handles phone line state transitions, state validation, event generation, and DTMF tracking.
