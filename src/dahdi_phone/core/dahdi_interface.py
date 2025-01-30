@@ -19,9 +19,6 @@ from ..utils.logger import DAHDILogger, log_function_call
 from ..core.buffer_manager import CircularBuffer, BufferError
 from ..api.models import DTMFEvent, PhoneEventTypes
 
-# Get structured logger instance
-logger = DAHDILogger().get_logger(__name__)
-
 class DAHDIIOError(Exception):
     """Custom exception for DAHDI I/O operations"""
     pass
@@ -73,7 +70,7 @@ class DAHDIInterface:
         self._websocket_subscribers: Set[Callable[[Dict[str, Any]], None]] = set()
         
         # Initialize structured logger with context
-        self.log = logger.bind(
+        self.log = DAHDILogger().get_logger(__name__).bind(
             device_path=device_path,
             buffer_size=buffer_size,
             component="DAHDIInterface"

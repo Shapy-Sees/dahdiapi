@@ -17,12 +17,6 @@ from typing import Any, Dict
 
 from ..utils.config import Config, ConfigurationError
 from ..utils.logger import DAHDILogger, LoggerConfig, log_function_call
-from ..core.dahdi_interface import DAHDIInterface
-from ..core.audio_processor import AudioProcessor, AudioConfig
-from .models import PhoneState, PhoneStatus
-
-from .routes import router as api_router
-from .websocket import PhoneEventTypes
 
 # Configure module logger
 logger = logging.getLogger(__name__)
@@ -33,13 +27,31 @@ class DAHDIPhoneAPI:
     Handles configuration, logging setup, and core service initialization.
     """
     def __init__(self):
+        # Load and configure logger first
+        self.config = Config()
+        self.logger = DAHDILogger()
+        
+        # Now that logger is configured, we can import modules that use it
+        from ..core.dahdi_interface import DAHDIInterface
+        from ..core.audio_processor import AudioProcessor, AudioConfig
+        from .models import PhoneState, PhoneStatus
+        from .routes import router as api_router
+        from .websocket import PhoneEventTypes
+        
+        # Store imports as class attributes
+        self.DAHDIInterface = DAHDIInterface
+        self.AudioProcessor = AudioProcessor
+        self.AudioConfig = AudioConfig
+        self.PhoneState = PhoneState
+        self.PhoneStatus = PhoneStatus
+        self.api_router = api_router
+        self.PhoneEventTypes = PhoneEventTypes
+        
         self.app = FastAPI(
             title="DAHDI Phone API",
             description="REST and WebSocket API for DAHDI telephony hardware",
             version="1.0.0"
         )
-        self.config = Config()
-        self.logger = DAHDILogger()
         self.dahdi_interface = None
         self.audio_processor = None
         
@@ -96,24 +108,24 @@ class DAHDIPhoneAPI:
     def _setup_routes(self) -> None:
         """Configure API routes and startup/shutdown events"""
         # Include API routes
-        self.app.include_router(api_router)
+        self.app.include_router(self.api_router)
 
         @self.app.on_event("startup")
         async def startup_event():
             """Initialize hardware interface and services on startup"""
             try:
                 logger.info("Initializing DAHDI interface")
-                self.dahdi_interface = DAHDIInterface(self.config.dahdi.device)
+                self.dahdi_interface = self.DAHDIInterface(self.config.dahdi.device)
                 await self.dahdi_interface.initialize()
 
                 logger.info("Initializing audio processor")
-                audio_config = AudioConfig(
+                audio_config = self.AudioConfig(
                     sample_rate=self.config.dahdi.sample_rate,
                     frame_size=self.config.dahdi.buffer_size,
                     channels=self.config.dahdi.channels,
                     bit_depth=self.config.dahdi.bit_depth
                 )
-                self.audio_processor = AudioProcessor(audio_config)
+                self.audio_processor = self.AudioProcessor(audio_config)
                 
                 # Start event processing loop
                 asyncio.create_task(self._process_events())
@@ -172,7 +184,7 @@ class DAHDIPhoneAPI:
             event_type = event.get('type')
             if event_type == 'hook_state':
                 return {
-                    'type': PhoneEventTypes.OFF_HOOK if event['state'] else PhoneEventTypes.ON_HOOK,
+                    'type': self.PhoneEventTypes.OFF_HOOK if event['state'] else self.PhoneEventTypes.ON_HOOK,
                     'timestamp': event['timestamp']
                 }
             # Add more event type conversions as needed
@@ -180,7 +192,7 @@ class DAHDIPhoneAPI:
             
         except Exception as e:
             logger.error(f"Event conversion error: {str(e)}", exc_info=True)
-            return {'type': PhoneEventTypes.ERROR, 'error': str(e)}
+            return {'type': self.PhoneEventTypes.ERROR, 'error': str(e)}
 
 def run_server():
     """Start the DAHDI Phone API server"""

@@ -17,10 +17,40 @@ def main():
     try:
         # Load configuration first
         config = Config()
-        config.load("/etc/dahdi_phone/config.yml")
+        # Try to load config from multiple locations
+        config_paths = [
+            "/etc/dahdi_phone/config.yml",  # System-wide config
+            "config/config.yml",            # Project directory config
+            "config/default.yml"            # Default config
+        ]
+        
+        config_loaded = False
+        for config_path in config_paths:
+            try:
+                config.load(config_path)
+                config_loaded = True
+                break
+            except ConfigurationError:
+                continue
+                
+        if not config_loaded:
+            raise ConfigurationError("No valid configuration file found")
 
         # Configure logger before any other imports
         logger = DAHDILogger()
+        
+        # Ensure log directory exists if output file is specified
+        if config.logging.output:
+            import os
+            log_dir = os.path.dirname(config.logging.output)
+            try:
+                os.makedirs(log_dir, exist_ok=True)
+            except PermissionError:
+                # Fall back to a local logs directory if we can't write to system path
+                log_dir = "logs"
+                os.makedirs(log_dir, exist_ok=True)
+                config.logging.output = os.path.join(log_dir, "api.log")
+            
         log_config = LoggerConfig(
             level=config.logging.level,
             format=config.logging.format,
