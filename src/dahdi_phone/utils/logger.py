@@ -127,9 +127,49 @@ class DAHDILogger:
             file_handler.setLevel(config.level)
             handlers.append(file_handler)
 
+        # Create JSON formatter class
+        class JSONFormatter(logging.Formatter):
+            def format(self, record):
+                return self._json_formatter(record)
+                
+            def _json_formatter(self, record):
+                """Custom JSON formatter for log records"""
+                log_data = {
+                    "timestamp": datetime.utcnow().isoformat(),
+                    "level": record.levelname,
+                    "message": record.getMessage(),
+                    "module": record.module,
+                    "function": record.funcName,
+                    "line": record.lineno
+                }
+                
+                if hasattr(record, "stack_info") and record.stack_info:
+                    log_data["stack_info"] = record.stack_info
+                    
+                if record.exc_info:
+                    log_data["exc_info"] = self._format_exception(record.exc_info)
+                    
+                return json.dumps(log_data)
+                
+            def _format_exception(self, exc_info):
+                """Format exception information for JSON logging"""
+                if not exc_info:
+                    return None
+                    
+                return {
+                    "type": str(exc_info[0].__name__),
+                    "message": str(exc_info[1]),
+                    "traceback": self._format_traceback(exc_info[2])
+                }
+
+            def _format_traceback(self, tb):
+                """Format traceback for JSON logging"""
+                import traceback
+                return [str(line) for line in traceback.extract_tb(tb).format()]
+
         # Set formatter based on format choice
         if config.format == "json":
-            formatter = self._json_formatter
+            formatter = JSONFormatter()
         else:
             formatter = logging.Formatter(DEFAULT_LOG_FORMAT)
 
@@ -143,41 +183,6 @@ class DAHDILogger:
                          level=config.level,
                          format=config.format,
                          output_file=config.output_file)
-
-    def _json_formatter(self, record):
-        """Custom JSON formatter for log records"""
-        log_data = {
-            "timestamp": datetime.utcnow().isoformat(),
-            "level": record.levelname,
-            "message": record.getMessage(),
-            "module": record.module,
-            "function": record.funcName,
-            "line": record.lineno
-        }
-        
-        if hasattr(record, "stack_info") and record.stack_info:
-            log_data["stack_info"] = record.stack_info
-            
-        if record.exc_info:
-            log_data["exc_info"] = self._format_exception(record.exc_info)
-            
-        return json.dumps(log_data)
-
-    def _format_exception(self, exc_info):
-        """Format exception information for JSON logging"""
-        if not exc_info:
-            return None
-            
-        return {
-            "type": str(exc_info[0].__name__),
-            "message": str(exc_info[1]),
-            "traceback": self._format_traceback(exc_info[2])
-        }
-
-    def _format_traceback(self, tb):
-        """Format traceback for JSON logging"""
-        import traceback
-        return [str(line) for line in traceback.extract_tb(tb).format()]
 
     def get_logger(self, name: str = None) -> structlog.BoundLogger:
         """

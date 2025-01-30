@@ -7,9 +7,10 @@ Includes comprehensive logging and error handling for hardware operations.
 """
 
 import asyncio
+import ctypes
 import logging
 from enum import IntEnum
-from typing import Optional, Dict, Any
+from typing import Optional, Dict, Any, List, Union, Tuple
 from dataclasses import dataclass
 
 from ..utils.logger import DAHDILogger, log_function_call
@@ -54,7 +55,7 @@ class VoltageData(ctypes.Structure):
     ]
 
 @dataclass
-class RingPattern:
+class RingConfig:
     """Ring pattern configuration"""
     on_times: List[int]    # List of ring-on durations in ms
     off_times: List[int]   # List of ring-off durations in ms
@@ -62,33 +63,33 @@ class RingPattern:
 
 # Predefined patterns
 RING_PATTERNS = {
-    RingPattern.NORMAL: RingPattern(
+    RingPattern.NORMAL: RingConfig(
         on_times=[2000],
         off_times=[4000]
     ),
-    RingPattern.DISTINCTIVE1: RingPattern(
+    RingPattern.DISTINCTIVE1: RingConfig(
         on_times=[500, 500, 2000],
         off_times=[500, 500, 4000]
     ),
-    RingPattern.DISTINCTIVE2: RingPattern(
+    RingPattern.DISTINCTIVE2: RingConfig(
         on_times=[500, 2000, 500],
         off_times=[500, 500, 4000]
     ),
-    RingPattern.CONTINUOUS: RingPattern(
+    RingPattern.CONTINUOUS: RingConfig(
         on_times=[5000],
         off_times=[100]
     ),
-    RingPattern.SINGLE: RingPattern(
+    RingPattern.SINGLE: RingConfig(
         on_times=[500],
         off_times=[0],
         repeat=1
     ),
-    RingPattern.TIMER: RingPattern(
+    RingPattern.TIMER: RingConfig(
         on_times=[200, 200, 200],
         off_times=[200, 200, 0],
         repeat=1
     ),
-    RingPattern.URGENT: RingPattern(
+    RingPattern.URGENT: RingConfig(
         on_times=[300],
         off_times=[300],
         repeat=5
@@ -241,7 +242,7 @@ class FXSPort:
                 pattern_config = RING_PATTERNS[pattern]
             else:
                 on_times, off_times = pattern
-                pattern_config = RingPattern(on_times, off_times, repeat)
+                pattern_config = RingConfig(on_times=on_times, off_times=off_times, repeat=repeat)
             
             self._ring_task = asyncio.create_task(
                 self._generate_ring_pattern(pattern_config)
@@ -258,7 +259,7 @@ class FXSPort:
                           exc_info=True)
             raise
 
-    async def _generate_ring_pattern(self, pattern: RingPattern) -> None:
+    async def _generate_ring_pattern(self, pattern: RingConfig) -> None:
         """
         Generate specific ring pattern.
         
