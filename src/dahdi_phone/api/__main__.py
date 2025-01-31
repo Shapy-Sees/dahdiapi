@@ -17,24 +17,21 @@ def main():
     try:
         # Load configuration first
         config = Config()
-        # Try to load config from multiple locations
+        # Load config from project directory or system-wide location
         config_paths = [
-            "/etc/dahdi_phone/config.yml",  # System-wide config
-            "config/config.yml",            # Project directory config
-            "config/default.yml"            # Default config
+            "config/config.yml",            # Project directory config (preferred)
+            "/etc/dahdi_phone/config.yml",  # System-wide config (fallback)
         ]
         
-        config_loaded = False
         for config_path in config_paths:
             try:
                 config.load(config_path)
-                config_loaded = True
                 break
             except ConfigurationError:
-                continue
-                
-        if not config_loaded:
-            raise ConfigurationError("No valid configuration file found")
+                if config_path == config_paths[-1]:  # If this was the last path to try
+                    # No custom config found, fall back to default.yml
+                    config.load("config/default.yml")
+                    break
 
         # Configure logger before any other imports
         logger = DAHDILogger()

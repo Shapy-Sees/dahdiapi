@@ -5,7 +5,7 @@ server:
   host: "0.0.0.0"
   rest_port: 8000
   websocket_port: 8001
-  workers: 4
+  workers: 1  # Single worker to prevent hardware access conflicts
 
 # DAHDI configuration
 dahdi:
@@ -38,8 +38,12 @@ websocket:
   ping_timeout: 10
   max_message_size: 1048576  # 1MB
 
+# Development configuration
+development:
+  enabled: true  # Set to false in production
+  mock_hardware: true  # Use mock hardware interface when true
+
 # Security configuration
 security:
   allowed_origins: ["*"]
   api_tokens: []  # List of valid API tokens
-

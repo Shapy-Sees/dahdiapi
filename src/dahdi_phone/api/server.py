@@ -8,6 +8,7 @@ Provides centralized error handling and request logging.
 
 import asyncio
 import logging
+import sys
 import uvicorn
 from fastapi import FastAPI, Request, status
 from fastapi.middleware.cors import CORSMiddleware
@@ -17,6 +18,8 @@ from typing import Any, Dict
 
 from ..utils.config import Config, ConfigurationError
 from ..utils.logger import DAHDILogger, LoggerConfig, log_function_call
+from ..core.dahdi_interface import DAHDIIOError
+from ..core.mock_dahdi_interface import MockDAHDIInterface
 
 # Configure module logger
 logger = logging.getLogger(__name__)
@@ -114,8 +117,21 @@ class DAHDIPhoneAPI:
         async def startup_event():
             """Initialize hardware interface and services on startup"""
             try:
-                logger.info("Initializing DAHDI interface")
-                self.dahdi_interface = self.DAHDIInterface(self.config.dahdi.device)
+                # Check development mode settings
+                dev_mode = self.config.development.enabled
+                mock_hardware = self.config.development.mock_hardware
+                
+                logger.info("Initializing DAHDI interface", 
+                          dev_mode=dev_mode, 
+                          mock_hardware=mock_hardware)
+                
+                if dev_mode and mock_hardware:
+                    logger.info("Initializing mock DAHDI interface for development")
+                    self.dahdi_interface = MockDAHDIInterface(self.config.dahdi.device)
+                else:
+                    logger.info("Initializing real DAHDI interface")
+                    self.dahdi_interface = self.DAHDIInterface(self.config.dahdi.device)
+                
                 await self.dahdi_interface.initialize()
 
                 logger.info("Initializing audio processor")

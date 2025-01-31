@@ -102,6 +102,18 @@ class DAHDIInterface:
         """
         try:
             self.log.info("device_open_start", message="Opening DAHDI device")
+            
+            # Check if device exists first
+            if not os.path.exists(self.device_path):
+                error_msg = (
+                    f"DAHDI device not found: {self.device_path}\n"
+                    "This is expected during development if no DAHDI hardware is present.\n"
+                    "To run in development mode without hardware, ensure 'development.mock_hardware' "
+                    "is set to true in config.yml"
+                )
+                self.log.error("device_not_found", message=error_msg)
+                raise DAHDIIOError(error_msg)
+                
             self.device_fd = os.open(self.device_path, os.O_RDWR)
             
             # Set non-blocking mode

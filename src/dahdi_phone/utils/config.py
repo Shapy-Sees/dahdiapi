@@ -63,6 +63,12 @@ class SecurityConfig:
     allowed_origins: list[str]
     api_tokens: list[str]
 
+@dataclass
+class DevelopmentConfig:
+    """Development configuration parameters"""
+    enabled: bool
+    mock_hardware: bool
+
 class ConfigurationError(Exception):
     """Custom exception for configuration errors"""
     pass
@@ -88,6 +94,7 @@ class Config:
             self.api = None
             self.websocket = None
             self.security = None
+            self.development = None
             self._config_path = None
             self._raw_config = {}
             self._initialized = True
@@ -110,10 +117,20 @@ class Config:
             if not self._config_path.exists():
                 raise ConfigurationError(f"Configuration file not found: {config_path}")
 
-            # Load YAML configuration
+            # Load default configuration first if this isn't default.yml
+            if self._config_path.name != "default.yml":
+                default_path = self._config_path.parent / "default.yml"
+                if default_path.exists():
+                    with open(default_path) as f:
+                        self._raw_config = yaml.safe_load(f)
+                        logger.debug("Loaded default configuration from default.yml")
+
+            # Load and merge custom configuration
             with open(self._config_path) as f:
-                self._raw_config = yaml.safe_load(f)
-                logger.debug("Raw configuration loaded from YAML")
+                custom_config = yaml.safe_load(f)
+                if custom_config:
+                    self._merge_configs(custom_config)
+                    logger.debug(f"Merged configuration from {self._config_path}")
 
             # Apply environment variable overrides
             self._apply_env_overrides()
@@ -214,6 +231,12 @@ class Config:
                 api_tokens=self._get_config_value("security", "api_tokens", list, [])
             )
 
+            # Development configuration
+            self.development = DevelopmentConfig(
+                enabled=self._get_config_value("development", "enabled", bool, False),
+                mock_hardware=self._get_config_value("development", "mock_hardware", bool, False)
+            )
+
             logger.debug("Configuration validation completed successfully")
 
         except Exception as e:
@@ -264,6 +287,17 @@ class Config:
             ) from e
 
         return value
+
+    def _merge_configs(self, custom_config: Dict[str, Any]) -> None:
+        """Deep merge custom configuration with existing config"""
+        def deep_merge(base: Dict[str, Any], override: Dict[str, Any]) -> None:
+            for key, value in override.items():
+                if key in base and isinstance(base[key], dict) and isinstance(value, dict):
+                    deep_merge(base[key], value)
+                else:
+                    base[key] = value
+
+        deep_merge(self._raw_config, custom_config)
 
     def reload(self) -> None:
         """Reload configuration from file"""
