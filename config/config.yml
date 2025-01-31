@@ -1,6 +1,12 @@
+# Development configuration
+development:
+  enabled: true
+  mock_hardware: true
+
+# Logging configuration
 logging:
-  level: "DEBUG"  # or desired level
+  level: "DEBUG"
   format: "json"
-  output: "/var/log/dahdi_phone/api.log"
+  output: "logs/dahdi_phone.log"  # Local logs directory
   rotation: "1 day"
   retention: "30 days"

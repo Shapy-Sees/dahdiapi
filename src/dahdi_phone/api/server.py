@@ -8,13 +8,14 @@ Provides centralized error handling and request logging.
 
 import asyncio
 import logging
+import os
 import sys
 import uvicorn
-from fastapi import FastAPI, Request, status
+from fastapi import FastAPI, Request, status, Depends
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 from fastapi.exceptions import RequestValidationError
-from typing import Any, Dict
+from typing import Any, Dict, Optional
 
 from ..utils.config import Config, ConfigurationError
 from ..utils.logger import DAHDILogger, LoggerConfig, log_function_call
@@ -24,17 +25,27 @@ from ..core.mock_dahdi_interface import MockDAHDIInterface
 # Configure module logger
 logger = logging.getLogger(__name__)
 
+# Global interface instance
+_dahdi_interface: Optional[DAHDIInterface] = None
+
+def get_dahdi_interface() -> DAHDIInterface:
+    """FastAPI dependency to get the DAHDI interface instance"""
+    if _dahdi_interface is None:
+        raise RuntimeError("DAHDI interface not initialized")
+    return _dahdi_interface
+
 class DAHDIPhoneAPI:
     """
     Main API server class that initializes and manages the FastAPI application.
     Handles configuration, logging setup, and core service initialization.
     """
     def __init__(self):
-        # Load and configure logger first
+        # Load configuration
         self.config = Config()
+        # Get the already configured logger instance
         self.logger = DAHDILogger()
         
-        # Now that logger is configured, we can import modules that use it
+        # Import modules
         from ..core.dahdi_interface import DAHDIInterface
         from ..core.audio_processor import AudioProcessor, AudioConfig
         from .models import PhoneState, PhoneStatus
@@ -117,24 +128,54 @@ class DAHDIPhoneAPI:
         async def startup_event():
             """Initialize hardware interface and services on startup"""
             try:
+                logger.debug("Starting server initialization sequence")
+                
                 # Check development mode settings
                 dev_mode = self.config.development.enabled
                 mock_hardware = self.config.development.mock_hardware
                 
-                logger.info("Initializing DAHDI interface", 
+                logger.info("Development mode settings", 
                           dev_mode=dev_mode, 
                           mock_hardware=mock_hardware)
+                logger.debug(f"Server host: {self.config.server.host}")
+                logger.debug(f"REST port: {self.config.server.rest_port}")
+                logger.debug(f"WebSocket port: {self.config.server.websocket_port}")
+                logger.debug(f"Worker count: {self.config.server.workers}")
+
+                if not dev_mode and not mock_hardware:
+                    logger.debug("Starting DAHDI hardware detection")
+                    logger.debug(f"Checking DAHDI device path: {self.config.dahdi.device}")
+                    logger.debug(f"DAHDI control path: {self.config.dahdi.control}")
+                    logger.debug(f"DAHDI channel: {self.config.dahdi.channel}")
+                    if not os.path.exists(self.config.dahdi.device):
+                        error_msg = (
+                            f"DAHDI device not found at {self.config.dahdi.device}\n"
+                            "To run without hardware:\n"
+                            "1. Set development.enabled=true in config.yml\n"
+                            "2. Set development.mock_hardware=true in config.yml"
+                        )
+                        logger.error(error_msg)
+                        raise DAHDIIOError(error_msg)
                 
                 if dev_mode and mock_hardware:
                     logger.info("Initializing mock DAHDI interface for development")
+                    logger.debug(f"Mock device path: {self.config.dahdi.device}")
                     self.dahdi_interface = MockDAHDIInterface(self.config.dahdi.device)
                 else:
                     logger.info("Initializing real DAHDI interface")
+                    logger.debug("DAHDI hardware configuration:")
+                    logger.debug(f"Sample rate: {self.config.dahdi.sample_rate} Hz")
+                    logger.debug(f"Channels: {self.config.dahdi.channels}")
+                    logger.debug(f"Bit depth: {self.config.dahdi.bit_depth} bits")
+                    logger.debug(f"Buffer size: {self.config.dahdi.buffer_size} bytes")
                     self.dahdi_interface = self.DAHDIInterface(self.config.dahdi.device)
                 
+                logger.debug("Starting DAHDI interface initialization")
                 await self.dahdi_interface.initialize()
+                logger.debug("DAHDI interface initialization completed")
 
                 logger.info("Initializing audio processor")
+                logger.debug("Audio processor configuration:")
                 audio_config = self.AudioConfig(
                     sample_rate=self.config.dahdi.sample_rate,
                     frame_size=self.config.dahdi.buffer_size,
@@ -142,15 +183,25 @@ class DAHDIPhoneAPI:
                     bit_depth=self.config.dahdi.bit_depth
                 )
                 self.audio_processor = self.AudioProcessor(audio_config)
+                logger.debug("Audio processor initialization completed")
                 
-                # Start event processing loop
+                # Store interface globally for dependency injection
+                global _dahdi_interface
+                _dahdi_interface = self.dahdi_interface
+                
+                logger.debug("Starting event processing loop")
                 asyncio.create_task(self._process_events())
+                logger.debug("Event processing loop started")
                 
                 logger.info("Server startup completed successfully")
+                logger.debug("All subsystems initialized and running")
                 
+            except DAHDIIOError as e:
+                logger.error(f"DAHDI hardware error: {str(e)}")
+                sys.exit(1)  # Exit with error code
             except Exception as e:
                 logger.error(f"Startup failed: {str(e)}", exc_info=True)
-                raise
+                sys.exit(1)  # Exit with error code
 
         @self.app.on_event("shutdown")
         async def shutdown_event():
@@ -173,61 +224,103 @@ class DAHDIPhoneAPI:
 
     async def _process_events(self) -> None:
         """Process and broadcast hardware events to WebSocket clients"""
+        logger.debug("Event processing loop started")
+        event_count = 0
         try:
             while True:
                 event = await self.dahdi_interface.get_next_event()
                 if event:
+                    event_count += 1
+                    logger.debug(f"Received hardware event #{event_count}: {event}")
+                    
                     # Convert hardware event to API event
                     api_event = self._convert_event(event)
+                    logger.debug(f"Converted to API event: {api_event}")
                     
                     # Broadcast to all connected clients
-                    for connection in self.active_connections:
+                    active_count = len(self.active_connections)
+                    logger.debug(f"Broadcasting event to {active_count} active connections")
+                    
+                    for connection in self.active_connections.copy():  # Use copy to avoid modification during iteration
                         try:
                             await connection.send_json(api_event)
+                            logger.debug(f"Successfully sent event to connection {id(connection)}")
                         except Exception as e:
-                            logger.error(f"Failed to send event: {str(e)}")
+                            logger.error(f"Failed to send event to connection {id(connection)}: {str(e)}")
                             self.active_connections.remove(connection)
+                            logger.debug(f"Removed failed connection {id(connection)}, {len(self.active_connections)} remaining")
                             
                 await asyncio.sleep(0.01)  # Small delay to prevent CPU spinning
                 
         except Exception as e:
             logger.error(f"Event processing error: {str(e)}", exc_info=True)
+            sys.exit(1)  # Exit with error code
 
     def _convert_event(self, event: Dict[str, Any]) -> Dict[str, Any]:
         """Convert hardware events to API event format"""
         try:
             # Map hardware events to API events
             event_type = event.get('type')
+            logger.debug(f"Converting event type: {event_type}")
+            
             if event_type == 'hook_state':
-                return {
+                converted_event = {
                     'type': self.PhoneEventTypes.OFF_HOOK if event['state'] else self.PhoneEventTypes.ON_HOOK,
                     'timestamp': event['timestamp']
                 }
+                logger.debug(f"Converted hook_state event: {converted_event}")
+                return converted_event
+                
             # Add more event type conversions as needed
+            logger.debug(f"No conversion needed for event type: {event_type}")
             return event
             
         except Exception as e:
+            error_event = {'type': self.PhoneEventTypes.ERROR, 'error': str(e)}
             logger.error(f"Event conversion error: {str(e)}", exc_info=True)
-            return {'type': self.PhoneEventTypes.ERROR, 'error': str(e)}
+            logger.debug(f"Returning error event: {error_event}")
+            return error_event
 
 def run_server():
     """Start the DAHDI Phone API server"""
+    server_logger = logging.getLogger(__name__)
     try:
+        server_logger.debug("Starting DAHDI Phone API server")
+        
         # Create and configure server
+        server_logger.debug("Creating DAHDIPhoneAPI instance")
         api = DAHDIPhoneAPI()
         
         # Get configuration
+        server_logger.debug("Loading server configuration")
         config = Config()
         
-        # Start server
-        uvicorn.run(
-            api.app,
-            host=config.server.host,
-            port=config.server.rest_port,
-            workers=config.server.workers
-        )
+        # Log server startup details
+        server_logger.info("Starting server with configuration:")
+        server_logger.info(f"Host: {config.server.host}")
+        server_logger.info(f"REST Port: {config.server.rest_port}")
+        server_logger.info(f"Workers: {config.server.workers}")
         
+        # Start server
+        try:
+            server_logger.debug("Initializing uvicorn server")
+            uvicorn.run(
+                api.app,
+                host=config.server.host,
+                port=config.server.rest_port,
+                workers=config.server.workers,
+                log_level=config.logging.level.lower()
+            )
+        except Exception as e:
+            server_logger.error("Server runtime error", exc_info=True)
+            server_logger.debug(f"Error details: {str(e)}")
+            sys.exit(1)  # Exit with error code
+            
+    except ConfigurationError as e:
+        server_logger.error("Configuration error during server startup", exc_info=True)
+        server_logger.debug(f"Configuration error details: {str(e)}")
+        sys.exit(1)  # Exit with error code
     except Exception as e:
-        logger = logging.getLogger(__name__)
-        logger.error(f"Server startup failed: {str(e)}", exc_info=True)
-        raise
+        server_logger.error("Unexpected error during server startup", exc_info=True)
+        server_logger.debug(f"Error details: {str(e)}")
+        sys.exit(1)  # Exit with error code

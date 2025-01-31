@@ -1,7 +1,7 @@
 # src/dahdi_phone/core/dahdi_interface.py
 """
 Core DAHDI hardware interface implementation.
-Provides direct communication with DAHDI hardware through ioctl calls and manages
+Provides communication with DAHDI hardware through the FXS interface and manages
 hardware state, audio streaming, and event handling. This is the primary interface
 between the API and the physical telephony hardware. Includes DTMF event handling
 and WebSocket event forwarding.
@@ -16,8 +16,9 @@ from enum import IntEnum
 from datetime import datetime
 import structlog
 from ..utils.logger import DAHDILogger, log_function_call
-from ..core.buffer_manager import CircularBuffer, BufferError
 from ..api.models import DTMFEvent, PhoneEventTypes
+from ..hardware.fxs import FXSPort, FXSConfig, FXSError
+from ..core.audio_processor import AudioProcessor, AudioConfig
 
 class DAHDIIOError(Exception):
     """Custom exception for DAHDI I/O operations"""
@@ -55,16 +56,32 @@ class DAHDIState(IntEnum):
 class DAHDIInterface:
     """
     Primary interface to DAHDI hardware.
-    Manages device communication, state, and event handling.
-    Now includes DTMF event handling and WebSocket event forwarding.
+    Manages device communication through FXSPort, handles state and events.
+    Includes DTMF event handling and WebSocket event forwarding.
     """
     def __init__(self, device_path: str, buffer_size: int = 320):
         self.device_path = device_path
         self.device_fd = None
         self.state = DAHDIState.ONHOOK
-        self.audio_buffer = CircularBuffer(buffer_size)
         self.event_queue = asyncio.Queue()
         self.voltage_monitor_task = None
+        
+        # Initialize audio processor
+        audio_config = AudioConfig(
+            sample_rate=8000,  # Standard DAHDI sample rate
+            frame_size=buffer_size,
+            channels=1,  # Mono
+            bit_depth=16  # 16-bit audio
+        )
+        self.audio_processor = AudioProcessor(audio_config)
+        
+        # Initialize FXS port
+        fxs_config = FXSConfig(
+            channel=1,  # Default channel
+            idle_voltage=48.0,
+            ring_voltage=90.0
+        )
+        self.fxs_port = None  # Will be initialized in initialize()
         
         # WebSocket event subscribers
         self._websocket_subscribers: Set[Callable[[Dict[str, Any]], None]] = set()
@@ -97,7 +114,7 @@ class DAHDIInterface:
     @log_function_call(level="DEBUG")
     async def initialize(self) -> None:
         """
-        Initialize DAHDI device and start monitoring tasks.
+        Initialize DAHDI device through FXS interface and start monitoring tasks.
         Opens device file and configures initial hardware state.
         """
         try:
@@ -113,15 +130,21 @@ class DAHDIInterface:
                 )
                 self.log.error("device_not_found", message=error_msg)
                 raise DAHDIIOError(error_msg)
-                
+            
+            # Open device for ioctl operations
             self.device_fd = os.open(self.device_path, os.O_RDWR)
             
             # Set non-blocking mode
             flags = fcntl.fcntl(self.device_fd, fcntl.F_GETFL)
             fcntl.fcntl(self.device_fd, fcntl.F_SETFL, flags | os.O_NONBLOCK)
             
-            # Configure device parameters
-            await self._configure_device()
+            # Initialize FXS port
+            self.fxs_port = FXSPort(
+                config=FXSConfig(channel=1),
+                dahdi=self,  # Pass self for low-level operations
+                audio=self.audio_processor
+            )
+            await self.fxs_port.initialize()
             
             # Start monitoring tasks
             self.voltage_monitor_task = asyncio.create_task(self._monitor_voltage())
@@ -229,6 +252,10 @@ class DAHDIInterface:
         try:
             self.log.info("cleanup_start", message="Cleaning up DAHDI interface")
             
+            # Clean up FXS port
+            if self.fxs_port:
+                await self.fxs_port.cleanup()
+            
             # Cancel monitoring tasks
             if self.voltage_monitor_task:
                 self.voltage_monitor_task.cancel()
@@ -270,7 +297,7 @@ class DAHDIInterface:
     @log_function_call(level="DEBUG")
     async def ring(self, duration: int = 2000) -> None:
         """
-        Generate ring signal for specified duration.
+        Generate ring signal for specified duration using FXS port.
         
         Args:
             duration: Ring duration in milliseconds
@@ -281,35 +308,28 @@ class DAHDIInterface:
                              message="Cannot ring: line not on-hook",
                              current_state=self.state.name)
                 raise DAHDIStateError("Cannot ring: line not on-hook")
-                
-            # Start ring signal
-            await self._ioctl(DAHDICommands.RING_START, struct.pack('I', 0))
+            
             self.state = DAHDIState.RINGING
-            
-            # Schedule ring stop
-            await asyncio.sleep(duration / 1000)
-            
-            # Stop ring signal
-            await self._ioctl(DAHDICommands.RING_STOP, struct.pack('I', 0))
+            await self.fxs_port.ring(duration=duration)
             self.state = DAHDIState.ONHOOK
             
             self.log.info("ring_complete",
                          message=f"Ring signal completed: {duration}ms",
                          duration=duration)
             
-        except Exception as e:
+        except FXSError as e:
             self.log.error("ring_failed",
                           message="Ring operation failed",
                           error=str(e),
                           duration=duration,
                           exc_info=True)
             self.debug_stats['errors'] += 1
-            raise
+            raise DAHDIIOError(f"Ring failed: {str(e)}") from e
 
     @log_function_call(level="DEBUG")
     async def write_audio(self, audio_data: bytes) -> int:
         """
-        Write audio data to device with buffer management.
+        Write audio data to device through FXS port.
         
         Args:
             audio_data: Raw audio bytes to write
@@ -318,15 +338,8 @@ class DAHDIInterface:
             Number of bytes written
         """
         try:
-            # Add to buffer
-            if not self.audio_buffer.write(audio_data):
-                self.log.warning("buffer_overflow",
-                               message="Audio buffer overflow",
-                               data_size=len(audio_data))
-                return 0
-                
-            # Write to device
-            bytes_written = os.write(self.device_fd, audio_data)
+            await self.fxs_port.play_audio(audio_data)
+            bytes_written = len(audio_data)
             self.debug_stats['bytes_written'] += bytes_written
             
             self.log.debug("audio_written",
@@ -335,7 +348,7 @@ class DAHDIInterface:
                           total_bytes=self.debug_stats['bytes_written'])
             return bytes_written
             
-        except Exception as e:
+        except FXSError as e:
             self.log.error("write_failed",
                           message="Audio write failed",
                           error=str(e),
@@ -347,7 +360,7 @@ class DAHDIInterface:
     @log_function_call(level="DEBUG")
     async def read_audio(self, size: int = 160) -> Optional[bytes]:
         """
-        Read audio data from device.
+        Read audio data from device through FXS port.
         
         Args:
             size: Number of bytes to read
@@ -358,11 +371,16 @@ class DAHDIInterface:
         try:
             # Read from device
             audio_data = os.read(self.device_fd, size)
-            self.debug_stats['bytes_read'] += len(audio_data)
+            if audio_data:
+                # Process through audio processor
+                processed_audio, _ = await self.audio_processor.process_frame(audio_data)
+                audio_data = processed_audio.tobytes()
+                
+            self.debug_stats['bytes_read'] += len(audio_data) if audio_data else 0
             
             self.log.debug("audio_read",
-                          message=f"Read {len(audio_data)} audio bytes",
-                          bytes_read=len(audio_data),
+                          message=f"Read {len(audio_data) if audio_data else 0} audio bytes",
+                          bytes_read=len(audio_data) if audio_data else 0,
                           total_bytes=self.debug_stats['bytes_read'])
             return audio_data
             
@@ -450,9 +468,10 @@ class DAHDIInterface:
         debug_info = {
             **self.debug_stats,
             'state': self.state.name,
-            'buffer_stats': self.audio_buffer.get_stats(),
             'device_fd': self.device_fd,
-            'event_queue_size': self.event_queue.qsize()
+            'event_queue_size': self.event_queue.qsize(),
+            'fxs_stats': await self.fxs_port.get_debug_info() if self.fxs_port else None,
+            'audio_processor_stats': await self.audio_processor.get_debug_info()
         }
         self.log.debug("debug_info_retrieved",
                       message="Retrieved debug information",

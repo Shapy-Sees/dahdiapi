@@ -1,7 +1,8 @@
 """
 Mock implementation of the DAHDI hardware interface for development and testing.
 Simulates basic phone operations, audio I/O, and event generation without requiring
-actual DAHDI hardware.
+actual DAHDI hardware. Uses FXS port and audio processor for consistent behavior
+with the real interface.
 """
 
 import asyncio
@@ -9,6 +10,7 @@ import struct
 from datetime import datetime
 from typing import Optional, Dict, Any, Set, Callable
 import os
+import random
 from .dahdi_interface import (
     DAHDIInterface,
     DAHDIState,
@@ -17,16 +19,29 @@ from .dahdi_interface import (
     DAHDICommands,
 )
 from ..utils.logger import DAHDILogger, log_function_call
-from ..core.buffer_manager import CircularBuffer
 from ..api.models import DTMFEvent, PhoneEventTypes
+from ..hardware.fxs import FXSPort, FXSConfig, FXSError
+from ..core.audio_processor import AudioProcessor, AudioConfig
 
 class MockDAHDIInterface(DAHDIInterface):
     """
     Mock implementation of DAHDIInterface for development and testing.
     Simulates hardware behavior without requiring actual DAHDI hardware.
+    Uses FXS port and audio processor for consistent behavior.
     """
     def __init__(self, device_path: str, buffer_size: int = 320):
+        # Initialize audio processor
+        audio_config = AudioConfig(
+            sample_rate=8000,  # Standard DAHDI sample rate
+            frame_size=buffer_size,
+            channels=1,  # Mono
+            bit_depth=16  # 16-bit audio
+        )
+        self.audio_processor = AudioProcessor(audio_config)
+        
+        # Initialize base class
         super().__init__(device_path, buffer_size)
+        
         self.log = DAHDILogger().get_logger(__name__).bind(
             device_path=device_path,
             buffer_size=buffer_size,
@@ -50,8 +65,15 @@ class MockDAHDIInterface(DAHDIInterface):
             
             # Initialize basic state
             self.state = DAHDIState.ONHOOK
-            self.audio_buffer = CircularBuffer(self.audio_buffer.capacity)
             self.event_queue = asyncio.Queue()
+            
+            # Initialize FXS port
+            self.fxs_port = FXSPort(
+                config=FXSConfig(channel=1),
+                dahdi=self,  # Pass self for low-level operations
+                audio=self.audio_processor
+            )
+            await self.fxs_port.initialize()
             
             # Start mock monitoring tasks
             self.voltage_monitor_task = asyncio.create_task(self._monitor_voltage())
@@ -172,7 +194,7 @@ class MockDAHDIInterface(DAHDIInterface):
     @log_function_call(level="DEBUG")
     async def write_audio(self, audio_data: bytes) -> int:
         """
-        Simulate writing audio data.
+        Simulate writing audio data through FXS port.
         
         Args:
             audio_data: Raw audio bytes to write
@@ -181,9 +203,9 @@ class MockDAHDIInterface(DAHDIInterface):
             Number of bytes written
         """
         try:
-            # Store in mock buffer
+            # Process through FXS port
+            await self.fxs_port.play_audio(audio_data)
             data_len = len(audio_data)
-            self._mock_audio_buffer[:data_len] = audio_data
             self.debug_stats['bytes_written'] += data_len
             
             self.log.debug("mock_audio_written",
@@ -192,7 +214,7 @@ class MockDAHDIInterface(DAHDIInterface):
                           total_bytes=self.debug_stats['bytes_written'])
             return data_len
             
-        except Exception as e:
+        except FXSError as e:
             self.log.error("mock_write_failed",
                           message="Mock audio write failed",
                           error=str(e),
@@ -204,7 +226,7 @@ class MockDAHDIInterface(DAHDIInterface):
     @log_function_call(level="DEBUG")
     async def read_audio(self, size: int = 160) -> Optional[bytes]:
         """
-        Generate mock audio data.
+        Generate mock audio data and process through audio processor.
         
         Args:
             size: Number of bytes to read
@@ -215,11 +237,16 @@ class MockDAHDIInterface(DAHDIInterface):
         try:
             # Generate silence (all zeros)
             audio_data = bytes(size)
-            self.debug_stats['bytes_read'] += size
+            
+            # Process through audio processor
+            processed_audio, _ = await self.audio_processor.process_frame(audio_data)
+            audio_data = processed_audio.tobytes()
+            
+            self.debug_stats['bytes_read'] += len(audio_data)
             
             self.log.debug("mock_audio_read",
-                          message=f"Mock read {size} audio bytes",
-                          bytes_read=size,
+                          message=f"Mock read {len(audio_data)} audio bytes",
+                          bytes_read=len(audio_data),
                           total_bytes=self.debug_stats['bytes_read'])
             return audio_data
             

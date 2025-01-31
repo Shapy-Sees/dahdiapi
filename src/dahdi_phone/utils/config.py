@@ -111,7 +111,7 @@ class Config:
             ConfigurationError: If configuration loading or validation fails
         """
         try:
-            logger.info(f"Loading configuration from {config_path}")
+            logger.debug(f"Attempting to load configuration from {config_path}")
             self._config_path = Path(config_path)
             
             if not self._config_path.exists():
@@ -123,14 +123,16 @@ class Config:
                 if default_path.exists():
                     with open(default_path) as f:
                         self._raw_config = yaml.safe_load(f)
-                        logger.debug("Loaded default configuration from default.yml")
+                        logger.debug(f"Loaded default configuration from {default_path}")
+                        logger.debug(f"Default config contents: {self._raw_config}")
 
             # Load and merge custom configuration
             with open(self._config_path) as f:
                 custom_config = yaml.safe_load(f)
                 if custom_config:
                     self._merge_configs(custom_config)
-                    logger.debug(f"Merged configuration from {self._config_path}")
+                    logger.debug(f"Merged custom configuration from {self._config_path}")
+                    logger.debug(f"Final merged config contents: {self._raw_config}")
 
             # Apply environment variable overrides
             self._apply_env_overrides()
@@ -138,7 +140,15 @@ class Config:
             # Validate and create configuration objects
             self._validate_and_create_configs()
             
-            logger.info("Configuration loaded successfully")
+            logger.info(f"Configuration loaded successfully from {self._config_path}")
+            logger.debug("Final configuration after environment overrides and validation:")
+            logger.debug(f"Server config: {vars(self.server)}")
+            logger.debug(f"DAHDI config: {vars(self.dahdi)}")
+            logger.debug(f"Logging config: {vars(self.logging)}")
+            logger.debug(f"API config: {vars(self.api)}")
+            logger.debug(f"WebSocket config: {vars(self.websocket)}")
+            logger.debug(f"Security config: {vars(self.security)}")
+            logger.debug(f"Development config: {vars(self.development)}")
             
         except Exception as e:
             logger.error(f"Failed to load configuration: {str(e)}", exc_info=True)
