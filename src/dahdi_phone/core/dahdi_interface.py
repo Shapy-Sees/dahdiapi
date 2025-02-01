@@ -97,9 +97,8 @@ class DAHDIInterface(DAHDIHardwareInterface):
             if not os.path.exists(self.device_path):
                 error_msg = (
                     f"DAHDI device not found: {self.device_path}\n"
-                    "This is expected during development if no DAHDI hardware is present.\n"
-                    "To run in development mode without hardware, set development.enabled=true "
-                    "in config.yml"
+                    "Please ensure DAHDI hardware is properly connected and configured.\n"
+                    "The DAHDI device file must be present at the configured path."
                 )
                 self.log.error("device_not_found", message=error_msg)
                 raise DAHDIIOError(error_msg)

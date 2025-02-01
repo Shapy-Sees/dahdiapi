@@ -63,11 +63,6 @@ class SecurityConfig:
     allowed_origins: list[str]
     api_tokens: list[str]
 
-@dataclass
-class DevelopmentConfig:
-    """Development configuration parameters"""
-    enabled: bool
-
 class ConfigurationError(Exception):
     """Custom exception for configuration errors"""
     pass
@@ -93,7 +88,6 @@ class Config:
             self.api = None
             self.websocket = None
             self.security = None
-            self.development = None
             self._config_path = None
             self._raw_config = {}
             self._initialized = True
@@ -116,22 +110,20 @@ class Config:
             if not self._config_path.exists():
                 raise ConfigurationError(f"Configuration file not found: {config_path}")
 
-            # Always load default configuration first
-            default_path = self._config_path.parent / "default.yml"
-            if default_path.exists():
-                with open(default_path) as f:
-                    self._raw_config = yaml.safe_load(f) or {}
-                    logger.debug(f"Loaded default configuration from {default_path}")
-                    logger.debug(f"Default config contents: {self._raw_config}")
-
-            # If this is not default.yml, merge it as custom configuration
-            if self._config_path.name != "default.yml":
-                with open(self._config_path) as f:
-                    custom_config = yaml.safe_load(f)
-                    if custom_config:
-                        self._merge_configs(custom_config)
-                        logger.debug(f"Merged custom configuration from {self._config_path}")
-                        logger.debug(f"Final merged config contents: {self._raw_config}")
+            # Load the specified configuration file
+            with open(self._config_path) as f:
+                config_data = yaml.safe_load(f) or {}
+                
+            # If this is default.yml, set it as base config
+            if self._config_path.name == "default.yml":
+                self._raw_config = config_data
+                logger.debug(f"Loaded default configuration from {self._config_path}")
+                logger.debug(f"Default config contents: {self._raw_config}")
+            # Otherwise merge with existing config
+            else:
+                self._merge_configs(config_data)
+                logger.debug(f"Merged custom configuration from {self._config_path}")
+                logger.debug(f"Final merged config contents: {self._raw_config}")
 
             # Apply environment variable overrides
             self._apply_env_overrides()
@@ -147,7 +139,6 @@ class Config:
             logger.debug(f"API config: {vars(self.api)}")
             logger.debug(f"WebSocket config: {vars(self.websocket)}")
             logger.debug(f"Security config: {vars(self.security)}")
-            logger.debug(f"Development config: {vars(self.development)}")
             
         except Exception as e:
             logger.error(f"Failed to load configuration: {str(e)}", exc_info=True)
@@ -238,11 +229,6 @@ class Config:
             self.security = SecurityConfig(
                 allowed_origins=self._get_config_value("security", "allowed_origins", list, ["*"]),
                 api_tokens=self._get_config_value("security", "api_tokens", list, [])
-            )
-
-            # Development configuration
-            self.development = DevelopmentConfig(
-                enabled=self._get_config_value("development", "enabled", bool, False)
             )
 
             logger.debug("Configuration validation completed successfully")

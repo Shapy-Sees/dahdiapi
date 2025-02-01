@@ -25,7 +25,7 @@ def main():
     try:
         basic_logger.debug("Starting DAHDI Phone API initialization")
         
-        # Load configuration
+        # Initialize configuration
         basic_logger.debug("Creating configuration manager")
         config = Config()
         
@@ -33,27 +33,23 @@ def main():
         package_root = Path(__file__).parent.parent
         basic_logger.debug(f"Package root directory: {package_root}")
         
-        # Always start with default configuration
+        # Load default configuration first
         default_config = package_root / "config" / "default.yml"
+        if not default_config.exists():
+            raise ConfigurationError(f"Default configuration not found at {default_config}")
+            
         basic_logger.debug(f"Loading default configuration from {default_config}")
         config.load(default_config)
         basic_logger.debug("Successfully loaded default configuration")
         
-        # Try to load and merge custom configuration
-        config_paths = [
-            package_root / "config" / "config.yml",  # Package config (preferred)
-            Path("/etc/dahdi_phone/config.yml"),    # System-wide config (fallback)
-        ]
-        
-        for config_path in config_paths:
-            try:
-                basic_logger.debug(f"Attempting to load custom configuration from: {config_path}")
-                config.load(config_path)
-                basic_logger.debug(f"Successfully loaded custom configuration from: {config_path}")
-                break
-            except ConfigurationError:
-                basic_logger.debug(f"No custom configuration found at: {config_path}")
-                continue
+        # Try to load custom configuration
+        custom_config = package_root / "config" / "config.yml"
+        if custom_config.exists():
+            basic_logger.debug(f"Loading custom configuration from {custom_config}")
+            config.load(custom_config)
+            basic_logger.debug("Successfully loaded custom configuration")
+        else:
+            basic_logger.debug("No custom configuration found, using defaults")
 
         # Configure main logger
         basic_logger.debug("Initializing DAHDI logging system")

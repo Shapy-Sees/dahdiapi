@@ -2146,3 +2146,259 @@ Traceback (most recent call last):
 SystemExit: 1
 
 2025-01-31 22:39:13,883 [ERROR] uvicorn.error - Application startup failed. Exiting.
+2025-02-01 01:32:19,453 [INFO] dahdi_phone.utils.logger - [2m2025-02-01T01:32:19.453633Z[0m [[32m[1minfo     [0m] [1mLogger configured             [0m [36mformat[0m=[35mtext[0m [36moutput_file[0m=[35m/var/log/dahdi_phone/dahdi_phone.log[0m
+2025-02-01 01:32:19,454 [INFO] __main__ - [2m2025-02-01T01:32:19.454591Z[0m [[32m[1minfo     [0m] [1mDAHDI logging system initialized[0m
+2025-02-01 01:32:19,456 [INFO] __main__ - [2m2025-02-01T01:32:19.456486Z[0m [[32m[1minfo     [0m] [1mInitializing DAHDI Phone API service...[0m
+2025-02-01 01:32:19,553 [ERROR] dahdi_phone.api.server - [2m2025-02-01T01:32:19.553765Z[0m [[31m[1merror    [0m] [1mUnexpected error during server startup[0m 
+Traceback (most recent call last):
+  File "/app/src/dahdi_phone/api/server.py", line 330, in run_server
+    api = DAHDIPhoneAPI()
+  File "/app/src/dahdi_phone/api/server.py", line 51, in __init__
+    from .websocket import PhoneEventTypes
+  File "/app/src/dahdi_phone/api/websocket.py", line 26, in <module>
+    @router.websocket(
+TypeError: APIRouter.websocket() got an unexpected keyword argument 'description'
+2025-02-01 01:32:20,061 [INFO] dahdi_phone.utils.logger - [2m2025-02-01T01:32:20.061276Z[0m [[32m[1minfo     [0m] [1mLogger configured             [0m [36mformat[0m=[35mtext[0m [36moutput_file[0m=[35m/var/log/dahdi_phone/dahdi_phone.log[0m
+2025-02-01 01:32:20,062 [INFO] __main__ - [2m2025-02-01T01:32:20.061949Z[0m [[32m[1minfo     [0m] [1mDAHDI logging system initialized[0m
+2025-02-01 01:32:20,063 [INFO] __main__ - [2m2025-02-01T01:32:20.063540Z[0m [[32m[1minfo     [0m] [1mInitializing DAHDI Phone API service...[0m
+2025-02-01 01:32:20,171 [ERROR] dahdi_phone.api.server - [2m2025-02-01T01:32:20.170889Z[0m [[31m[1merror    [0m] [1mUnexpected error during server startup[0m 
+Traceback (most recent call last):
+  File "/app/src/dahdi_phone/api/server.py", line 330, in run_server
+    api = DAHDIPhoneAPI()
+  File "/app/src/dahdi_phone/api/server.py", line 51, in __init__
+    from .websocket import PhoneEventTypes
+  File "/app/src/dahdi_phone/api/websocket.py", line 26, in <module>
+    @router.websocket(
+TypeError: APIRouter.websocket() got an unexpected keyword argument 'description'
+2025-02-01 01:32:20,772 [INFO] dahdi_phone.utils.logger - [2m2025-02-01T01:32:20.771940Z[0m [[32m[1minfo     [0m] [1mLogger configured             [0m [36mformat[0m=[35mtext[0m [36moutput_file[0m=[35m/var/log/dahdi_phone/dahdi_phone.log[0m
+2025-02-01 01:32:20,773 [INFO] __main__ - [2m2025-02-01T01:32:20.773094Z[0m [[32m[1minfo     [0m] [1mDAHDI logging system initialized[0m
+2025-02-01 01:32:20,778 [INFO] __main__ - [2m2025-02-01T01:32:20.778738Z[0m [[32m[1minfo     [0m] [1mInitializing DAHDI Phone API service...[0m
+2025-02-01 01:32:20,843 [ERROR] dahdi_phone.api.server - [2m2025-02-01T01:32:20.843077Z[0m [[31m[1merror    [0m] [1mUnexpected error during server startup[0m 
+Traceback (most recent call last):
+  File "/app/src/dahdi_phone/api/server.py", line 330, in run_server
+    api = DAHDIPhoneAPI()
+  File "/app/src/dahdi_phone/api/server.py", line 51, in __init__
+    from .websocket import PhoneEventTypes
+  File "/app/src/dahdi_phone/api/websocket.py", line 26, in <module>
+    @router.websocket(
+TypeError: APIRouter.websocket() got an unexpected keyword argument 'description'
+2025-02-01 01:32:21,696 [INFO] dahdi_phone.utils.logger - [2m2025-02-01T01:32:21.696950Z[0m [[32m[1minfo     [0m] [1mLogger configured             [0m [36mformat[0m=[35mtext[0m [36moutput_file[0m=[35m/var/log/dahdi_phone/dahdi_phone.log[0m
+2025-02-01 01:32:21,697 [INFO] __main__ - [2m2025-02-01T01:32:21.697179Z[0m [[32m[1minfo     [0m] [1mDAHDI logging system initialized[0m
+2025-02-01 01:32:21,697 [INFO] __main__ - [2m2025-02-01T01:32:21.697833Z[0m [[32m[1minfo     [0m] [1mInitializing DAHDI Phone API service...[0m
+2025-02-01 01:32:21,751 [ERROR] dahdi_phone.api.server - [2m2025-02-01T01:32:21.750986Z[0m [[31m[1merror    [0m] [1mUnexpected error during server startup[0m 
+Traceback (most recent call last):
+  File "/app/src/dahdi_phone/api/server.py", line 330, in run_server
+    api = DAHDIPhoneAPI()
+  File "/app/src/dahdi_phone/api/server.py", line 51, in __init__
+    from .websocket import PhoneEventTypes
+  File "/app/src/dahdi_phone/api/websocket.py", line 26, in <module>
+    @router.websocket(
+TypeError: APIRouter.websocket() got an unexpected keyword argument 'description'
+2025-02-01 01:32:23,008 [INFO] dahdi_phone.utils.logger - [2m2025-02-01T01:32:23.008296Z[0m [[32m[1minfo     [0m] [1mLogger configured             [0m [36mformat[0m=[35mtext[0m [36moutput_file[0m=[35m/var/log/dahdi_phone/dahdi_phone.log[0m
+2025-02-01 01:32:23,009 [INFO] __main__ - [2m2025-02-01T01:32:23.008944Z[0m [[32m[1minfo     [0m] [1mDAHDI logging system initialized[0m
+2025-02-01 01:32:23,010 [INFO] __main__ - [2m2025-02-01T01:32:23.010870Z[0m [[32m[1minfo     [0m] [1mInitializing DAHDI Phone API service...[0m
+2025-02-01 01:32:23,078 [ERROR] dahdi_phone.api.server - [2m2025-02-01T01:32:23.077909Z[0m [[31m[1merror    [0m] [1mUnexpected error during server startup[0m 
+Traceback (most recent call last):
+  File "/app/src/dahdi_phone/api/server.py", line 330, in run_server
+    api = DAHDIPhoneAPI()
+  File "/app/src/dahdi_phone/api/server.py", line 51, in __init__
+    from .websocket import PhoneEventTypes
+  File "/app/src/dahdi_phone/api/websocket.py", line 26, in <module>
+    @router.websocket(
+TypeError: APIRouter.websocket() got an unexpected keyword argument 'description'
+2025-02-01 01:34:32,649 [INFO] dahdi_phone.utils.logger - [2m2025-02-01T01:34:32.649042Z[0m [[32m[1minfo     [0m] [1mLogger configured             [0m [36mformat[0m=[35mtext[0m [36moutput_file[0m=[35m/var/log/dahdi_phone/dahdi_phone.log[0m
+2025-02-01 01:34:32,649 [INFO] __main__ - [2m2025-02-01T01:34:32.649393Z[0m [[32m[1minfo     [0m] [1mDAHDI logging system initialized[0m
+2025-02-01 01:34:32,649 [INFO] __main__ - [2m2025-02-01T01:34:32.649745Z[0m [[32m[1minfo     [0m] [1mInitializing DAHDI Phone API service...[0m
+2025-02-01 01:34:32,713 [INFO] dahdi_phone.api.server - [2m2025-02-01T01:34:32.713685Z[0m [[32m[1minfo     [0m] [1mDAHDI Phone API server initialized[0m
+2025-02-01 01:34:32,714 [INFO] dahdi_phone.api.server - [2m2025-02-01T01:34:32.714490Z[0m [[32m[1minfo     [0m] [1mStarting server with configuration:[0m
+2025-02-01 01:34:32,737 [INFO] uvicorn.error - Started server process [1]
+2025-02-01 01:34:32,738 [INFO] uvicorn.error - Waiting for application startup.
+2025-02-01 01:34:32,738 [ERROR] dahdi_phone.api.server - [2m2025-02-01T01:34:32.738634Z[0m [[31m[1merror    [0m] [1mDAHDI device not found at /dev/dahdi/channel001[0m
+2025-02-01 01:34:32,738 [ERROR] dahdi_phone.api.server - [2m2025-02-01T01:34:32.738872Z[0m [[31m[1merror    [0m] [1mDAHDI hardware error: DAHDI device not found at /dev/dahdi/channel001[0m
+2025-02-01 01:34:32,740 [ERROR] uvicorn.error - Traceback (most recent call last):
+  File "/app/src/dahdi_phone/api/server.py", line 191, in startup_event
+    raise DAHDIIOError(error_msg)
+dahdi_phone.core.interfaces.DAHDIIOError: DAHDI device not found at /dev/dahdi/channel001
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 540, in lifespan
+    async for item in self.lifespan_context(app):
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 481, in default_lifespan
+    await self.startup()
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 516, in startup
+    await handler()
+  File "/app/src/dahdi_phone/api/server.py", line 229, in startup_event
+    sys.exit(1)  # Exit with error code
+SystemExit: 1
+
+2025-02-01 01:34:32,740 [ERROR] uvicorn.error - Application startup failed. Exiting.
+2025-02-01 01:34:33,244 [INFO] dahdi_phone.utils.logger - [2m2025-02-01T01:34:33.244603Z[0m [[32m[1minfo     [0m] [1mLogger configured             [0m [36mformat[0m=[35mtext[0m [36moutput_file[0m=[35m/var/log/dahdi_phone/dahdi_phone.log[0m
+2025-02-01 01:34:33,245 [INFO] __main__ - [2m2025-02-01T01:34:33.245505Z[0m [[32m[1minfo     [0m] [1mDAHDI logging system initialized[0m
+2025-02-01 01:34:33,252 [INFO] __main__ - [2m2025-02-01T01:34:33.252840Z[0m [[32m[1minfo     [0m] [1mInitializing DAHDI Phone API service...[0m
+2025-02-01 01:34:33,318 [INFO] dahdi_phone.api.server - [2m2025-02-01T01:34:33.318908Z[0m [[32m[1minfo     [0m] [1mDAHDI Phone API server initialized[0m
+2025-02-01 01:34:33,319 [INFO] dahdi_phone.api.server - [2m2025-02-01T01:34:33.319502Z[0m [[32m[1minfo     [0m] [1mStarting server with configuration:[0m
+2025-02-01 01:34:33,330 [INFO] uvicorn.error - Started server process [1]
+2025-02-01 01:34:33,331 [INFO] uvicorn.error - Waiting for application startup.
+2025-02-01 01:34:33,332 [ERROR] dahdi_phone.api.server - [2m2025-02-01T01:34:33.332065Z[0m [[31m[1merror    [0m] [1mDAHDI device not found at /dev/dahdi/channel001[0m
+2025-02-01 01:34:33,332 [ERROR] dahdi_phone.api.server - [2m2025-02-01T01:34:33.332364Z[0m [[31m[1merror    [0m] [1mDAHDI hardware error: DAHDI device not found at /dev/dahdi/channel001[0m
+2025-02-01 01:34:33,332 [ERROR] uvicorn.error - Traceback (most recent call last):
+  File "/app/src/dahdi_phone/api/server.py", line 191, in startup_event
+    raise DAHDIIOError(error_msg)
+dahdi_phone.core.interfaces.DAHDIIOError: DAHDI device not found at /dev/dahdi/channel001
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 540, in lifespan
+    async for item in self.lifespan_context(app):
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 481, in default_lifespan
+    await self.startup()
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 516, in startup
+    await handler()
+  File "/app/src/dahdi_phone/api/server.py", line 229, in startup_event
+    sys.exit(1)  # Exit with error code
+SystemExit: 1
+
+2025-02-01 01:34:33,333 [ERROR] uvicorn.error - Application startup failed. Exiting.
+2025-02-01 01:34:33,991 [INFO] dahdi_phone.utils.logger - [2m2025-02-01T01:34:33.991395Z[0m [[32m[1minfo     [0m] [1mLogger configured             [0m [36mformat[0m=[35mtext[0m [36moutput_file[0m=[35m/var/log/dahdi_phone/dahdi_phone.log[0m
+2025-02-01 01:34:33,991 [INFO] __main__ - [2m2025-02-01T01:34:33.991704Z[0m [[32m[1minfo     [0m] [1mDAHDI logging system initialized[0m
+2025-02-01 01:34:33,992 [INFO] __main__ - [2m2025-02-01T01:34:33.992391Z[0m [[32m[1minfo     [0m] [1mInitializing DAHDI Phone API service...[0m
+2025-02-01 01:34:34,045 [INFO] dahdi_phone.api.server - [2m2025-02-01T01:34:34.045893Z[0m [[32m[1minfo     [0m] [1mDAHDI Phone API server initialized[0m
+2025-02-01 01:34:34,046 [INFO] dahdi_phone.api.server - [2m2025-02-01T01:34:34.046436Z[0m [[32m[1minfo     [0m] [1mStarting server with configuration:[0m
+2025-02-01 01:34:34,057 [INFO] uvicorn.error - Started server process [1]
+2025-02-01 01:34:34,058 [INFO] uvicorn.error - Waiting for application startup.
+2025-02-01 01:34:34,058 [ERROR] dahdi_phone.api.server - [2m2025-02-01T01:34:34.058800Z[0m [[31m[1merror    [0m] [1mDAHDI device not found at /dev/dahdi/channel001[0m
+2025-02-01 01:34:34,059 [ERROR] dahdi_phone.api.server - [2m2025-02-01T01:34:34.059191Z[0m [[31m[1merror    [0m] [1mDAHDI hardware error: DAHDI device not found at /dev/dahdi/channel001[0m
+2025-02-01 01:34:34,059 [ERROR] uvicorn.error - Traceback (most recent call last):
+  File "/app/src/dahdi_phone/api/server.py", line 191, in startup_event
+    raise DAHDIIOError(error_msg)
+dahdi_phone.core.interfaces.DAHDIIOError: DAHDI device not found at /dev/dahdi/channel001
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 540, in lifespan
+    async for item in self.lifespan_context(app):
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 481, in default_lifespan
+    await self.startup()
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 516, in startup
+    await handler()
+  File "/app/src/dahdi_phone/api/server.py", line 229, in startup_event
+    sys.exit(1)  # Exit with error code
+SystemExit: 1
+
+2025-02-01 01:34:34,060 [ERROR] uvicorn.error - Application startup failed. Exiting.
+2025-02-01 01:34:34,923 [INFO] dahdi_phone.utils.logger - [2m2025-02-01T01:34:34.923281Z[0m [[32m[1minfo     [0m] [1mLogger configured             [0m [36mformat[0m=[35mtext[0m [36moutput_file[0m=[35m/var/log/dahdi_phone/dahdi_phone.log[0m
+2025-02-01 01:34:34,926 [INFO] __main__ - [2m2025-02-01T01:34:34.926411Z[0m [[32m[1minfo     [0m] [1mDAHDI logging system initialized[0m
+2025-02-01 01:34:34,929 [INFO] __main__ - [2m2025-02-01T01:34:34.928983Z[0m [[32m[1minfo     [0m] [1mInitializing DAHDI Phone API service...[0m
+2025-02-01 01:34:34,999 [INFO] dahdi_phone.api.server - [2m2025-02-01T01:34:34.999648Z[0m [[32m[1minfo     [0m] [1mDAHDI Phone API server initialized[0m
+2025-02-01 01:34:35,000 [INFO] dahdi_phone.api.server - [2m2025-02-01T01:34:35.000159Z[0m [[32m[1minfo     [0m] [1mStarting server with configuration:[0m
+2025-02-01 01:34:35,011 [INFO] uvicorn.error - Started server process [1]
+2025-02-01 01:34:35,012 [INFO] uvicorn.error - Waiting for application startup.
+2025-02-01 01:34:35,012 [ERROR] dahdi_phone.api.server - [2m2025-02-01T01:34:35.012583Z[0m [[31m[1merror    [0m] [1mDAHDI device not found at /dev/dahdi/channel001[0m
+2025-02-01 01:34:35,012 [ERROR] dahdi_phone.api.server - [2m2025-02-01T01:34:35.012834Z[0m [[31m[1merror    [0m] [1mDAHDI hardware error: DAHDI device not found at /dev/dahdi/channel001[0m
+2025-02-01 01:34:35,013 [ERROR] uvicorn.error - Traceback (most recent call last):
+  File "/app/src/dahdi_phone/api/server.py", line 191, in startup_event
+    raise DAHDIIOError(error_msg)
+dahdi_phone.core.interfaces.DAHDIIOError: DAHDI device not found at /dev/dahdi/channel001
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 540, in lifespan
+    async for item in self.lifespan_context(app):
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 481, in default_lifespan
+    await self.startup()
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 516, in startup
+    await handler()
+  File "/app/src/dahdi_phone/api/server.py", line 229, in startup_event
+    sys.exit(1)  # Exit with error code
+SystemExit: 1
+
+2025-02-01 01:34:35,014 [ERROR] uvicorn.error - Application startup failed. Exiting.
+2025-02-01 01:38:24,970 [INFO] dahdi_phone.utils.logger - [2m2025-02-01T01:38:24.970643Z[0m [[32m[1minfo     [0m] [1mLogger configured             [0m [36mformat[0m=[35mtext[0m [36moutput_file[0m=[35m/var/log/dahdi_phone/dahdi_phone.log[0m
+2025-02-01 01:38:24,972 [INFO] __main__ - [2m2025-02-01T01:38:24.972412Z[0m [[32m[1minfo     [0m] [1mDAHDI logging system initialized[0m
+2025-02-01 01:38:24,974 [INFO] __main__ - [2m2025-02-01T01:38:24.974152Z[0m [[32m[1minfo     [0m] [1mInitializing DAHDI Phone API service...[0m
+2025-02-01 01:38:25,056 [INFO] dahdi_phone.api.server - [2m2025-02-01T01:38:25.056832Z[0m [[32m[1minfo     [0m] [1mDAHDI Phone API server initialized[0m
+2025-02-01 01:38:25,057 [INFO] dahdi_phone.api.server - [2m2025-02-01T01:38:25.057150Z[0m [[32m[1minfo     [0m] [1mStarting server with configuration:[0m
+2025-02-01 01:38:25,070 [INFO] uvicorn.error - Started server process [1]
+2025-02-01 01:38:25,071 [INFO] uvicorn.error - Waiting for application startup.
+2025-02-01 01:38:25,072 [ERROR] dahdi_phone.api.server - [2m2025-02-01T01:38:25.072028Z[0m [[31m[1merror    [0m] [1mDAHDI device not found at /dev/dahdi/channel001[0m
+2025-02-01 01:38:25,072 [ERROR] dahdi_phone.api.server - [2m2025-02-01T01:38:25.072350Z[0m [[31m[1merror    [0m] [1mDAHDI hardware error: DAHDI device not found at /dev/dahdi/channel001[0m
+2025-02-01 01:38:25,073 [ERROR] uvicorn.error - Traceback (most recent call last):
+  File "/app/src/dahdi_phone/api/server.py", line 191, in startup_event
+    raise DAHDIIOError(error_msg)
+dahdi_phone.core.interfaces.DAHDIIOError: DAHDI device not found at /dev/dahdi/channel001
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 540, in lifespan
+    async for item in self.lifespan_context(app):
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 481, in default_lifespan
+    await self.startup()
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 516, in startup
+    await handler()
+  File "/app/src/dahdi_phone/api/server.py", line 229, in startup_event
+    sys.exit(1)  # Exit with error code
+SystemExit: 1
+
+2025-02-01 01:38:25,073 [ERROR] uvicorn.error - Application startup failed. Exiting.
+2025-02-01 01:38:25,607 [INFO] dahdi_phone.utils.logger - [2m2025-02-01T01:38:25.607878Z[0m [[32m[1minfo     [0m] [1mLogger configured             [0m [36mformat[0m=[35mtext[0m [36moutput_file[0m=[35m/var/log/dahdi_phone/dahdi_phone.log[0m
+2025-02-01 01:38:25,610 [INFO] __main__ - [2m2025-02-01T01:38:25.610384Z[0m [[32m[1minfo     [0m] [1mDAHDI logging system initialized[0m
+2025-02-01 01:38:25,614 [INFO] __main__ - [2m2025-02-01T01:38:25.614909Z[0m [[32m[1minfo     [0m] [1mInitializing DAHDI Phone API service...[0m
+2025-02-01 01:38:25,723 [INFO] dahdi_phone.api.server - [2m2025-02-01T01:38:25.723781Z[0m [[32m[1minfo     [0m] [1mDAHDI Phone API server initialized[0m
+2025-02-01 01:38:25,724 [INFO] dahdi_phone.api.server - [2m2025-02-01T01:38:25.724364Z[0m [[32m[1minfo     [0m] [1mStarting server with configuration:[0m
+2025-02-01 01:38:25,736 [INFO] uvicorn.error - Started server process [1]
+2025-02-01 01:38:25,737 [INFO] uvicorn.error - Waiting for application startup.
+2025-02-01 01:38:25,738 [ERROR] dahdi_phone.api.server - [2m2025-02-01T01:38:25.738113Z[0m [[31m[1merror    [0m] [1mDAHDI device not found at /dev/dahdi/channel001[0m
+2025-02-01 01:38:25,738 [ERROR] dahdi_phone.api.server - [2m2025-02-01T01:38:25.738605Z[0m [[31m[1merror    [0m] [1mDAHDI hardware error: DAHDI device not found at /dev/dahdi/channel001[0m
+2025-02-01 01:38:25,739 [ERROR] uvicorn.error - Traceback (most recent call last):
+  File "/app/src/dahdi_phone/api/server.py", line 191, in startup_event
+    raise DAHDIIOError(error_msg)
+dahdi_phone.core.interfaces.DAHDIIOError: DAHDI device not found at /dev/dahdi/channel001
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 540, in lifespan
+    async for item in self.lifespan_context(app):
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 481, in default_lifespan
+    await self.startup()
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 516, in startup
+    await handler()
+  File "/app/src/dahdi_phone/api/server.py", line 229, in startup_event
+    sys.exit(1)  # Exit with error code
+SystemExit: 1
+
+2025-02-01 01:38:25,740 [ERROR] uvicorn.error - Application startup failed. Exiting.
+2025-02-01 01:38:26,353 [INFO] dahdi_phone.utils.logger - [2m2025-02-01T01:38:26.353226Z[0m [[32m[1minfo     [0m] [1mLogger configured             [0m [36mformat[0m=[35mtext[0m [36moutput_file[0m=[35m/var/log/dahdi_phone/dahdi_phone.log[0m
+2025-02-01 01:38:26,354 [INFO] __main__ - [2m2025-02-01T01:38:26.354437Z[0m [[32m[1minfo     [0m] [1mDAHDI logging system initialized[0m
+2025-02-01 01:38:26,357 [INFO] __main__ - [2m2025-02-01T01:38:26.357921Z[0m [[32m[1minfo     [0m] [1mInitializing DAHDI Phone API service...[0m
+2025-02-01 01:38:26,422 [INFO] dahdi_phone.api.server - [2m2025-02-01T01:38:26.422620Z[0m [[32m[1minfo     [0m] [1mDAHDI Phone API server initialized[0m
+2025-02-01 01:38:26,423 [INFO] dahdi_phone.api.server - [2m2025-02-01T01:38:26.423188Z[0m [[32m[1minfo     [0m] [1mStarting server with configuration:[0m
+2025-02-01 01:38:26,433 [INFO] uvicorn.error - Started server process [1]
+2025-02-01 01:38:26,434 [INFO] uvicorn.error - Waiting for application startup.
+2025-02-01 01:38:26,434 [ERROR] dahdi_phone.api.server - [2m2025-02-01T01:38:26.434755Z[0m [[31m[1merror    [0m] [1mDAHDI device not found at /dev/dahdi/channel001[0m
+2025-02-01 01:38:26,434 [ERROR] dahdi_phone.api.server - [2m2025-02-01T01:38:26.434955Z[0m [[31m[1merror    [0m] [1mDAHDI hardware error: DAHDI device not found at /dev/dahdi/channel001[0m
+2025-02-01 01:38:26,435 [ERROR] uvicorn.error - Traceback (most recent call last):
+  File "/app/src/dahdi_phone/api/server.py", line 191, in startup_event
+    raise DAHDIIOError(error_msg)
+dahdi_phone.core.interfaces.DAHDIIOError: DAHDI device not found at /dev/dahdi/channel001
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 540, in lifespan
+    async for item in self.lifespan_context(app):
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 481, in default_lifespan
+    await self.startup()
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 516, in startup
+    await handler()
+  File "/app/src/dahdi_phone/api/server.py", line 229, in startup_event
+    sys.exit(1)  # Exit with error code
+SystemExit: 1
+
+2025-02-01 01:38:26,436 [ERROR] uvicorn.error - Application startup failed. Exiting.

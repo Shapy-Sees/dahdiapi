@@ -38,10 +38,6 @@ websocket:
   ping_timeout: 10
   max_message_size: 1048576  # 1MB
 
-# Development configuration
-development:
-  enabled: false  # Set to false in production
-
 # Security configuration
 security:
   allowed_origins: ["*"]

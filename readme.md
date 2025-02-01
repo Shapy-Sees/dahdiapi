@@ -1,5 +1,3 @@
-An AI has written all of this... so far.
-
 # DAHDI Phone API
 
 A Python-based REST and WebSocket API that provides a clean interface to DAHDI (Digium Asterisk Hardware Device Interface) telephony hardware. This service enables high-level control of analog telephone lines through FXS (Foreign Exchange Station) hardware.
@@ -18,23 +16,57 @@ A Python-based REST and WebSocket API that provides a clean interface to DAHDI (
 - Pydantic-based data validation and serialization
 - Automatic API documentation via FastAPI
 
-## Getting Started
+## Hardware Requirements
 
-### Prerequisites
-
-#### Hardware Requirements
+### DAHDI Hardware Requirements
 - Linux system with kernel version 4.x or higher
-- OpenVox/Digium FXS card (TDM400P supported)
+- OpenVox/Digium FXS card with DAHDI support
+- A standard analog telephone for testing
+- Physical access to server for hardware installation
+
+### System Requirements
+- Linux OS with kernel headers
+- DAHDI kernel modules and utilities
+- Build tools (gcc, make)
+- Python 3.9+
+- Docker Engine 20.10+
+- Docker Compose 2.0+
 - Minimum 2GB RAM
 - 20GB available disk space
 
-#### Software Requirements
-- Docker Engine 20.10+
-- Docker Compose 2.0+
-- Python 3.9+
-- Linux kernel headers
-- Build tools (gcc, make)
-- FastAPI and Pydantic for API functionality
+### DAHDI Configuration
+- Required kernel modules: dahdi, card-specific module (e.g., opvxa1200)
+- Device nodes: /dev/dahdi/*
+- Proper permissions: dialout group access
+- DAHDI system configuration file
+- Channel configuration matching hardware
+
+## Driver Architecture
+
+### Hardware Communication
+- Direct DAHDI device access through ioctl system calls
+- Real-time event propagation from kernel to userspace
+- Voltage monitoring and control for line status
+- Audio streaming with buffer management
+- Thread-safe hardware access coordination
+
+### State Management
+- Thread-safe phone line state tracking
+- Validated state transitions
+- Event notification system
+- Call statistics monitoring
+- DTMF event tracking
+- Line voltage monitoring
+
+### Audio Processing
+- Real-time audio streaming with buffer management
+- DTMF tone detection using Goertzel algorithm
+- Voice activity detection
+- Audio format conversion
+- Configurable buffer sizes
+- Sample rate management
+
+## Getting Started
 
 ### Host System Setup
 
@@ -105,97 +137,82 @@ docker-compose logs -f
 curl http://localhost:8000/status  # Should return phone line status
 ```
 
-## API Documentation
+## Development Notes
 
-Detailed API documentation is available in [docs/api.md](docs/api.md)
+### Debugging
 
-### Data Models
+#### Logging System
+- Comprehensive logging throughout all components
+- Configurable log levels via config.yml
+- Structured logging with JSON format support
+- Rotated log files with retention policies
+- Console and file logging support
 
-The API uses Pydantic models for data validation and serialization. Key models include:
+#### Diagnostics
+- Hardware diagnostics via /diagnostics endpoint
+- Real-time state monitoring
+- Audio quality metrics
+- Line voltage monitoring
+- Call statistics tracking
+- DTMF detection verification
 
-#### Phone States
-```python
-PhoneState:
-    IDLE        # Phone is on-hook and not ringing
-    OFF_HOOK    # Phone is off-hook
-    RINGING     # Phone is ringing
-    IN_CALL     # Active call in progress
-    ERROR       # Hardware or system error
-    INITIALIZING # System startup state
+#### Development Mode
+- Hardware simulation mode for development
+- DAHDI device mocking capabilities
+- Configurable through config.yml
+- Separate development configuration
+
+### Testing
+- Hardware simulation mode for development
+- DAHDI device mocking
+- Audio processing verification
+- State transition validation
+- WebSocket connection testing
+- API endpoint testing
+
+## Configuration
+
+### Environment Variables
+- `DAHDI_API_HOST`: API host address
+- `DAHDI_API_REST_PORT`: REST API port
+- `DAHDI_API_WS_PORT`: WebSocket port
+- `LOG_LEVEL`: Logging level
+- `DAHDI_DEVICE`: DAHDI device path
+- `API_TIMEOUT`: API request timeout
+
+### Configuration File
+Location: `/etc/dahdi_phone/config.yml` (mounted from `src/dahdi_phone/config/config.yml`)
+
+Example configuration:
+```yaml
+server:
+  host: "0.0.0.0"
+  rest_port: 8000
+  websocket_port: 8001
+  workers: 4
+
+dahdi:
+  device: "/dev/dahdi/channel001"
+  control: "/dev/dahdi/ctl"
+  channel: 1
+  audio:
+    sample_rate: 8000
+    channels: 1
+    bit_depth: 16
+  buffer_size: 320
+
+logging:
+  level: "INFO"
+  format: "json"
+  output: "/var/log/dahdi_phone/api.log"
+  rotation: "1 day"
+  retention: "30 days"
 ```
-
-#### Event Models
-- `DTMFEvent`: DTMF tone detection events
-  - digit: Detected digit (0-9, *, #, A-D)
-  - duration: Duration in milliseconds
-  - signal_level: Signal strength in dBm
-  
-- `VoiceEvent`: Voice activity detection
-  - start_time: Event start timestamp
-  - end_time: Event end timestamp
-  - energy_level: Voice energy in dB
-  
-- `LineVoltage`: Line voltage monitoring
-  - voltage: Current voltage
-  - status: Voltage status description
-  - min/max voltage readings
-
-#### Status Models
-- `PhoneStatus`: Complete phone line status
-  - state: Current PhoneState
-  - line_voltage: Current line voltage
-  - call_stats: Call statistics
-  - audio_format: Current audio configuration
-
-### REST Endpoints
-
-The API provides the following endpoints for phone control:
-
-#### Status Endpoints
-- `GET /status` - Get current phone line status
-- `GET /voltage` - Get line voltage readings
-- `GET /diagnostics` - Run and return hardware diagnostics
-
-#### Control Endpoints
-- `POST /ring` - Start phone ringing
-- `POST /stop-ring` - Stop phone ringing
-- `POST /play-audio` - Play audio through phone line
-- `POST /generate-tone` - Generate specific tones
-- `POST /reset` - Reset hardware interface
-
-### WebSocket Events
-
-Real-time events are sent through WebSocket connections:
-
-#### Phone State Events
-- `off_hook` - Phone went off hook
-- `on_hook` - Phone went on hook
-- `dtmf` - DTMF tone detected
-- `voice` - Voice activity detected
-- `ring_start` - Ring signal started
-- `ring_stop` - Ring signal stopped
-
-#### System Events
-- `error` - Error occurred
-- `voltage_change` - Line voltage changed
-- `hardware_status` - Hardware status update
-
-Full API documentation available in `/docs/api.md`
 
 ## Project Structure
 
 ```
 dahdi-phone-api/
-├── config/                     # Configuration files
-│   ├── default.yml            # Default configuration
-│   └── config.yml             # Primary configuration
-│
-├── docs/                      # Documentation
-│   └── api.md                 # API documentation
-│
-├── scripts/                   # Utility scripts
-│   └── start.sh              # Service startup script
-│
 ├── src/                       # Source code
 │   ├── dahdi_phone/          # Main package
 │   │   ├── api/              # API implementation
@@ -205,6 +222,10 @@ dahdi-phone-api/
 │   │   │   ├── routes.py     # API endpoints
 │   │   │   ├── server.py     # Server implementation
 │   │   │   └── websocket.py  # WebSocket handling
+│   │   │
+│   │   ├── config/           # Configuration files
+│   │   │   ├── default.yml   # Default configuration
+│   │   │   └── config.yml    # Primary configuration
 │   │   │
 │   │   ├── core/             # Core functionality
 │   │   │   ├── __init__.py
@@ -228,6 +249,14 @@ dahdi-phone-api/
 │   │
 │   └── __init__.py
 │
+├── docs/                      # Documentation
+│   └── api.md                # API documentation
+│
+├── logs/                      # Log files directory
+│
+├── scripts/                   # Utility scripts
+│   └── start.sh              # Service startup script
+│
 ├── tests/                     # Test suite
 │   └── __init__.py
 │
@@ -235,56 +264,48 @@ dahdi-phone-api/
 ├── Dockerfile                 # Docker build instructions
 ├── README.md                 # Project documentation
 ├── requirements.txt          # Python dependencies
-└── setup.py                 # Package setup
+└── setup.py                  # Package setup
 ```
 
-## Data Models
+## Contributing
 
-The API uses Pydantic models for data validation and serialization, defined in `api/models.py`. These models ensure:
+### Development Workflow
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Add or update tests
+5. Run the test suite
+6. Submit a pull request
 
-- Type safety throughout the application
-- Automatic validation of input/output data
-- Clear API documentation
-- Consistent data structures
-- Runtime data validation
+### Coding Standards
+- Follow PEP 8 style guide
+- Add comprehensive docstrings
+- Include type hints
+- Add appropriate logging
+- Write unit tests
+- Update documentation
 
-Key model categories:
+### Testing Requirements
+- Unit tests for new features
+- Integration tests for API endpoints
+- Hardware simulation tests
+- WebSocket connection tests
+- Configuration validation tests
 
-1. State Models
-   - Phone state management
-   - Line voltage monitoring
-   - Call statistics
+## License
 
-2. Event Models
-   - DTMF detection events
-   - Voice activity events
-   - System status events
+[Insert your license information here]
 
-3. Command Models
-   - Phone control commands
-   - Configuration commands
-   - Diagnostic commands
+## Support
 
-4. Status Models
-   - Complete phone status
-   - Diagnostic information
-   - Statistical data
+For support:
+- Open an issue on GitHub
+- Check the documentation
+- Contact the development team
 
-## Configuration
+## Acknowledgments
 
-Configuration is managed through YAML files in the `config` directory:
-
-```yaml
-# config/default.yml
-dahdi:
-  device: /dev/dahdi/channel001
-  control: /dev/dahdi/ctl
-  channel: 1
-  audio:
-    sample_rate: 8000
-    channels: 1
-    bit_depth: 16
-  buffer_size: 320  # 20ms @ 8kHz/16-bit
-```
-
-[Rest of the README remains unchanged...]
+- DAHDI development team
+- OpenVox/Digium for hardware specifications
+- FastAPI framework developers
+- Python asyncio community

@@ -61,8 +61,56 @@ class DAHDIPhoneAPI:
         
         self.app = FastAPI(
             title="DAHDI Phone API",
-            description="REST and WebSocket API for DAHDI telephony hardware",
-            version="1.0.0"
+            description="""
+            REST and WebSocket API for DAHDI telephony hardware.
+            
+            ## Features
+            
+            * Phone line status monitoring
+            * Ring control
+            * Audio playback and recording
+            * DTMF tone detection and generation
+            * Real-time event notifications via WebSocket
+            
+            ## Authentication
+            
+            This API currently does not require authentication. It is designed for internal network use only.
+            
+            ## Error Handling
+            
+            The API uses standard HTTP status codes and returns detailed error messages in JSON format.
+            Common error codes:
+            * 400: Bad Request - Invalid parameters or state
+            * 404: Not Found - Resource not found
+            * 500: Internal Server Error - Hardware or system error
+            
+            ## WebSocket Events
+            
+            Connect to `/ws` endpoint for real-time events including:
+            * Phone state changes
+            * DTMF detection
+            * Line voltage updates
+            * Error notifications
+            """,
+            version="1.0.0",
+            openapi_tags=[
+                {
+                    "name": "status",
+                    "description": "Phone line status operations"
+                },
+                {
+                    "name": "control",
+                    "description": "Phone control operations including ring and audio"
+                },
+                {
+                    "name": "websocket",
+                    "description": "Real-time event notifications"
+                }
+            ],
+            docs_url="/docs",
+            redoc_url="/redoc",
+            openapi_url="/openapi.json",
+            swagger_ui_parameters={"defaultModelsExpandDepth": -1}
         )
         self.dahdi_interface = None
         self.audio_processor = None
