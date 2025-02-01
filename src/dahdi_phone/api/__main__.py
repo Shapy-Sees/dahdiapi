@@ -6,6 +6,7 @@ Handles startup configuration and server initialization.
 
 import sys
 import logging
+from pathlib import Path
 from ..utils.logger import DAHDILogger, LoggerConfig
 from ..utils.config import Config, ConfigurationError
 
@@ -24,49 +25,65 @@ def main():
     try:
         basic_logger.debug("Starting DAHDI Phone API initialization")
         
-        # Load configuration first
+        # Load configuration
         basic_logger.debug("Creating configuration manager")
         config = Config()
-        # Load config from project directory or system-wide location
+        
+        # Get the package root directory (2 levels up from __main__.py)
+        package_root = Path(__file__).parent.parent
+        basic_logger.debug(f"Package root directory: {package_root}")
+        
+        # Always start with default configuration
+        default_config = package_root / "config" / "default.yml"
+        basic_logger.debug(f"Loading default configuration from {default_config}")
+        config.load(default_config)
+        basic_logger.debug("Successfully loaded default configuration")
+        
+        # Try to load and merge custom configuration
         config_paths = [
-            "config/config.yml",            # Project directory config (preferred)
-            "/etc/dahdi_phone/config.yml",  # System-wide config (fallback)
+            package_root / "config" / "config.yml",  # Package config (preferred)
+            Path("/etc/dahdi_phone/config.yml"),    # System-wide config (fallback)
         ]
         
         for config_path in config_paths:
             try:
-                basic_logger.debug(f"Attempting to load configuration from: {config_path}")
+                basic_logger.debug(f"Attempting to load custom configuration from: {config_path}")
                 config.load(config_path)
-                basic_logger.debug(f"Successfully loaded configuration from: {config_path}")
+                basic_logger.debug(f"Successfully loaded custom configuration from: {config_path}")
                 break
             except ConfigurationError:
-                basic_logger.debug(f"Failed to load configuration from: {config_path}")
-                if config_path == config_paths[-1]:  # If this was the last path to try
-                    # No custom config found, fall back to default.yml
-                    basic_logger.debug("No custom configuration found, falling back to default.yml")
-                    config.load("config/default.yml")
-                    basic_logger.debug("Successfully loaded default configuration")
-                    break
+                basic_logger.debug(f"No custom configuration found at: {config_path}")
+                continue
 
         # Configure main logger
         basic_logger.debug("Initializing DAHDI logging system")
         logger = DAHDILogger()
         
-        # Ensure log directory exists if output file is specified
+        # Ensure log directory exists with proper permissions
         if config.logging.output:
             import os
             log_dir = os.path.dirname(config.logging.output)
             basic_logger.debug(f"Setting up log directory: {log_dir}")
             try:
-                os.makedirs(log_dir, exist_ok=True)
-                basic_logger.debug(f"Created or verified log directory: {log_dir}")
+                # Create directory with full permissions
+                os.makedirs(log_dir, mode=0o777, exist_ok=True)
+                # Create log file if it doesn't exist
+                if not os.path.exists(config.logging.output):
+                    with open(config.logging.output, 'a'):
+                        pass
+                # Set permissions on log file
+                os.chmod(config.logging.output, 0o666)
+                basic_logger.debug(f"Created or verified log directory and file: {config.logging.output}")
             except PermissionError:
                 # Fall back to a local logs directory if we can't write to system path
                 basic_logger.debug(f"Permission denied for log directory: {log_dir}")
                 log_dir = "logs"
                 basic_logger.debug(f"Falling back to local log directory: {log_dir}")
-                os.makedirs(log_dir, exist_ok=True)
-                config.logging.output = os.path.join(log_dir, "api.log")
+                os.makedirs(log_dir, mode=0o777, exist_ok=True)
+                config.logging.output = os.path.join(log_dir, "dahdi_phone.log")
+                with open(config.logging.output, 'a'):
+                    pass
+                os.chmod(config.logging.output, 0o666)
                 basic_logger.debug(f"Using fallback log file: {config.logging.output}")
             
         # Configure the main logger

@@ -1,6 +1,5 @@
-# scripts/start.sh
-
 #!/bin/bash
+# scripts/start.sh
 
 # Enable error handling
 set -e
@@ -40,10 +39,39 @@ if [ -w /dev/dahdi_ctl ]; then
     dahdi_scan || echo "[$(date)] WARNING: DAHDI hardware not detected (may be normal in containerized environment)"
 fi
 
-# Create log directory if it doesn't exist
+# Create and set permissions for log directories
 mkdir -p /var/log/dahdi_build/
-echo "DAHDI build logs available in /var/log/dahdi_build/"
+mkdir -p /var/log/dahdi_phone/
+touch /var/log/dahdi_phone/dahdi_phone.log
+chmod -R 777 /var/log/dahdi_phone/
+echo "Log directories prepared:"
+ls -la /var/log/dahdi_phone/
 
 # Start the API service
 echo "[$(date)] Starting DAHDI Phone API service..."
-exec python3 -m dahdi_phone.api.server
+
+# Verify script permissions
+if [[ ! -x "/start.sh" ]]; then
+    echo "ERROR: /start.sh is not executable"
+    ls -l /start.sh
+    exit 1
+fi
+
+# Verify config files exist
+if [[ ! -f "/etc/dahdi_phone/config.yml" ]]; then
+    echo "ERROR: Config file not found at /etc/dahdi_phone/config.yml"
+    ls -l /etc/dahdi_phone/
+    exit 1
+fi
+
+if [[ ! -f "/etc/dahdi_phone/default.yml" ]]; then
+    echo "ERROR: Default config file not found at /etc/dahdi_phone/default.yml"
+    ls -l /etc/dahdi_phone/
+    exit 1
+fi
+
+echo "Config files found:"
+ls -la /etc/dahdi_phone/
+
+# Start through __main__.py to ensure proper configuration loading
+exec python3 -m dahdi_phone.api

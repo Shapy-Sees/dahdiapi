@@ -67,7 +67,6 @@ class SecurityConfig:
 class DevelopmentConfig:
     """Development configuration parameters"""
     enabled: bool
-    mock_hardware: bool
 
 class ConfigurationError(Exception):
     """Custom exception for configuration errors"""
@@ -117,22 +116,22 @@ class Config:
             if not self._config_path.exists():
                 raise ConfigurationError(f"Configuration file not found: {config_path}")
 
-            # Load default configuration first if this isn't default.yml
-            if self._config_path.name != "default.yml":
-                default_path = self._config_path.parent / "default.yml"
-                if default_path.exists():
-                    with open(default_path) as f:
-                        self._raw_config = yaml.safe_load(f)
-                        logger.debug(f"Loaded default configuration from {default_path}")
-                        logger.debug(f"Default config contents: {self._raw_config}")
+            # Always load default configuration first
+            default_path = self._config_path.parent / "default.yml"
+            if default_path.exists():
+                with open(default_path) as f:
+                    self._raw_config = yaml.safe_load(f) or {}
+                    logger.debug(f"Loaded default configuration from {default_path}")
+                    logger.debug(f"Default config contents: {self._raw_config}")
 
-            # Load and merge custom configuration
-            with open(self._config_path) as f:
-                custom_config = yaml.safe_load(f)
-                if custom_config:
-                    self._merge_configs(custom_config)
-                    logger.debug(f"Merged custom configuration from {self._config_path}")
-                    logger.debug(f"Final merged config contents: {self._raw_config}")
+            # If this is not default.yml, merge it as custom configuration
+            if self._config_path.name != "default.yml":
+                with open(self._config_path) as f:
+                    custom_config = yaml.safe_load(f)
+                    if custom_config:
+                        self._merge_configs(custom_config)
+                        logger.debug(f"Merged custom configuration from {self._config_path}")
+                        logger.debug(f"Final merged config contents: {self._raw_config}")
 
             # Apply environment variable overrides
             self._apply_env_overrides()
@@ -243,8 +242,7 @@ class Config:
 
             # Development configuration
             self.development = DevelopmentConfig(
-                enabled=self._get_config_value("development", "enabled", bool, False),
-                mock_hardware=self._get_config_value("development", "mock_hardware", bool, False)
+                enabled=self._get_config_value("development", "enabled", bool, False)
             )
 
             logger.debug("Configuration validation completed successfully")

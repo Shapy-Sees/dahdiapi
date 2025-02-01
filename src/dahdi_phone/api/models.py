@@ -28,20 +28,48 @@ import logging
 # Configure module logger
 logger = logging.getLogger(__name__)
 
+from ..core.interfaces import DAHDIState
+
 class PhoneState(str, Enum):
     """
     Represents the current state of a phone line.
+    Maps API states to DAHDI hardware states.
     Used for state tracking and event notifications.
     """
-    IDLE = "idle"           # Phone is on-hook and not ringing
-    OFF_HOOK = "off_hook"   # Phone is off-hook
-    RINGING = "ringing"     # Phone is ringing
-    IN_CALL = "in_call"     # Active call in progress
-    ERROR = "error"         # Hardware or system error
+    IDLE = "idle"           # Maps to DAHDIState.ONHOOK
+    OFF_HOOK = "off_hook"   # Maps to DAHDIState.OFFHOOK
+    RINGING = "ringing"     # Maps to DAHDIState.RINGING
+    IN_CALL = "in_call"     # Maps to DAHDIState.BUSY
+    ERROR = "error"         # Maps to DAHDIState.ERROR
     INITIALIZING = "initializing"  # System startup state
     
     def __str__(self) -> str:
         return self.value
+        
+    @classmethod
+    def from_dahdi_state(cls, state: DAHDIState) -> 'PhoneState':
+        """Convert DAHDI hardware state to API phone state"""
+        state_map = {
+            DAHDIState.ONHOOK: cls.IDLE,
+            DAHDIState.OFFHOOK: cls.OFF_HOOK,
+            DAHDIState.RINGING: cls.RINGING,
+            DAHDIState.BUSY: cls.IN_CALL,
+            DAHDIState.DIALING: cls.IN_CALL,
+            DAHDIState.ERROR: cls.ERROR,
+        }
+        return state_map.get(state, cls.ERROR)
+    
+    def to_dahdi_state(self) -> DAHDIState:
+        """Convert API phone state to DAHDI hardware state"""
+        state_map = {
+            self.IDLE: DAHDIState.ONHOOK,
+            self.OFF_HOOK: DAHDIState.OFFHOOK,
+            self.RINGING: DAHDIState.RINGING,
+            self.IN_CALL: DAHDIState.BUSY,
+            self.ERROR: DAHDIState.ERROR,
+            self.INITIALIZING: DAHDIState.ONHOOK,
+        }
+        return state_map[self]
 
 class AudioFormat(BaseModel):
     """Audio format specification for streaming operations"""

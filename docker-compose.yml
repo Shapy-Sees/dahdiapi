@@ -10,7 +10,7 @@ services:
     volumes:
       - /dev/dahdi:/dev/dahdi:ro  # Read-only mount of host DAHDI devices
       - /etc/dahdi:/etc/dahdi:ro  # Read-only mount of host DAHDI configuration
-      - ./config:/etc/dahdi_phone:ro  # Mount API configuration
+      - ./src/dahdi_phone/config:/etc/dahdi_phone:ro  # Mount API configuration
       - ./logs:/var/log/dahdi_phone  # Mount logs directory
     ports:
       - "8000:8000"  # REST API

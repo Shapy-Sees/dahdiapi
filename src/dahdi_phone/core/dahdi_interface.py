@@ -12,48 +12,21 @@ import fcntl
 import asyncio
 import struct
 from typing import Optional, Dict, Any, Set, Callable
-from enum import IntEnum
 from datetime import datetime
 import structlog
 from ..utils.logger import DAHDILogger, log_function_call
 from ..api.models import DTMFEvent, PhoneEventTypes
-from ..hardware.fxs import FXSPort, FXSConfig, FXSError
 from ..core.audio_processor import AudioProcessor, AudioConfig
+from .interfaces import (
+    DAHDIHardwareInterface,
+    DAHDIIOError,
+    DAHDIStateError,
+    DAHDITimeout,
+    DAHDICommands,
+    DAHDIState,
+)
 
-class DAHDIIOError(Exception):
-    """Custom exception for DAHDI I/O operations"""
-    pass
-
-class DAHDIStateError(Exception):
-    """Custom exception for invalid state transitions"""
-    pass
-
-class DAHDITimeout(Exception):
-    """Custom exception for operation timeouts"""
-    pass
-
-class DAHDICommands(IntEnum):
-    """DAHDI ioctl command codes"""
-    GET_PARAMS = 0x40024801
-    SET_PARAMS = 0x40024802
-    HOOK_STATE = 0x40044803
-    RING_START = 0x40044804
-    RING_STOP = 0x40044805
-    GET_BUFINFO = 0x40044806
-    SET_BUFINFO = 0x40044807
-    AUDIO_GAIN = 0x40044808
-    LINE_VOLTAGE = 0x40044809
-
-class DAHDIState(IntEnum):
-    """DAHDI hardware states"""
-    ONHOOK = 0
-    OFFHOOK = 1
-    RINGING = 2
-    BUSY = 3
-    DIALING = 4
-    ERROR = 5
-
-class DAHDIInterface:
+class DAHDIInterface(DAHDIHardwareInterface):
     """
     Primary interface to DAHDI hardware.
     Manages device communication through FXSPort, handles state and events.
@@ -125,8 +98,8 @@ class DAHDIInterface:
                 error_msg = (
                     f"DAHDI device not found: {self.device_path}\n"
                     "This is expected during development if no DAHDI hardware is present.\n"
-                    "To run in development mode without hardware, ensure 'development.mock_hardware' "
-                    "is set to true in config.yml"
+                    "To run in development mode without hardware, set development.enabled=true "
+                    "in config.yml"
                 )
                 self.log.error("device_not_found", message=error_msg)
                 raise DAHDIIOError(error_msg)

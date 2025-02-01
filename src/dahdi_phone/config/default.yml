@@ -41,7 +41,6 @@ websocket:
 # Development configuration
 development:
   enabled: false  # Set to false in production
-  mock_hardware: false  # Use mock hardware interface when true
 
 # Security configuration
 security:

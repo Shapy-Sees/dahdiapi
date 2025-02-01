@@ -1,12 +1,11 @@
 # Development configuration
 development:
   enabled: true
-  mock_hardware: true
 
 # Logging configuration
 logging:
   level: "DEBUG"
-  format: "json"
-  output: "logs/dahdi_phone.log"  # Local logs directory
+  format: "text"
+  output: "/var/log/dahdi_phone/dahdi_phone.log"  # Maps to ./logs via Docker volume
   rotation: "1 day"
   retention: "30 days"

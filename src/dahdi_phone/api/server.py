@@ -19,11 +19,10 @@ from typing import Any, Dict, Optional
 
 from ..utils.config import Config, ConfigurationError
 from ..utils.logger import DAHDILogger, LoggerConfig, log_function_call
-from ..core.dahdi_interface import DAHDIIOError
-from ..core.mock_dahdi_interface import MockDAHDIInterface
+from ..core.dahdi_interface import DAHDIInterface, DAHDIIOError
 
 # Configure module logger
-logger = logging.getLogger(__name__)
+logger = DAHDILogger().get_logger(__name__)
 
 # Global interface instance
 _dahdi_interface: Optional[DAHDIInterface] = None
@@ -46,7 +45,6 @@ class DAHDIPhoneAPI:
         self.logger = DAHDILogger()
         
         # Import modules
-        from ..core.dahdi_interface import DAHDIInterface
         from ..core.audio_processor import AudioProcessor, AudioConfig
         from .models import PhoneState, PhoneStatus
         from .routes import router as api_router
@@ -130,45 +128,27 @@ class DAHDIPhoneAPI:
             try:
                 logger.debug("Starting server initialization sequence")
                 
-                # Check development mode settings
-                dev_mode = self.config.development.enabled
-                mock_hardware = self.config.development.mock_hardware
-                
-                logger.info("Development mode settings", 
-                          dev_mode=dev_mode, 
-                          mock_hardware=mock_hardware)
                 logger.debug(f"Server host: {self.config.server.host}")
                 logger.debug(f"REST port: {self.config.server.rest_port}")
                 logger.debug(f"WebSocket port: {self.config.server.websocket_port}")
                 logger.debug(f"Worker count: {self.config.server.workers}")
 
-                if not dev_mode and not mock_hardware:
-                    logger.debug("Starting DAHDI hardware detection")
-                    logger.debug(f"Checking DAHDI device path: {self.config.dahdi.device}")
-                    logger.debug(f"DAHDI control path: {self.config.dahdi.control}")
-                    logger.debug(f"DAHDI channel: {self.config.dahdi.channel}")
-                    if not os.path.exists(self.config.dahdi.device):
-                        error_msg = (
-                            f"DAHDI device not found at {self.config.dahdi.device}\n"
-                            "To run without hardware:\n"
-                            "1. Set development.enabled=true in config.yml\n"
-                            "2. Set development.mock_hardware=true in config.yml"
-                        )
-                        logger.error(error_msg)
-                        raise DAHDIIOError(error_msg)
-                
-                if dev_mode and mock_hardware:
-                    logger.info("Initializing mock DAHDI interface for development")
-                    logger.debug(f"Mock device path: {self.config.dahdi.device}")
-                    self.dahdi_interface = MockDAHDIInterface(self.config.dahdi.device)
-                else:
-                    logger.info("Initializing real DAHDI interface")
-                    logger.debug("DAHDI hardware configuration:")
-                    logger.debug(f"Sample rate: {self.config.dahdi.sample_rate} Hz")
-                    logger.debug(f"Channels: {self.config.dahdi.channels}")
-                    logger.debug(f"Bit depth: {self.config.dahdi.bit_depth} bits")
-                    logger.debug(f"Buffer size: {self.config.dahdi.buffer_size} bytes")
-                    self.dahdi_interface = self.DAHDIInterface(self.config.dahdi.device)
+                logger.debug("Starting DAHDI hardware detection")
+                logger.debug(f"Checking DAHDI device path: {self.config.dahdi.device}")
+                logger.debug(f"DAHDI control path: {self.config.dahdi.control}")
+                logger.debug(f"DAHDI channel: {self.config.dahdi.channel}")
+                if not os.path.exists(self.config.dahdi.device):
+                    error_msg = f"DAHDI device not found at {self.config.dahdi.device}"
+                    logger.error(error_msg)
+                    raise DAHDIIOError(error_msg)
+
+                logger.info("Initializing DAHDI interface")
+                logger.debug("DAHDI hardware configuration:")
+                logger.debug(f"Sample rate: {self.config.dahdi.sample_rate} Hz")
+                logger.debug(f"Channels: {self.config.dahdi.channels}")
+                logger.debug(f"Bit depth: {self.config.dahdi.bit_depth} bits")
+                logger.debug(f"Buffer size: {self.config.dahdi.buffer_size} bytes")
+                self.dahdi_interface = self.DAHDIInterface(self.config.dahdi.device)
                 
                 logger.debug("Starting DAHDI interface initialization")
                 await self.dahdi_interface.initialize()
@@ -281,9 +261,19 @@ class DAHDIPhoneAPI:
             logger.debug(f"Returning error event: {error_event}")
             return error_event
 
-def run_server():
-    """Start the DAHDI Phone API server"""
-    server_logger = logging.getLogger(__name__)
+def run_server(config_path: Optional[str] = None):
+    """
+    Start the DAHDI Phone API server
+    
+    Args:
+        config_path: Optional path to configuration file. If not provided,
+                    configuration should already be loaded by __main__.py
+    """
+    # Get the already configured logger instance
+    logger = DAHDILogger()
+    
+    # Get configured logger for this module
+    server_logger = logger.get_logger(__name__)
     try:
         server_logger.debug("Starting DAHDI Phone API server")
         
@@ -291,15 +281,19 @@ def run_server():
         server_logger.debug("Creating DAHDIPhoneAPI instance")
         api = DAHDIPhoneAPI()
         
-        # Get configuration
-        server_logger.debug("Loading server configuration")
-        config = Config()
+        # Get existing configuration
+        server_logger.debug("Getting server configuration")
+        config = Config()  # This will get the singleton instance already configured
         
-        # Log server startup details
+        # Log server startup details with full configuration info
         server_logger.info("Starting server with configuration:")
-        server_logger.info(f"Host: {config.server.host}")
-        server_logger.info(f"REST Port: {config.server.rest_port}")
-        server_logger.info(f"Workers: {config.server.workers}")
+        server_logger.debug(f"Host: {config.server.host}")
+        server_logger.debug(f"REST Port: {config.server.rest_port}")
+        server_logger.debug(f"Workers: {config.server.workers}")
+        server_logger.debug(f"Log Level: {config.logging.level}")
+        server_logger.debug(f"Log Format: {config.logging.format}")
+        server_logger.debug(f"Log Output: {config.logging.output}")
+        server_logger.debug(f"Development Mode: {config.development.enabled}")
         
         # Start server
         try:

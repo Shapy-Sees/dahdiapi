@@ -119,9 +119,10 @@ RUN mkdir -p /var/log/dahdi_phone && \
     touch /var/log/dahdi_phone/api.log && \
     chmod 777 /var/log/dahdi_phone
 
-# Create configuration directory and copy default config
+# Create configuration directory and copy configs
 RUN mkdir -p /etc/dahdi_phone
-COPY config/default.yml /etc/dahdi_phone/config.yml
+COPY src/dahdi_phone/config/default.yml /etc/dahdi_phone/default.yml
+COPY src/dahdi_phone/config/config.yml /etc/dahdi_phone/config.yml
 
 # Expose ports for API and WebSocket
 EXPOSE 8000 8001
@@ -140,13 +141,8 @@ HEALTHCHECK --interval=30s --timeout=10s --start-period=40s --retries=3 \
     CMD curl -f http://localhost:8000/status || exit 1
 
 COPY scripts/start.sh /start.sh
-RUN chmod +x /start.sh
-
-# Create entrypoint script with enhanced debugging
-RUN echo '#!/bin/bash\n\
-set -x\n\
-echo "DAHDI build logs available in /var/log/dahdi_build/"\n\
-exec python3 -m dahdi_phone.api.server "$@"' > /start.sh && \
+# Fix line endings and make executable
+RUN sed -i 's/\r$//' /start.sh && \
     chmod +x /start.sh
 
 # Run the API service with detailed logging

@@ -15,7 +15,7 @@ from dataclasses import dataclass
 
 from ..utils.logger import DAHDILogger, log_function_call
 from ..utils.config import Config
-from ..core.dahdi_interface import DAHDIInterface, DAHDIIOError
+from ..core.interfaces import DAHDIHardwareInterface, DAHDIIOError
 from ..core.audio_processor import AudioProcessor, AudioProcessingError
 
 # Get structured logger
@@ -111,7 +111,7 @@ class FXSPort:
     High-level interface to FXS port hardware.
     Manages phone line states, voltage control, and audio routing.
     """
-    def __init__(self, config: FXSConfig, dahdi: DAHDIInterface, audio: AudioProcessor):
+    def __init__(self, config: FXSConfig, dahdi: DAHDIHardwareInterface, audio: AudioProcessor):
         self.config = config
         self.dahdi = dahdi
         self.audio = audio

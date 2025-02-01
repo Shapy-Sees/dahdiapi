@@ -1,0 +1,2148 @@
+2025-01-31 22:11:28,058 [INFO] dahdi_phone.utils.logger - [2m2025-01-31T22:11:28.058152Z[0m [[32m[1minfo     [0m] [1mLogger configured             [0m [36mformat[0m=[35mtext[0m [36moutput_file[0m=[35m/var/log/dahdi_phone/dahdi_phone.log[0m
+2025-01-31 22:11:28,059 [INFO] __main__ - [2m2025-01-31T22:11:28.059800Z[0m [[32m[1minfo     [0m] [1mDAHDI logging system initialized[0m
+2025-01-31 22:11:28,077 [INFO] __main__ - [2m2025-01-31T22:11:28.076945Z[0m [[32m[1minfo     [0m] [1mInitializing DAHDI Phone API service...[0m
+2025-01-31 22:11:28,136 [ERROR] dahdi_phone.api.server - [2m2025-01-31T22:11:28.136585Z[0m [[31m[1merror    [0m] [1mUnexpected error during server startup[0m 
+Traceback (most recent call last):
+  File "/app/src/dahdi_phone/api/server.py", line 301, in run_server
+    api = DAHDIPhoneAPI()
+  File "/app/src/dahdi_phone/api/server.py", line 52, in __init__
+    from .websocket import PhoneEventTypes
+  File "/app/src/dahdi_phone/api/websocket.py", line 3, in <module>
+    class PhoneEventTypes(str, Enum):
+NameError: name 'Enum' is not defined
+2025-01-31 22:11:28,642 [INFO] dahdi_phone.utils.logger - [2m2025-01-31T22:11:28.642337Z[0m [[32m[1minfo     [0m] [1mLogger configured             [0m [36mformat[0m=[35mtext[0m [36moutput_file[0m=[35m/var/log/dahdi_phone/dahdi_phone.log[0m
+2025-01-31 22:11:28,643 [INFO] __main__ - [2m2025-01-31T22:11:28.643744Z[0m [[32m[1minfo     [0m] [1mDAHDI logging system initialized[0m
+2025-01-31 22:11:28,644 [INFO] __main__ - [2m2025-01-31T22:11:28.644373Z[0m [[32m[1minfo     [0m] [1mInitializing DAHDI Phone API service...[0m
+2025-01-31 22:11:28,732 [ERROR] dahdi_phone.api.server - [2m2025-01-31T22:11:28.731917Z[0m [[31m[1merror    [0m] [1mUnexpected error during server startup[0m 
+Traceback (most recent call last):
+  File "/app/src/dahdi_phone/api/server.py", line 301, in run_server
+    api = DAHDIPhoneAPI()
+  File "/app/src/dahdi_phone/api/server.py", line 52, in __init__
+    from .websocket import PhoneEventTypes
+  File "/app/src/dahdi_phone/api/websocket.py", line 3, in <module>
+    class PhoneEventTypes(str, Enum):
+NameError: name 'Enum' is not defined
+2025-01-31 22:11:29,318 [INFO] dahdi_phone.utils.logger - [2m2025-01-31T22:11:29.318927Z[0m [[32m[1minfo     [0m] [1mLogger configured             [0m [36mformat[0m=[35mtext[0m [36moutput_file[0m=[35m/var/log/dahdi_phone/dahdi_phone.log[0m
+2025-01-31 22:11:29,321 [INFO] __main__ - [2m2025-01-31T22:11:29.321217Z[0m [[32m[1minfo     [0m] [1mDAHDI logging system initialized[0m
+2025-01-31 22:11:29,325 [INFO] __main__ - [2m2025-01-31T22:11:29.325010Z[0m [[32m[1minfo     [0m] [1mInitializing DAHDI Phone API service...[0m
+2025-01-31 22:11:29,388 [ERROR] dahdi_phone.api.server - [2m2025-01-31T22:11:29.388040Z[0m [[31m[1merror    [0m] [1mUnexpected error during server startup[0m 
+Traceback (most recent call last):
+  File "/app/src/dahdi_phone/api/server.py", line 301, in run_server
+    api = DAHDIPhoneAPI()
+  File "/app/src/dahdi_phone/api/server.py", line 52, in __init__
+    from .websocket import PhoneEventTypes
+  File "/app/src/dahdi_phone/api/websocket.py", line 3, in <module>
+    class PhoneEventTypes(str, Enum):
+NameError: name 'Enum' is not defined
+2025-01-31 22:11:30,209 [INFO] dahdi_phone.utils.logger - [2m2025-01-31T22:11:30.209192Z[0m [[32m[1minfo     [0m] [1mLogger configured             [0m [36mformat[0m=[35mtext[0m [36moutput_file[0m=[35m/var/log/dahdi_phone/dahdi_phone.log[0m
+2025-01-31 22:11:30,211 [INFO] __main__ - [2m2025-01-31T22:11:30.211939Z[0m [[32m[1minfo     [0m] [1mDAHDI logging system initialized[0m
+2025-01-31 22:11:30,220 [INFO] __main__ - [2m2025-01-31T22:11:30.220293Z[0m [[32m[1minfo     [0m] [1mInitializing DAHDI Phone API service...[0m
+2025-01-31 22:11:30,288 [ERROR] dahdi_phone.api.server - [2m2025-01-31T22:11:30.288229Z[0m [[31m[1merror    [0m] [1mUnexpected error during server startup[0m 
+Traceback (most recent call last):
+  File "/app/src/dahdi_phone/api/server.py", line 301, in run_server
+    api = DAHDIPhoneAPI()
+  File "/app/src/dahdi_phone/api/server.py", line 52, in __init__
+    from .websocket import PhoneEventTypes
+  File "/app/src/dahdi_phone/api/websocket.py", line 3, in <module>
+    class PhoneEventTypes(str, Enum):
+NameError: name 'Enum' is not defined
+2025-01-31 22:13:52,718 [INFO] dahdi_phone.utils.logger - [2m2025-01-31T22:13:52.718499Z[0m [[32m[1minfo     [0m] [1mLogger configured             [0m [36mformat[0m=[35mtext[0m [36moutput_file[0m=[35m/var/log/dahdi_phone/dahdi_phone.log[0m
+2025-01-31 22:13:52,720 [INFO] __main__ - [2m2025-01-31T22:13:52.720929Z[0m [[32m[1minfo     [0m] [1mDAHDI logging system initialized[0m
+2025-01-31 22:13:52,722 [INFO] __main__ - [2m2025-01-31T22:13:52.722533Z[0m [[32m[1minfo     [0m] [1mInitializing DAHDI Phone API service...[0m
+2025-01-31 22:13:52,781 [INFO] dahdi_phone.api.server - DAHDI Phone API server initialized
+2025-01-31 22:13:52,782 [INFO] dahdi_phone.api.server - [2m2025-01-31T22:13:52.782052Z[0m [[32m[1minfo     [0m] [1mStarting server with configuration:[0m
+2025-01-31 22:13:52,801 [INFO] uvicorn.error - Started server process [1]
+2025-01-31 22:13:52,802 [INFO] uvicorn.error - Waiting for application startup.
+2025-01-31 22:13:52,803 [ERROR] dahdi_phone.api.server - Startup failed: Logger._log() got an unexpected keyword argument 'dev_mode'
+Traceback (most recent call last):
+  File "/app/src/dahdi_phone/api/server.py", line 136, in startup_event
+    logger.info("Development mode settings",
+  File "/usr/lib/python3.10/logging/__init__.py", line 1477, in info
+    self._log(INFO, msg, args, **kwargs)
+TypeError: Logger._log() got an unexpected keyword argument 'dev_mode'
+2025-01-31 22:13:52,804 [ERROR] uvicorn.error - Traceback (most recent call last):
+  File "/app/src/dahdi_phone/api/server.py", line 136, in startup_event
+    logger.info("Development mode settings",
+  File "/usr/lib/python3.10/logging/__init__.py", line 1477, in info
+    self._log(INFO, msg, args, **kwargs)
+TypeError: Logger._log() got an unexpected keyword argument 'dev_mode'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 540, in lifespan
+    async for item in self.lifespan_context(app):
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 481, in default_lifespan
+    await self.startup()
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 516, in startup
+    await handler()
+  File "/app/src/dahdi_phone/api/server.py", line 203, in startup_event
+    sys.exit(1)  # Exit with error code
+SystemExit: 1
+
+2025-01-31 22:13:52,805 [ERROR] uvicorn.error - Application startup failed. Exiting.
+2025-01-31 22:13:53,318 [INFO] dahdi_phone.utils.logger - [2m2025-01-31T22:13:53.318031Z[0m [[32m[1minfo     [0m] [1mLogger configured             [0m [36mformat[0m=[35mtext[0m [36moutput_file[0m=[35m/var/log/dahdi_phone/dahdi_phone.log[0m
+2025-01-31 22:13:53,319 [INFO] __main__ - [2m2025-01-31T22:13:53.319292Z[0m [[32m[1minfo     [0m] [1mDAHDI logging system initialized[0m
+2025-01-31 22:13:53,321 [INFO] __main__ - [2m2025-01-31T22:13:53.321177Z[0m [[32m[1minfo     [0m] [1mInitializing DAHDI Phone API service...[0m
+2025-01-31 22:13:53,377 [INFO] dahdi_phone.api.server - DAHDI Phone API server initialized
+2025-01-31 22:13:53,378 [INFO] dahdi_phone.api.server - [2m2025-01-31T22:13:53.378471Z[0m [[32m[1minfo     [0m] [1mStarting server with configuration:[0m
+2025-01-31 22:13:53,389 [INFO] uvicorn.error - Started server process [1]
+2025-01-31 22:13:53,389 [INFO] uvicorn.error - Waiting for application startup.
+2025-01-31 22:13:53,390 [ERROR] dahdi_phone.api.server - Startup failed: Logger._log() got an unexpected keyword argument 'dev_mode'
+Traceback (most recent call last):
+  File "/app/src/dahdi_phone/api/server.py", line 136, in startup_event
+    logger.info("Development mode settings",
+  File "/usr/lib/python3.10/logging/__init__.py", line 1477, in info
+    self._log(INFO, msg, args, **kwargs)
+TypeError: Logger._log() got an unexpected keyword argument 'dev_mode'
+2025-01-31 22:13:53,391 [ERROR] uvicorn.error - Traceback (most recent call last):
+  File "/app/src/dahdi_phone/api/server.py", line 136, in startup_event
+    logger.info("Development mode settings",
+  File "/usr/lib/python3.10/logging/__init__.py", line 1477, in info
+    self._log(INFO, msg, args, **kwargs)
+TypeError: Logger._log() got an unexpected keyword argument 'dev_mode'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 540, in lifespan
+    async for item in self.lifespan_context(app):
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 481, in default_lifespan
+    await self.startup()
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 516, in startup
+    await handler()
+  File "/app/src/dahdi_phone/api/server.py", line 203, in startup_event
+    sys.exit(1)  # Exit with error code
+SystemExit: 1
+
+2025-01-31 22:13:53,392 [ERROR] uvicorn.error - Application startup failed. Exiting.
+2025-01-31 22:13:53,982 [INFO] dahdi_phone.utils.logger - [2m2025-01-31T22:13:53.981929Z[0m [[32m[1minfo     [0m] [1mLogger configured             [0m [36mformat[0m=[35mtext[0m [36moutput_file[0m=[35m/var/log/dahdi_phone/dahdi_phone.log[0m
+2025-01-31 22:13:53,983 [INFO] __main__ - [2m2025-01-31T22:13:53.983322Z[0m [[32m[1minfo     [0m] [1mDAHDI logging system initialized[0m
+2025-01-31 22:13:53,984 [INFO] __main__ - [2m2025-01-31T22:13:53.984412Z[0m [[32m[1minfo     [0m] [1mInitializing DAHDI Phone API service...[0m
+2025-01-31 22:13:54,044 [INFO] dahdi_phone.api.server - DAHDI Phone API server initialized
+2025-01-31 22:13:54,044 [INFO] dahdi_phone.api.server - [2m2025-01-31T22:13:54.044722Z[0m [[32m[1minfo     [0m] [1mStarting server with configuration:[0m
+2025-01-31 22:13:54,054 [INFO] uvicorn.error - Started server process [1]
+2025-01-31 22:13:54,055 [INFO] uvicorn.error - Waiting for application startup.
+2025-01-31 22:13:54,056 [ERROR] dahdi_phone.api.server - Startup failed: Logger._log() got an unexpected keyword argument 'dev_mode'
+Traceback (most recent call last):
+  File "/app/src/dahdi_phone/api/server.py", line 136, in startup_event
+    logger.info("Development mode settings",
+  File "/usr/lib/python3.10/logging/__init__.py", line 1477, in info
+    self._log(INFO, msg, args, **kwargs)
+TypeError: Logger._log() got an unexpected keyword argument 'dev_mode'
+2025-01-31 22:13:54,057 [ERROR] uvicorn.error - Traceback (most recent call last):
+  File "/app/src/dahdi_phone/api/server.py", line 136, in startup_event
+    logger.info("Development mode settings",
+  File "/usr/lib/python3.10/logging/__init__.py", line 1477, in info
+    self._log(INFO, msg, args, **kwargs)
+TypeError: Logger._log() got an unexpected keyword argument 'dev_mode'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 540, in lifespan
+    async for item in self.lifespan_context(app):
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 481, in default_lifespan
+    await self.startup()
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 516, in startup
+    await handler()
+  File "/app/src/dahdi_phone/api/server.py", line 203, in startup_event
+    sys.exit(1)  # Exit with error code
+SystemExit: 1
+
+2025-01-31 22:13:54,057 [ERROR] uvicorn.error - Application startup failed. Exiting.
+2025-01-31 22:13:54,907 [INFO] dahdi_phone.utils.logger - [2m2025-01-31T22:13:54.907446Z[0m [[32m[1minfo     [0m] [1mLogger configured             [0m [36mformat[0m=[35mtext[0m [36moutput_file[0m=[35m/var/log/dahdi_phone/dahdi_phone.log[0m
+2025-01-31 22:13:54,908 [INFO] __main__ - [2m2025-01-31T22:13:54.908100Z[0m [[32m[1minfo     [0m] [1mDAHDI logging system initialized[0m
+2025-01-31 22:13:54,909 [INFO] __main__ - [2m2025-01-31T22:13:54.908912Z[0m [[32m[1minfo     [0m] [1mInitializing DAHDI Phone API service...[0m
+2025-01-31 22:13:54,963 [INFO] dahdi_phone.api.server - DAHDI Phone API server initialized
+2025-01-31 22:13:54,964 [INFO] dahdi_phone.api.server - [2m2025-01-31T22:13:54.964066Z[0m [[32m[1minfo     [0m] [1mStarting server with configuration:[0m
+2025-01-31 22:13:54,974 [INFO] uvicorn.error - Started server process [1]
+2025-01-31 22:13:54,975 [INFO] uvicorn.error - Waiting for application startup.
+2025-01-31 22:13:54,976 [ERROR] dahdi_phone.api.server - Startup failed: Logger._log() got an unexpected keyword argument 'dev_mode'
+Traceback (most recent call last):
+  File "/app/src/dahdi_phone/api/server.py", line 136, in startup_event
+    logger.info("Development mode settings",
+  File "/usr/lib/python3.10/logging/__init__.py", line 1477, in info
+    self._log(INFO, msg, args, **kwargs)
+TypeError: Logger._log() got an unexpected keyword argument 'dev_mode'
+2025-01-31 22:13:54,977 [ERROR] uvicorn.error - Traceback (most recent call last):
+  File "/app/src/dahdi_phone/api/server.py", line 136, in startup_event
+    logger.info("Development mode settings",
+  File "/usr/lib/python3.10/logging/__init__.py", line 1477, in info
+    self._log(INFO, msg, args, **kwargs)
+TypeError: Logger._log() got an unexpected keyword argument 'dev_mode'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 540, in lifespan
+    async for item in self.lifespan_context(app):
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 481, in default_lifespan
+    await self.startup()
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 516, in startup
+    await handler()
+  File "/app/src/dahdi_phone/api/server.py", line 203, in startup_event
+    sys.exit(1)  # Exit with error code
+SystemExit: 1
+
+2025-01-31 22:13:54,978 [ERROR] uvicorn.error - Application startup failed. Exiting.
+2025-01-31 22:13:56,174 [INFO] dahdi_phone.utils.logger - [2m2025-01-31T22:13:56.174538Z[0m [[32m[1minfo     [0m] [1mLogger configured             [0m [36mformat[0m=[35mtext[0m [36moutput_file[0m=[35m/var/log/dahdi_phone/dahdi_phone.log[0m
+2025-01-31 22:13:56,179 [INFO] __main__ - [2m2025-01-31T22:13:56.179445Z[0m [[32m[1minfo     [0m] [1mDAHDI logging system initialized[0m
+2025-01-31 22:13:56,181 [INFO] __main__ - [2m2025-01-31T22:13:56.181955Z[0m [[32m[1minfo     [0m] [1mInitializing DAHDI Phone API service...[0m
+2025-01-31 22:13:56,243 [INFO] dahdi_phone.api.server - DAHDI Phone API server initialized
+2025-01-31 22:13:56,244 [INFO] dahdi_phone.api.server - [2m2025-01-31T22:13:56.244447Z[0m [[32m[1minfo     [0m] [1mStarting server with configuration:[0m
+2025-01-31 22:13:56,254 [INFO] uvicorn.error - Started server process [1]
+2025-01-31 22:13:56,254 [INFO] uvicorn.error - Waiting for application startup.
+2025-01-31 22:13:56,255 [ERROR] dahdi_phone.api.server - Startup failed: Logger._log() got an unexpected keyword argument 'dev_mode'
+Traceback (most recent call last):
+  File "/app/src/dahdi_phone/api/server.py", line 136, in startup_event
+    logger.info("Development mode settings",
+  File "/usr/lib/python3.10/logging/__init__.py", line 1477, in info
+    self._log(INFO, msg, args, **kwargs)
+TypeError: Logger._log() got an unexpected keyword argument 'dev_mode'
+2025-01-31 22:13:56,256 [ERROR] uvicorn.error - Traceback (most recent call last):
+  File "/app/src/dahdi_phone/api/server.py", line 136, in startup_event
+    logger.info("Development mode settings",
+  File "/usr/lib/python3.10/logging/__init__.py", line 1477, in info
+    self._log(INFO, msg, args, **kwargs)
+TypeError: Logger._log() got an unexpected keyword argument 'dev_mode'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 540, in lifespan
+    async for item in self.lifespan_context(app):
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 481, in default_lifespan
+    await self.startup()
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 516, in startup
+    await handler()
+  File "/app/src/dahdi_phone/api/server.py", line 203, in startup_event
+    sys.exit(1)  # Exit with error code
+SystemExit: 1
+
+2025-01-31 22:13:56,256 [ERROR] uvicorn.error - Application startup failed. Exiting.
+2025-01-31 22:15:46,626 [INFO] dahdi_phone.utils.logger - [2m2025-01-31T22:15:46.626512Z[0m [[32m[1minfo     [0m] [1mLogger configured             [0m [36mformat[0m=[35mtext[0m [36moutput_file[0m=[35m/var/log/dahdi_phone/dahdi_phone.log[0m
+2025-01-31 22:15:46,627 [INFO] __main__ - [2m2025-01-31T22:15:46.627747Z[0m [[32m[1minfo     [0m] [1mDAHDI logging system initialized[0m
+2025-01-31 22:15:46,628 [INFO] __main__ - [2m2025-01-31T22:15:46.628263Z[0m [[32m[1minfo     [0m] [1mInitializing DAHDI Phone API service...[0m
+2025-01-31 22:15:46,781 [INFO] dahdi_phone.api.server - DAHDI Phone API server initialized
+2025-01-31 22:15:46,782 [INFO] dahdi_phone.api.server - [2m2025-01-31T22:15:46.782870Z[0m [[32m[1minfo     [0m] [1mStarting server with configuration:[0m
+2025-01-31 22:15:46,800 [INFO] uvicorn.error - Started server process [1]
+2025-01-31 22:15:46,803 [INFO] uvicorn.error - Waiting for application startup.
+2025-01-31 22:15:46,804 [ERROR] dahdi_phone.api.server - Startup failed: Logger._log() got an unexpected keyword argument 'dev_mode'
+Traceback (most recent call last):
+  File "/app/src/dahdi_phone/api/server.py", line 136, in startup_event
+    logger.info("Development mode settings",
+  File "/usr/lib/python3.10/logging/__init__.py", line 1477, in info
+    self._log(INFO, msg, args, **kwargs)
+TypeError: Logger._log() got an unexpected keyword argument 'dev_mode'
+2025-01-31 22:15:46,806 [ERROR] uvicorn.error - Traceback (most recent call last):
+  File "/app/src/dahdi_phone/api/server.py", line 136, in startup_event
+    logger.info("Development mode settings",
+  File "/usr/lib/python3.10/logging/__init__.py", line 1477, in info
+    self._log(INFO, msg, args, **kwargs)
+TypeError: Logger._log() got an unexpected keyword argument 'dev_mode'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 540, in lifespan
+    async for item in self.lifespan_context(app):
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 481, in default_lifespan
+    await self.startup()
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 516, in startup
+    await handler()
+  File "/app/src/dahdi_phone/api/server.py", line 203, in startup_event
+    sys.exit(1)  # Exit with error code
+SystemExit: 1
+
+2025-01-31 22:15:46,810 [ERROR] uvicorn.error - Application startup failed. Exiting.
+2025-01-31 22:15:47,894 [INFO] dahdi_phone.utils.logger - [2m2025-01-31T22:15:47.894720Z[0m [[32m[1minfo     [0m] [1mLogger configured             [0m [36mformat[0m=[35mtext[0m [36moutput_file[0m=[35m/var/log/dahdi_phone/dahdi_phone.log[0m
+2025-01-31 22:15:47,894 [INFO] __main__ - [2m2025-01-31T22:15:47.894962Z[0m [[32m[1minfo     [0m] [1mDAHDI logging system initialized[0m
+2025-01-31 22:15:47,895 [INFO] __main__ - [2m2025-01-31T22:15:47.895358Z[0m [[32m[1minfo     [0m] [1mInitializing DAHDI Phone API service...[0m
+2025-01-31 22:15:47,959 [INFO] dahdi_phone.api.server - DAHDI Phone API server initialized
+2025-01-31 22:15:47,959 [INFO] dahdi_phone.api.server - [2m2025-01-31T22:15:47.959688Z[0m [[32m[1minfo     [0m] [1mStarting server with configuration:[0m
+2025-01-31 22:15:47,972 [INFO] uvicorn.error - Started server process [1]
+2025-01-31 22:15:47,972 [INFO] uvicorn.error - Waiting for application startup.
+2025-01-31 22:15:47,973 [ERROR] dahdi_phone.api.server - Startup failed: Logger._log() got an unexpected keyword argument 'dev_mode'
+Traceback (most recent call last):
+  File "/app/src/dahdi_phone/api/server.py", line 136, in startup_event
+    logger.info("Development mode settings",
+  File "/usr/lib/python3.10/logging/__init__.py", line 1477, in info
+    self._log(INFO, msg, args, **kwargs)
+TypeError: Logger._log() got an unexpected keyword argument 'dev_mode'
+2025-01-31 22:15:47,974 [ERROR] uvicorn.error - Traceback (most recent call last):
+  File "/app/src/dahdi_phone/api/server.py", line 136, in startup_event
+    logger.info("Development mode settings",
+  File "/usr/lib/python3.10/logging/__init__.py", line 1477, in info
+    self._log(INFO, msg, args, **kwargs)
+TypeError: Logger._log() got an unexpected keyword argument 'dev_mode'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 540, in lifespan
+    async for item in self.lifespan_context(app):
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 481, in default_lifespan
+    await self.startup()
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 516, in startup
+    await handler()
+  File "/app/src/dahdi_phone/api/server.py", line 203, in startup_event
+    sys.exit(1)  # Exit with error code
+SystemExit: 1
+
+2025-01-31 22:15:47,975 [ERROR] uvicorn.error - Application startup failed. Exiting.
+2025-01-31 22:15:48,968 [INFO] dahdi_phone.utils.logger - [2m2025-01-31T22:15:48.967982Z[0m [[32m[1minfo     [0m] [1mLogger configured             [0m [36mformat[0m=[35mtext[0m [36moutput_file[0m=[35m/var/log/dahdi_phone/dahdi_phone.log[0m
+2025-01-31 22:15:48,968 [INFO] __main__ - [2m2025-01-31T22:15:48.968370Z[0m [[32m[1minfo     [0m] [1mDAHDI logging system initialized[0m
+2025-01-31 22:15:48,968 [INFO] __main__ - [2m2025-01-31T22:15:48.968696Z[0m [[32m[1minfo     [0m] [1mInitializing DAHDI Phone API service...[0m
+2025-01-31 22:15:49,036 [INFO] dahdi_phone.api.server - DAHDI Phone API server initialized
+2025-01-31 22:15:49,037 [INFO] dahdi_phone.api.server - [2m2025-01-31T22:15:49.037288Z[0m [[32m[1minfo     [0m] [1mStarting server with configuration:[0m
+2025-01-31 22:15:49,050 [INFO] uvicorn.error - Started server process [1]
+2025-01-31 22:15:49,051 [INFO] uvicorn.error - Waiting for application startup.
+2025-01-31 22:15:49,051 [ERROR] dahdi_phone.api.server - Startup failed: Logger._log() got an unexpected keyword argument 'dev_mode'
+Traceback (most recent call last):
+  File "/app/src/dahdi_phone/api/server.py", line 136, in startup_event
+    logger.info("Development mode settings",
+  File "/usr/lib/python3.10/logging/__init__.py", line 1477, in info
+    self._log(INFO, msg, args, **kwargs)
+TypeError: Logger._log() got an unexpected keyword argument 'dev_mode'
+2025-01-31 22:15:49,052 [ERROR] uvicorn.error - Traceback (most recent call last):
+  File "/app/src/dahdi_phone/api/server.py", line 136, in startup_event
+    logger.info("Development mode settings",
+  File "/usr/lib/python3.10/logging/__init__.py", line 1477, in info
+    self._log(INFO, msg, args, **kwargs)
+TypeError: Logger._log() got an unexpected keyword argument 'dev_mode'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 540, in lifespan
+    async for item in self.lifespan_context(app):
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 481, in default_lifespan
+    await self.startup()
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 516, in startup
+    await handler()
+  File "/app/src/dahdi_phone/api/server.py", line 203, in startup_event
+    sys.exit(1)  # Exit with error code
+SystemExit: 1
+
+2025-01-31 22:15:49,063 [ERROR] uvicorn.error - Application startup failed. Exiting.
+2025-01-31 22:15:50,303 [INFO] dahdi_phone.utils.logger - [2m2025-01-31T22:15:50.303103Z[0m [[32m[1minfo     [0m] [1mLogger configured             [0m [36mformat[0m=[35mtext[0m [36moutput_file[0m=[35m/var/log/dahdi_phone/dahdi_phone.log[0m
+2025-01-31 22:15:50,308 [INFO] __main__ - [2m2025-01-31T22:15:50.307970Z[0m [[32m[1minfo     [0m] [1mDAHDI logging system initialized[0m
+2025-01-31 22:15:50,321 [INFO] __main__ - [2m2025-01-31T22:15:50.321626Z[0m [[32m[1minfo     [0m] [1mInitializing DAHDI Phone API service...[0m
+2025-01-31 22:15:50,430 [INFO] dahdi_phone.api.server - DAHDI Phone API server initialized
+2025-01-31 22:15:50,431 [INFO] dahdi_phone.api.server - [2m2025-01-31T22:15:50.431089Z[0m [[32m[1minfo     [0m] [1mStarting server with configuration:[0m
+2025-01-31 22:15:50,447 [INFO] uvicorn.error - Started server process [1]
+2025-01-31 22:15:50,448 [INFO] uvicorn.error - Waiting for application startup.
+2025-01-31 22:15:50,449 [ERROR] dahdi_phone.api.server - Startup failed: Logger._log() got an unexpected keyword argument 'dev_mode'
+Traceback (most recent call last):
+  File "/app/src/dahdi_phone/api/server.py", line 136, in startup_event
+    logger.info("Development mode settings",
+  File "/usr/lib/python3.10/logging/__init__.py", line 1477, in info
+    self._log(INFO, msg, args, **kwargs)
+TypeError: Logger._log() got an unexpected keyword argument 'dev_mode'
+2025-01-31 22:15:50,450 [ERROR] uvicorn.error - Traceback (most recent call last):
+  File "/app/src/dahdi_phone/api/server.py", line 136, in startup_event
+    logger.info("Development mode settings",
+  File "/usr/lib/python3.10/logging/__init__.py", line 1477, in info
+    self._log(INFO, msg, args, **kwargs)
+TypeError: Logger._log() got an unexpected keyword argument 'dev_mode'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 540, in lifespan
+    async for item in self.lifespan_context(app):
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 481, in default_lifespan
+    await self.startup()
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 516, in startup
+    await handler()
+  File "/app/src/dahdi_phone/api/server.py", line 203, in startup_event
+    sys.exit(1)  # Exit with error code
+SystemExit: 1
+
+2025-01-31 22:15:50,451 [ERROR] uvicorn.error - Application startup failed. Exiting.
+2025-01-31 22:15:52,138 [INFO] dahdi_phone.utils.logger - [2m2025-01-31T22:15:52.138357Z[0m [[32m[1minfo     [0m] [1mLogger configured             [0m [36mformat[0m=[35mtext[0m [36moutput_file[0m=[35m/var/log/dahdi_phone/dahdi_phone.log[0m
+2025-01-31 22:15:52,139 [INFO] __main__ - [2m2025-01-31T22:15:52.139020Z[0m [[32m[1minfo     [0m] [1mDAHDI logging system initialized[0m
+2025-01-31 22:15:52,141 [INFO] __main__ - [2m2025-01-31T22:15:52.141138Z[0m [[32m[1minfo     [0m] [1mInitializing DAHDI Phone API service...[0m
+2025-01-31 22:15:52,296 [INFO] dahdi_phone.api.server - DAHDI Phone API server initialized
+2025-01-31 22:15:52,297 [INFO] dahdi_phone.api.server - [2m2025-01-31T22:15:52.297400Z[0m [[32m[1minfo     [0m] [1mStarting server with configuration:[0m
+2025-01-31 22:15:52,319 [INFO] uvicorn.error - Started server process [1]
+2025-01-31 22:15:52,321 [INFO] uvicorn.error - Waiting for application startup.
+2025-01-31 22:15:52,322 [ERROR] dahdi_phone.api.server - Startup failed: Logger._log() got an unexpected keyword argument 'dev_mode'
+Traceback (most recent call last):
+  File "/app/src/dahdi_phone/api/server.py", line 136, in startup_event
+    logger.info("Development mode settings",
+  File "/usr/lib/python3.10/logging/__init__.py", line 1477, in info
+    self._log(INFO, msg, args, **kwargs)
+TypeError: Logger._log() got an unexpected keyword argument 'dev_mode'
+2025-01-31 22:15:52,323 [ERROR] uvicorn.error - Traceback (most recent call last):
+  File "/app/src/dahdi_phone/api/server.py", line 136, in startup_event
+    logger.info("Development mode settings",
+  File "/usr/lib/python3.10/logging/__init__.py", line 1477, in info
+    self._log(INFO, msg, args, **kwargs)
+TypeError: Logger._log() got an unexpected keyword argument 'dev_mode'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 540, in lifespan
+    async for item in self.lifespan_context(app):
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 481, in default_lifespan
+    await self.startup()
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 516, in startup
+    await handler()
+  File "/app/src/dahdi_phone/api/server.py", line 203, in startup_event
+    sys.exit(1)  # Exit with error code
+SystemExit: 1
+
+2025-01-31 22:15:52,324 [ERROR] uvicorn.error - Application startup failed. Exiting.
+2025-01-31 22:15:54,652 [INFO] dahdi_phone.utils.logger - [2m2025-01-31T22:15:54.652366Z[0m [[32m[1minfo     [0m] [1mLogger configured             [0m [36mformat[0m=[35mtext[0m [36moutput_file[0m=[35m/var/log/dahdi_phone/dahdi_phone.log[0m
+2025-01-31 22:15:54,652 [INFO] __main__ - [2m2025-01-31T22:15:54.652652Z[0m [[32m[1minfo     [0m] [1mDAHDI logging system initialized[0m
+2025-01-31 22:15:54,652 [INFO] __main__ - [2m2025-01-31T22:15:54.652877Z[0m [[32m[1minfo     [0m] [1mInitializing DAHDI Phone API service...[0m
+2025-01-31 22:15:54,714 [INFO] dahdi_phone.api.server - DAHDI Phone API server initialized
+2025-01-31 22:15:54,714 [INFO] dahdi_phone.api.server - [2m2025-01-31T22:15:54.714757Z[0m [[32m[1minfo     [0m] [1mStarting server with configuration:[0m
+2025-01-31 22:15:54,728 [INFO] uvicorn.error - Started server process [1]
+2025-01-31 22:15:54,729 [INFO] uvicorn.error - Waiting for application startup.
+2025-01-31 22:15:54,731 [ERROR] dahdi_phone.api.server - Startup failed: Logger._log() got an unexpected keyword argument 'dev_mode'
+Traceback (most recent call last):
+  File "/app/src/dahdi_phone/api/server.py", line 136, in startup_event
+    logger.info("Development mode settings",
+  File "/usr/lib/python3.10/logging/__init__.py", line 1477, in info
+    self._log(INFO, msg, args, **kwargs)
+TypeError: Logger._log() got an unexpected keyword argument 'dev_mode'
+2025-01-31 22:15:54,732 [ERROR] uvicorn.error - Traceback (most recent call last):
+  File "/app/src/dahdi_phone/api/server.py", line 136, in startup_event
+    logger.info("Development mode settings",
+  File "/usr/lib/python3.10/logging/__init__.py", line 1477, in info
+    self._log(INFO, msg, args, **kwargs)
+TypeError: Logger._log() got an unexpected keyword argument 'dev_mode'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 540, in lifespan
+    async for item in self.lifespan_context(app):
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 481, in default_lifespan
+    await self.startup()
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 516, in startup
+    await handler()
+  File "/app/src/dahdi_phone/api/server.py", line 203, in startup_event
+    sys.exit(1)  # Exit with error code
+SystemExit: 1
+
+2025-01-31 22:15:54,734 [ERROR] uvicorn.error - Application startup failed. Exiting.
+2025-01-31 22:16:22,689 [INFO] dahdi_phone.utils.logger - [2m2025-01-31T22:16:22.689549Z[0m [[32m[1minfo     [0m] [1mLogger configured             [0m [36mformat[0m=[35mtext[0m [36moutput_file[0m=[35m/var/log/dahdi_phone/dahdi_phone.log[0m
+2025-01-31 22:16:22,689 [INFO] __main__ - [2m2025-01-31T22:16:22.689810Z[0m [[32m[1minfo     [0m] [1mDAHDI logging system initialized[0m
+2025-01-31 22:16:22,690 [INFO] __main__ - [2m2025-01-31T22:16:22.690257Z[0m [[32m[1minfo     [0m] [1mInitializing DAHDI Phone API service...[0m
+2025-01-31 22:16:22,741 [INFO] dahdi_phone.api.server - DAHDI Phone API server initialized
+2025-01-31 22:16:22,742 [INFO] dahdi_phone.api.server - [2m2025-01-31T22:16:22.742504Z[0m [[32m[1minfo     [0m] [1mStarting server with configuration:[0m
+2025-01-31 22:16:22,758 [INFO] uvicorn.error - Started server process [1]
+2025-01-31 22:16:22,759 [INFO] uvicorn.error - Waiting for application startup.
+2025-01-31 22:16:22,760 [ERROR] dahdi_phone.api.server - Startup failed: Logger._log() got an unexpected keyword argument 'dev_mode'
+Traceback (most recent call last):
+  File "/app/src/dahdi_phone/api/server.py", line 136, in startup_event
+    logger.info("Development mode settings",
+  File "/usr/lib/python3.10/logging/__init__.py", line 1477, in info
+    self._log(INFO, msg, args, **kwargs)
+TypeError: Logger._log() got an unexpected keyword argument 'dev_mode'
+2025-01-31 22:16:22,761 [ERROR] uvicorn.error - Traceback (most recent call last):
+  File "/app/src/dahdi_phone/api/server.py", line 136, in startup_event
+    logger.info("Development mode settings",
+  File "/usr/lib/python3.10/logging/__init__.py", line 1477, in info
+    self._log(INFO, msg, args, **kwargs)
+TypeError: Logger._log() got an unexpected keyword argument 'dev_mode'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 540, in lifespan
+    async for item in self.lifespan_context(app):
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 481, in default_lifespan
+    await self.startup()
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 516, in startup
+    await handler()
+  File "/app/src/dahdi_phone/api/server.py", line 203, in startup_event
+    sys.exit(1)  # Exit with error code
+SystemExit: 1
+
+2025-01-31 22:16:22,763 [ERROR] uvicorn.error - Application startup failed. Exiting.
+2025-01-31 22:16:23,424 [INFO] dahdi_phone.utils.logger - [2m2025-01-31T22:16:23.424261Z[0m [[32m[1minfo     [0m] [1mLogger configured             [0m [36mformat[0m=[35mtext[0m [36moutput_file[0m=[35m/var/log/dahdi_phone/dahdi_phone.log[0m
+2025-01-31 22:16:23,424 [INFO] __main__ - [2m2025-01-31T22:16:23.424847Z[0m [[32m[1minfo     [0m] [1mDAHDI logging system initialized[0m
+2025-01-31 22:16:23,426 [INFO] __main__ - [2m2025-01-31T22:16:23.426251Z[0m [[32m[1minfo     [0m] [1mInitializing DAHDI Phone API service...[0m
+2025-01-31 22:16:23,477 [INFO] dahdi_phone.api.server - DAHDI Phone API server initialized
+2025-01-31 22:16:23,477 [INFO] dahdi_phone.api.server - [2m2025-01-31T22:16:23.477925Z[0m [[32m[1minfo     [0m] [1mStarting server with configuration:[0m
+2025-01-31 22:16:23,490 [INFO] uvicorn.error - Started server process [1]
+2025-01-31 22:16:23,491 [INFO] uvicorn.error - Waiting for application startup.
+2025-01-31 22:16:23,492 [ERROR] dahdi_phone.api.server - Startup failed: Logger._log() got an unexpected keyword argument 'dev_mode'
+Traceback (most recent call last):
+  File "/app/src/dahdi_phone/api/server.py", line 136, in startup_event
+    logger.info("Development mode settings",
+  File "/usr/lib/python3.10/logging/__init__.py", line 1477, in info
+    self._log(INFO, msg, args, **kwargs)
+TypeError: Logger._log() got an unexpected keyword argument 'dev_mode'
+2025-01-31 22:16:23,493 [ERROR] uvicorn.error - Traceback (most recent call last):
+  File "/app/src/dahdi_phone/api/server.py", line 136, in startup_event
+    logger.info("Development mode settings",
+  File "/usr/lib/python3.10/logging/__init__.py", line 1477, in info
+    self._log(INFO, msg, args, **kwargs)
+TypeError: Logger._log() got an unexpected keyword argument 'dev_mode'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 540, in lifespan
+    async for item in self.lifespan_context(app):
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 481, in default_lifespan
+    await self.startup()
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 516, in startup
+    await handler()
+  File "/app/src/dahdi_phone/api/server.py", line 203, in startup_event
+    sys.exit(1)  # Exit with error code
+SystemExit: 1
+
+2025-01-31 22:16:23,493 [ERROR] uvicorn.error - Application startup failed. Exiting.
+2025-01-31 22:16:24,333 [INFO] dahdi_phone.utils.logger - [2m2025-01-31T22:16:24.333726Z[0m [[32m[1minfo     [0m] [1mLogger configured             [0m [36mformat[0m=[35mtext[0m [36moutput_file[0m=[35m/var/log/dahdi_phone/dahdi_phone.log[0m
+2025-01-31 22:16:24,333 [INFO] __main__ - [2m2025-01-31T22:16:24.333972Z[0m [[32m[1minfo     [0m] [1mDAHDI logging system initialized[0m
+2025-01-31 22:16:24,334 [INFO] __main__ - [2m2025-01-31T22:16:24.334323Z[0m [[32m[1minfo     [0m] [1mInitializing DAHDI Phone API service...[0m
+2025-01-31 22:16:24,388 [INFO] dahdi_phone.api.server - DAHDI Phone API server initialized
+2025-01-31 22:16:24,389 [INFO] dahdi_phone.api.server - [2m2025-01-31T22:16:24.389378Z[0m [[32m[1minfo     [0m] [1mStarting server with configuration:[0m
+2025-01-31 22:16:24,406 [INFO] uvicorn.error - Started server process [1]
+2025-01-31 22:16:24,407 [INFO] uvicorn.error - Waiting for application startup.
+2025-01-31 22:16:24,408 [ERROR] dahdi_phone.api.server - Startup failed: Logger._log() got an unexpected keyword argument 'dev_mode'
+Traceback (most recent call last):
+  File "/app/src/dahdi_phone/api/server.py", line 136, in startup_event
+    logger.info("Development mode settings",
+  File "/usr/lib/python3.10/logging/__init__.py", line 1477, in info
+    self._log(INFO, msg, args, **kwargs)
+TypeError: Logger._log() got an unexpected keyword argument 'dev_mode'
+2025-01-31 22:16:24,409 [ERROR] uvicorn.error - Traceback (most recent call last):
+  File "/app/src/dahdi_phone/api/server.py", line 136, in startup_event
+    logger.info("Development mode settings",
+  File "/usr/lib/python3.10/logging/__init__.py", line 1477, in info
+    self._log(INFO, msg, args, **kwargs)
+TypeError: Logger._log() got an unexpected keyword argument 'dev_mode'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 540, in lifespan
+    async for item in self.lifespan_context(app):
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 481, in default_lifespan
+    await self.startup()
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 516, in startup
+    await handler()
+  File "/app/src/dahdi_phone/api/server.py", line 203, in startup_event
+    sys.exit(1)  # Exit with error code
+SystemExit: 1
+
+2025-01-31 22:16:24,409 [ERROR] uvicorn.error - Application startup failed. Exiting.
+2025-01-31 22:16:25,353 [INFO] dahdi_phone.utils.logger - [2m2025-01-31T22:16:25.353423Z[0m [[32m[1minfo     [0m] [1mLogger configured             [0m [36mformat[0m=[35mtext[0m [36moutput_file[0m=[35m/var/log/dahdi_phone/dahdi_phone.log[0m
+2025-01-31 22:16:25,353 [INFO] __main__ - [2m2025-01-31T22:16:25.353800Z[0m [[32m[1minfo     [0m] [1mDAHDI logging system initialized[0m
+2025-01-31 22:16:25,354 [INFO] __main__ - [2m2025-01-31T22:16:25.354909Z[0m [[32m[1minfo     [0m] [1mInitializing DAHDI Phone API service...[0m
+2025-01-31 22:16:25,413 [INFO] dahdi_phone.api.server - DAHDI Phone API server initialized
+2025-01-31 22:16:25,414 [INFO] dahdi_phone.api.server - [2m2025-01-31T22:16:25.414162Z[0m [[32m[1minfo     [0m] [1mStarting server with configuration:[0m
+2025-01-31 22:16:25,426 [INFO] uvicorn.error - Started server process [1]
+2025-01-31 22:16:25,426 [INFO] uvicorn.error - Waiting for application startup.
+2025-01-31 22:16:25,427 [ERROR] dahdi_phone.api.server - Startup failed: Logger._log() got an unexpected keyword argument 'dev_mode'
+Traceback (most recent call last):
+  File "/app/src/dahdi_phone/api/server.py", line 136, in startup_event
+    logger.info("Development mode settings",
+  File "/usr/lib/python3.10/logging/__init__.py", line 1477, in info
+    self._log(INFO, msg, args, **kwargs)
+TypeError: Logger._log() got an unexpected keyword argument 'dev_mode'
+2025-01-31 22:16:25,428 [ERROR] uvicorn.error - Traceback (most recent call last):
+  File "/app/src/dahdi_phone/api/server.py", line 136, in startup_event
+    logger.info("Development mode settings",
+  File "/usr/lib/python3.10/logging/__init__.py", line 1477, in info
+    self._log(INFO, msg, args, **kwargs)
+TypeError: Logger._log() got an unexpected keyword argument 'dev_mode'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 540, in lifespan
+    async for item in self.lifespan_context(app):
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 481, in default_lifespan
+    await self.startup()
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 516, in startup
+    await handler()
+  File "/app/src/dahdi_phone/api/server.py", line 203, in startup_event
+    sys.exit(1)  # Exit with error code
+SystemExit: 1
+
+2025-01-31 22:16:25,429 [ERROR] uvicorn.error - Application startup failed. Exiting.
+2025-01-31 22:16:26,769 [INFO] dahdi_phone.utils.logger - [2m2025-01-31T22:16:26.769304Z[0m [[32m[1minfo     [0m] [1mLogger configured             [0m [36mformat[0m=[35mtext[0m [36moutput_file[0m=[35m/var/log/dahdi_phone/dahdi_phone.log[0m
+2025-01-31 22:16:26,769 [INFO] __main__ - [2m2025-01-31T22:16:26.769525Z[0m [[32m[1minfo     [0m] [1mDAHDI logging system initialized[0m
+2025-01-31 22:16:26,769 [INFO] __main__ - [2m2025-01-31T22:16:26.769888Z[0m [[32m[1minfo     [0m] [1mInitializing DAHDI Phone API service...[0m
+2025-01-31 22:16:26,820 [INFO] dahdi_phone.api.server - DAHDI Phone API server initialized
+2025-01-31 22:16:26,821 [INFO] dahdi_phone.api.server - [2m2025-01-31T22:16:26.821250Z[0m [[32m[1minfo     [0m] [1mStarting server with configuration:[0m
+2025-01-31 22:16:26,832 [INFO] uvicorn.error - Started server process [1]
+2025-01-31 22:16:26,833 [INFO] uvicorn.error - Waiting for application startup.
+2025-01-31 22:16:26,834 [ERROR] dahdi_phone.api.server - Startup failed: Logger._log() got an unexpected keyword argument 'dev_mode'
+Traceback (most recent call last):
+  File "/app/src/dahdi_phone/api/server.py", line 136, in startup_event
+    logger.info("Development mode settings",
+  File "/usr/lib/python3.10/logging/__init__.py", line 1477, in info
+    self._log(INFO, msg, args, **kwargs)
+TypeError: Logger._log() got an unexpected keyword argument 'dev_mode'
+2025-01-31 22:16:26,835 [ERROR] uvicorn.error - Traceback (most recent call last):
+  File "/app/src/dahdi_phone/api/server.py", line 136, in startup_event
+    logger.info("Development mode settings",
+  File "/usr/lib/python3.10/logging/__init__.py", line 1477, in info
+    self._log(INFO, msg, args, **kwargs)
+TypeError: Logger._log() got an unexpected keyword argument 'dev_mode'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 540, in lifespan
+    async for item in self.lifespan_context(app):
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 481, in default_lifespan
+    await self.startup()
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 516, in startup
+    await handler()
+  File "/app/src/dahdi_phone/api/server.py", line 203, in startup_event
+    sys.exit(1)  # Exit with error code
+SystemExit: 1
+
+2025-01-31 22:16:26,835 [ERROR] uvicorn.error - Application startup failed. Exiting.
+2025-01-31 22:17:03,640 [INFO] dahdi_phone.utils.logger - [2m2025-01-31T22:17:03.640932Z[0m [[32m[1minfo     [0m] [1mLogger configured             [0m [36mformat[0m=[35mtext[0m [36moutput_file[0m=[35m/var/log/dahdi_phone/dahdi_phone.log[0m
+2025-01-31 22:17:03,641 [INFO] __main__ - [2m2025-01-31T22:17:03.641302Z[0m [[32m[1minfo     [0m] [1mDAHDI logging system initialized[0m
+2025-01-31 22:17:03,642 [INFO] __main__ - [2m2025-01-31T22:17:03.642104Z[0m [[32m[1minfo     [0m] [1mInitializing DAHDI Phone API service...[0m
+2025-01-31 22:17:03,704 [INFO] dahdi_phone.api.server - DAHDI Phone API server initialized
+2025-01-31 22:17:03,705 [INFO] dahdi_phone.api.server - [2m2025-01-31T22:17:03.705104Z[0m [[32m[1minfo     [0m] [1mStarting server with configuration:[0m
+2025-01-31 22:17:03,720 [INFO] uvicorn.error - Started server process [1]
+2025-01-31 22:17:03,724 [INFO] uvicorn.error - Waiting for application startup.
+2025-01-31 22:17:03,726 [ERROR] dahdi_phone.api.server - Startup failed: Logger._log() got an unexpected keyword argument 'dev_mode'
+Traceback (most recent call last):
+  File "/app/src/dahdi_phone/api/server.py", line 136, in startup_event
+    logger.info("Development mode settings",
+  File "/usr/lib/python3.10/logging/__init__.py", line 1477, in info
+    self._log(INFO, msg, args, **kwargs)
+TypeError: Logger._log() got an unexpected keyword argument 'dev_mode'
+2025-01-31 22:17:03,728 [ERROR] uvicorn.error - Traceback (most recent call last):
+  File "/app/src/dahdi_phone/api/server.py", line 136, in startup_event
+    logger.info("Development mode settings",
+  File "/usr/lib/python3.10/logging/__init__.py", line 1477, in info
+    self._log(INFO, msg, args, **kwargs)
+TypeError: Logger._log() got an unexpected keyword argument 'dev_mode'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 540, in lifespan
+    async for item in self.lifespan_context(app):
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 481, in default_lifespan
+    await self.startup()
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 516, in startup
+    await handler()
+  File "/app/src/dahdi_phone/api/server.py", line 203, in startup_event
+    sys.exit(1)  # Exit with error code
+SystemExit: 1
+
+2025-01-31 22:17:03,731 [ERROR] uvicorn.error - Application startup failed. Exiting.
+2025-01-31 22:17:04,417 [INFO] dahdi_phone.utils.logger - [2m2025-01-31T22:17:04.417569Z[0m [[32m[1minfo     [0m] [1mLogger configured             [0m [36mformat[0m=[35mtext[0m [36moutput_file[0m=[35m/var/log/dahdi_phone/dahdi_phone.log[0m
+2025-01-31 22:17:04,418 [INFO] __main__ - [2m2025-01-31T22:17:04.418664Z[0m [[32m[1minfo     [0m] [1mDAHDI logging system initialized[0m
+2025-01-31 22:17:04,419 [INFO] __main__ - [2m2025-01-31T22:17:04.419137Z[0m [[32m[1minfo     [0m] [1mInitializing DAHDI Phone API service...[0m
+2025-01-31 22:17:04,471 [INFO] dahdi_phone.api.server - DAHDI Phone API server initialized
+2025-01-31 22:17:04,471 [INFO] dahdi_phone.api.server - [2m2025-01-31T22:17:04.471785Z[0m [[32m[1minfo     [0m] [1mStarting server with configuration:[0m
+2025-01-31 22:17:04,484 [INFO] uvicorn.error - Started server process [1]
+2025-01-31 22:17:04,485 [INFO] uvicorn.error - Waiting for application startup.
+2025-01-31 22:17:04,485 [ERROR] dahdi_phone.api.server - Startup failed: Logger._log() got an unexpected keyword argument 'dev_mode'
+Traceback (most recent call last):
+  File "/app/src/dahdi_phone/api/server.py", line 136, in startup_event
+    logger.info("Development mode settings",
+  File "/usr/lib/python3.10/logging/__init__.py", line 1477, in info
+    self._log(INFO, msg, args, **kwargs)
+TypeError: Logger._log() got an unexpected keyword argument 'dev_mode'
+2025-01-31 22:17:04,486 [ERROR] uvicorn.error - Traceback (most recent call last):
+  File "/app/src/dahdi_phone/api/server.py", line 136, in startup_event
+    logger.info("Development mode settings",
+  File "/usr/lib/python3.10/logging/__init__.py", line 1477, in info
+    self._log(INFO, msg, args, **kwargs)
+TypeError: Logger._log() got an unexpected keyword argument 'dev_mode'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 540, in lifespan
+    async for item in self.lifespan_context(app):
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 481, in default_lifespan
+    await self.startup()
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 516, in startup
+    await handler()
+  File "/app/src/dahdi_phone/api/server.py", line 203, in startup_event
+    sys.exit(1)  # Exit with error code
+SystemExit: 1
+
+2025-01-31 22:17:04,487 [ERROR] uvicorn.error - Application startup failed. Exiting.
+2025-01-31 22:17:05,262 [INFO] dahdi_phone.utils.logger - [2m2025-01-31T22:17:05.262522Z[0m [[32m[1minfo     [0m] [1mLogger configured             [0m [36mformat[0m=[35mtext[0m [36moutput_file[0m=[35m/var/log/dahdi_phone/dahdi_phone.log[0m
+2025-01-31 22:17:05,263 [INFO] __main__ - [2m2025-01-31T22:17:05.263076Z[0m [[32m[1minfo     [0m] [1mDAHDI logging system initialized[0m
+2025-01-31 22:17:05,263 [INFO] __main__ - [2m2025-01-31T22:17:05.263752Z[0m [[32m[1minfo     [0m] [1mInitializing DAHDI Phone API service...[0m
+2025-01-31 22:17:05,331 [INFO] dahdi_phone.api.server - DAHDI Phone API server initialized
+2025-01-31 22:17:05,331 [INFO] dahdi_phone.api.server - [2m2025-01-31T22:17:05.331726Z[0m [[32m[1minfo     [0m] [1mStarting server with configuration:[0m
+2025-01-31 22:17:05,347 [INFO] uvicorn.error - Started server process [1]
+2025-01-31 22:17:05,348 [INFO] uvicorn.error - Waiting for application startup.
+2025-01-31 22:17:05,348 [ERROR] dahdi_phone.api.server - Startup failed: Logger._log() got an unexpected keyword argument 'dev_mode'
+Traceback (most recent call last):
+  File "/app/src/dahdi_phone/api/server.py", line 136, in startup_event
+    logger.info("Development mode settings",
+  File "/usr/lib/python3.10/logging/__init__.py", line 1477, in info
+    self._log(INFO, msg, args, **kwargs)
+TypeError: Logger._log() got an unexpected keyword argument 'dev_mode'
+2025-01-31 22:17:05,350 [ERROR] uvicorn.error - Traceback (most recent call last):
+  File "/app/src/dahdi_phone/api/server.py", line 136, in startup_event
+    logger.info("Development mode settings",
+  File "/usr/lib/python3.10/logging/__init__.py", line 1477, in info
+    self._log(INFO, msg, args, **kwargs)
+TypeError: Logger._log() got an unexpected keyword argument 'dev_mode'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 540, in lifespan
+    async for item in self.lifespan_context(app):
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 481, in default_lifespan
+    await self.startup()
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 516, in startup
+    await handler()
+  File "/app/src/dahdi_phone/api/server.py", line 203, in startup_event
+    sys.exit(1)  # Exit with error code
+SystemExit: 1
+
+2025-01-31 22:17:05,351 [ERROR] uvicorn.error - Application startup failed. Exiting.
+2025-01-31 22:17:06,275 [INFO] dahdi_phone.utils.logger - [2m2025-01-31T22:17:06.275154Z[0m [[32m[1minfo     [0m] [1mLogger configured             [0m [36mformat[0m=[35mtext[0m [36moutput_file[0m=[35m/var/log/dahdi_phone/dahdi_phone.log[0m
+2025-01-31 22:17:06,275 [INFO] __main__ - [2m2025-01-31T22:17:06.275888Z[0m [[32m[1minfo     [0m] [1mDAHDI logging system initialized[0m
+2025-01-31 22:17:06,276 [INFO] __main__ - [2m2025-01-31T22:17:06.276251Z[0m [[32m[1minfo     [0m] [1mInitializing DAHDI Phone API service...[0m
+2025-01-31 22:17:06,329 [INFO] dahdi_phone.api.server - DAHDI Phone API server initialized
+2025-01-31 22:17:06,330 [INFO] dahdi_phone.api.server - [2m2025-01-31T22:17:06.330230Z[0m [[32m[1minfo     [0m] [1mStarting server with configuration:[0m
+2025-01-31 22:17:06,343 [INFO] uvicorn.error - Started server process [1]
+2025-01-31 22:17:06,344 [INFO] uvicorn.error - Waiting for application startup.
+2025-01-31 22:17:06,345 [ERROR] dahdi_phone.api.server - Startup failed: Logger._log() got an unexpected keyword argument 'dev_mode'
+Traceback (most recent call last):
+  File "/app/src/dahdi_phone/api/server.py", line 136, in startup_event
+    logger.info("Development mode settings",
+  File "/usr/lib/python3.10/logging/__init__.py", line 1477, in info
+    self._log(INFO, msg, args, **kwargs)
+TypeError: Logger._log() got an unexpected keyword argument 'dev_mode'
+2025-01-31 22:17:06,346 [ERROR] uvicorn.error - Traceback (most recent call last):
+  File "/app/src/dahdi_phone/api/server.py", line 136, in startup_event
+    logger.info("Development mode settings",
+  File "/usr/lib/python3.10/logging/__init__.py", line 1477, in info
+    self._log(INFO, msg, args, **kwargs)
+TypeError: Logger._log() got an unexpected keyword argument 'dev_mode'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 540, in lifespan
+    async for item in self.lifespan_context(app):
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 481, in default_lifespan
+    await self.startup()
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 516, in startup
+    await handler()
+  File "/app/src/dahdi_phone/api/server.py", line 203, in startup_event
+    sys.exit(1)  # Exit with error code
+SystemExit: 1
+
+2025-01-31 22:17:06,346 [ERROR] uvicorn.error - Application startup failed. Exiting.
+2025-01-31 22:18:19,877 [INFO] dahdi_phone.utils.logger - [2m2025-01-31T22:18:19.877952Z[0m [[32m[1minfo     [0m] [1mLogger configured             [0m [36mformat[0m=[35mtext[0m [36moutput_file[0m=[35m/var/log/dahdi_phone/dahdi_phone.log[0m
+2025-01-31 22:18:19,878 [INFO] __main__ - [2m2025-01-31T22:18:19.878291Z[0m [[32m[1minfo     [0m] [1mDAHDI logging system initialized[0m
+2025-01-31 22:18:19,880 [INFO] __main__ - [2m2025-01-31T22:18:19.880868Z[0m [[32m[1minfo     [0m] [1mInitializing DAHDI Phone API service...[0m
+2025-01-31 22:18:20,028 [INFO] dahdi_phone.api.server - DAHDI Phone API server initialized
+2025-01-31 22:18:20,029 [INFO] dahdi_phone.api.server - [2m2025-01-31T22:18:20.029058Z[0m [[32m[1minfo     [0m] [1mStarting server with configuration:[0m
+2025-01-31 22:18:20,058 [INFO] uvicorn.error - Started server process [1]
+2025-01-31 22:18:20,059 [INFO] uvicorn.error - Waiting for application startup.
+2025-01-31 22:18:20,060 [ERROR] dahdi_phone.api.server - Startup failed: Logger._log() got an unexpected keyword argument 'dev_mode'
+Traceback (most recent call last):
+  File "/app/src/dahdi_phone/api/server.py", line 136, in startup_event
+    logger.info("Development mode settings",
+  File "/usr/lib/python3.10/logging/__init__.py", line 1477, in info
+    self._log(INFO, msg, args, **kwargs)
+TypeError: Logger._log() got an unexpected keyword argument 'dev_mode'
+2025-01-31 22:18:20,061 [ERROR] uvicorn.error - Traceback (most recent call last):
+  File "/app/src/dahdi_phone/api/server.py", line 136, in startup_event
+    logger.info("Development mode settings",
+  File "/usr/lib/python3.10/logging/__init__.py", line 1477, in info
+    self._log(INFO, msg, args, **kwargs)
+TypeError: Logger._log() got an unexpected keyword argument 'dev_mode'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 540, in lifespan
+    async for item in self.lifespan_context(app):
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 481, in default_lifespan
+    await self.startup()
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 516, in startup
+    await handler()
+  File "/app/src/dahdi_phone/api/server.py", line 203, in startup_event
+    sys.exit(1)  # Exit with error code
+SystemExit: 1
+
+2025-01-31 22:18:20,063 [ERROR] uvicorn.error - Application startup failed. Exiting.
+2025-01-31 22:18:20,898 [INFO] dahdi_phone.utils.logger - [2m2025-01-31T22:18:20.898023Z[0m [[32m[1minfo     [0m] [1mLogger configured             [0m [36mformat[0m=[35mtext[0m [36moutput_file[0m=[35m/var/log/dahdi_phone/dahdi_phone.log[0m
+2025-01-31 22:18:20,898 [INFO] __main__ - [2m2025-01-31T22:18:20.898529Z[0m [[32m[1minfo     [0m] [1mDAHDI logging system initialized[0m
+2025-01-31 22:18:20,898 [INFO] __main__ - [2m2025-01-31T22:18:20.898734Z[0m [[32m[1minfo     [0m] [1mInitializing DAHDI Phone API service...[0m
+2025-01-31 22:18:20,958 [INFO] dahdi_phone.api.server - DAHDI Phone API server initialized
+2025-01-31 22:18:20,958 [INFO] dahdi_phone.api.server - [2m2025-01-31T22:18:20.958743Z[0m [[32m[1minfo     [0m] [1mStarting server with configuration:[0m
+2025-01-31 22:18:20,974 [INFO] uvicorn.error - Started server process [1]
+2025-01-31 22:18:20,977 [INFO] uvicorn.error - Waiting for application startup.
+2025-01-31 22:18:20,978 [ERROR] dahdi_phone.api.server - Startup failed: Logger._log() got an unexpected keyword argument 'dev_mode'
+Traceback (most recent call last):
+  File "/app/src/dahdi_phone/api/server.py", line 136, in startup_event
+    logger.info("Development mode settings",
+  File "/usr/lib/python3.10/logging/__init__.py", line 1477, in info
+    self._log(INFO, msg, args, **kwargs)
+TypeError: Logger._log() got an unexpected keyword argument 'dev_mode'
+2025-01-31 22:18:20,979 [ERROR] uvicorn.error - Traceback (most recent call last):
+  File "/app/src/dahdi_phone/api/server.py", line 136, in startup_event
+    logger.info("Development mode settings",
+  File "/usr/lib/python3.10/logging/__init__.py", line 1477, in info
+    self._log(INFO, msg, args, **kwargs)
+TypeError: Logger._log() got an unexpected keyword argument 'dev_mode'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 540, in lifespan
+    async for item in self.lifespan_context(app):
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 481, in default_lifespan
+    await self.startup()
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 516, in startup
+    await handler()
+  File "/app/src/dahdi_phone/api/server.py", line 203, in startup_event
+    sys.exit(1)  # Exit with error code
+SystemExit: 1
+
+2025-01-31 22:18:20,980 [ERROR] uvicorn.error - Application startup failed. Exiting.
+2025-01-31 22:18:21,862 [INFO] dahdi_phone.utils.logger - [2m2025-01-31T22:18:21.862255Z[0m [[32m[1minfo     [0m] [1mLogger configured             [0m [36mformat[0m=[35mtext[0m [36moutput_file[0m=[35m/var/log/dahdi_phone/dahdi_phone.log[0m
+2025-01-31 22:18:21,862 [INFO] __main__ - [2m2025-01-31T22:18:21.862435Z[0m [[32m[1minfo     [0m] [1mDAHDI logging system initialized[0m
+2025-01-31 22:18:21,862 [INFO] __main__ - [2m2025-01-31T22:18:21.862894Z[0m [[32m[1minfo     [0m] [1mInitializing DAHDI Phone API service...[0m
+2025-01-31 22:18:21,922 [INFO] dahdi_phone.api.server - DAHDI Phone API server initialized
+2025-01-31 22:18:21,923 [INFO] dahdi_phone.api.server - [2m2025-01-31T22:18:21.923094Z[0m [[32m[1minfo     [0m] [1mStarting server with configuration:[0m
+2025-01-31 22:18:21,944 [INFO] uvicorn.error - Started server process [1]
+2025-01-31 22:18:21,946 [INFO] uvicorn.error - Waiting for application startup.
+2025-01-31 22:18:21,948 [ERROR] dahdi_phone.api.server - Startup failed: Logger._log() got an unexpected keyword argument 'dev_mode'
+Traceback (most recent call last):
+  File "/app/src/dahdi_phone/api/server.py", line 136, in startup_event
+    logger.info("Development mode settings",
+  File "/usr/lib/python3.10/logging/__init__.py", line 1477, in info
+    self._log(INFO, msg, args, **kwargs)
+TypeError: Logger._log() got an unexpected keyword argument 'dev_mode'
+2025-01-31 22:18:21,950 [ERROR] uvicorn.error - Traceback (most recent call last):
+  File "/app/src/dahdi_phone/api/server.py", line 136, in startup_event
+    logger.info("Development mode settings",
+  File "/usr/lib/python3.10/logging/__init__.py", line 1477, in info
+    self._log(INFO, msg, args, **kwargs)
+TypeError: Logger._log() got an unexpected keyword argument 'dev_mode'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 540, in lifespan
+    async for item in self.lifespan_context(app):
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 481, in default_lifespan
+    await self.startup()
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 516, in startup
+    await handler()
+  File "/app/src/dahdi_phone/api/server.py", line 203, in startup_event
+    sys.exit(1)  # Exit with error code
+SystemExit: 1
+
+2025-01-31 22:18:21,951 [ERROR] uvicorn.error - Application startup failed. Exiting.
+2025-01-31 22:18:23,045 [INFO] dahdi_phone.utils.logger - [2m2025-01-31T22:18:23.045159Z[0m [[32m[1minfo     [0m] [1mLogger configured             [0m [36mformat[0m=[35mtext[0m [36moutput_file[0m=[35m/var/log/dahdi_phone/dahdi_phone.log[0m
+2025-01-31 22:18:23,045 [INFO] __main__ - [2m2025-01-31T22:18:23.045499Z[0m [[32m[1minfo     [0m] [1mDAHDI logging system initialized[0m
+2025-01-31 22:18:23,045 [INFO] __main__ - [2m2025-01-31T22:18:23.045857Z[0m [[32m[1minfo     [0m] [1mInitializing DAHDI Phone API service...[0m
+2025-01-31 22:18:23,114 [INFO] dahdi_phone.api.server - DAHDI Phone API server initialized
+2025-01-31 22:18:23,114 [INFO] dahdi_phone.api.server - [2m2025-01-31T22:18:23.114657Z[0m [[32m[1minfo     [0m] [1mStarting server with configuration:[0m
+2025-01-31 22:18:23,131 [INFO] uvicorn.error - Started server process [1]
+2025-01-31 22:18:23,132 [INFO] uvicorn.error - Waiting for application startup.
+2025-01-31 22:18:23,133 [ERROR] dahdi_phone.api.server - Startup failed: Logger._log() got an unexpected keyword argument 'dev_mode'
+Traceback (most recent call last):
+  File "/app/src/dahdi_phone/api/server.py", line 136, in startup_event
+    logger.info("Development mode settings",
+  File "/usr/lib/python3.10/logging/__init__.py", line 1477, in info
+    self._log(INFO, msg, args, **kwargs)
+TypeError: Logger._log() got an unexpected keyword argument 'dev_mode'
+2025-01-31 22:18:23,135 [ERROR] uvicorn.error - Traceback (most recent call last):
+  File "/app/src/dahdi_phone/api/server.py", line 136, in startup_event
+    logger.info("Development mode settings",
+  File "/usr/lib/python3.10/logging/__init__.py", line 1477, in info
+    self._log(INFO, msg, args, **kwargs)
+TypeError: Logger._log() got an unexpected keyword argument 'dev_mode'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 540, in lifespan
+    async for item in self.lifespan_context(app):
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 481, in default_lifespan
+    await self.startup()
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 516, in startup
+    await handler()
+  File "/app/src/dahdi_phone/api/server.py", line 203, in startup_event
+    sys.exit(1)  # Exit with error code
+SystemExit: 1
+
+2025-01-31 22:18:23,135 [ERROR] uvicorn.error - Application startup failed. Exiting.
+2025-01-31 22:18:24,618 [INFO] dahdi_phone.utils.logger - [2m2025-01-31T22:18:24.618470Z[0m [[32m[1minfo     [0m] [1mLogger configured             [0m [36mformat[0m=[35mtext[0m [36moutput_file[0m=[35m/var/log/dahdi_phone/dahdi_phone.log[0m
+2025-01-31 22:18:24,620 [INFO] __main__ - [2m2025-01-31T22:18:24.619974Z[0m [[32m[1minfo     [0m] [1mDAHDI logging system initialized[0m
+2025-01-31 22:18:24,620 [INFO] __main__ - [2m2025-01-31T22:18:24.620853Z[0m [[32m[1minfo     [0m] [1mInitializing DAHDI Phone API service...[0m
+2025-01-31 22:18:24,687 [INFO] dahdi_phone.api.server - DAHDI Phone API server initialized
+2025-01-31 22:18:24,688 [INFO] dahdi_phone.api.server - [2m2025-01-31T22:18:24.688410Z[0m [[32m[1minfo     [0m] [1mStarting server with configuration:[0m
+2025-01-31 22:18:24,706 [INFO] uvicorn.error - Started server process [1]
+2025-01-31 22:18:24,707 [INFO] uvicorn.error - Waiting for application startup.
+2025-01-31 22:18:24,710 [ERROR] dahdi_phone.api.server - Startup failed: Logger._log() got an unexpected keyword argument 'dev_mode'
+Traceback (most recent call last):
+  File "/app/src/dahdi_phone/api/server.py", line 136, in startup_event
+    logger.info("Development mode settings",
+  File "/usr/lib/python3.10/logging/__init__.py", line 1477, in info
+    self._log(INFO, msg, args, **kwargs)
+TypeError: Logger._log() got an unexpected keyword argument 'dev_mode'
+2025-01-31 22:18:24,713 [ERROR] uvicorn.error - Traceback (most recent call last):
+  File "/app/src/dahdi_phone/api/server.py", line 136, in startup_event
+    logger.info("Development mode settings",
+  File "/usr/lib/python3.10/logging/__init__.py", line 1477, in info
+    self._log(INFO, msg, args, **kwargs)
+TypeError: Logger._log() got an unexpected keyword argument 'dev_mode'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 540, in lifespan
+    async for item in self.lifespan_context(app):
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 481, in default_lifespan
+    await self.startup()
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 516, in startup
+    await handler()
+  File "/app/src/dahdi_phone/api/server.py", line 203, in startup_event
+    sys.exit(1)  # Exit with error code
+SystemExit: 1
+
+2025-01-31 22:18:24,714 [ERROR] uvicorn.error - Application startup failed. Exiting.
+2025-01-31 22:18:26,925 [INFO] dahdi_phone.utils.logger - [2m2025-01-31T22:18:26.925706Z[0m [[32m[1minfo     [0m] [1mLogger configured             [0m [36mformat[0m=[35mtext[0m [36moutput_file[0m=[35m/var/log/dahdi_phone/dahdi_phone.log[0m
+2025-01-31 22:18:26,927 [INFO] __main__ - [2m2025-01-31T22:18:26.926876Z[0m [[32m[1minfo     [0m] [1mDAHDI logging system initialized[0m
+2025-01-31 22:18:26,927 [INFO] __main__ - [2m2025-01-31T22:18:26.927777Z[0m [[32m[1minfo     [0m] [1mInitializing DAHDI Phone API service...[0m
+2025-01-31 22:18:26,984 [INFO] dahdi_phone.api.server - DAHDI Phone API server initialized
+2025-01-31 22:18:26,985 [INFO] dahdi_phone.api.server - [2m2025-01-31T22:18:26.985509Z[0m [[32m[1minfo     [0m] [1mStarting server with configuration:[0m
+2025-01-31 22:18:26,999 [INFO] uvicorn.error - Started server process [1]
+2025-01-31 22:18:27,000 [INFO] uvicorn.error - Waiting for application startup.
+2025-01-31 22:18:27,000 [ERROR] dahdi_phone.api.server - Startup failed: Logger._log() got an unexpected keyword argument 'dev_mode'
+Traceback (most recent call last):
+  File "/app/src/dahdi_phone/api/server.py", line 136, in startup_event
+    logger.info("Development mode settings",
+  File "/usr/lib/python3.10/logging/__init__.py", line 1477, in info
+    self._log(INFO, msg, args, **kwargs)
+TypeError: Logger._log() got an unexpected keyword argument 'dev_mode'
+2025-01-31 22:18:27,002 [ERROR] uvicorn.error - Traceback (most recent call last):
+  File "/app/src/dahdi_phone/api/server.py", line 136, in startup_event
+    logger.info("Development mode settings",
+  File "/usr/lib/python3.10/logging/__init__.py", line 1477, in info
+    self._log(INFO, msg, args, **kwargs)
+TypeError: Logger._log() got an unexpected keyword argument 'dev_mode'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 540, in lifespan
+    async for item in self.lifespan_context(app):
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 481, in default_lifespan
+    await self.startup()
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 516, in startup
+    await handler()
+  File "/app/src/dahdi_phone/api/server.py", line 203, in startup_event
+    sys.exit(1)  # Exit with error code
+SystemExit: 1
+
+2025-01-31 22:18:27,002 [ERROR] uvicorn.error - Application startup failed. Exiting.
+2025-01-31 22:18:30,777 [INFO] dahdi_phone.utils.logger - [2m2025-01-31T22:18:30.777924Z[0m [[32m[1minfo     [0m] [1mLogger configured             [0m [36mformat[0m=[35mtext[0m [36moutput_file[0m=[35m/var/log/dahdi_phone/dahdi_phone.log[0m
+2025-01-31 22:18:30,778 [INFO] __main__ - [2m2025-01-31T22:18:30.778505Z[0m [[32m[1minfo     [0m] [1mDAHDI logging system initialized[0m
+2025-01-31 22:18:30,778 [INFO] __main__ - [2m2025-01-31T22:18:30.778829Z[0m [[32m[1minfo     [0m] [1mInitializing DAHDI Phone API service...[0m
+2025-01-31 22:18:30,858 [INFO] dahdi_phone.api.server - DAHDI Phone API server initialized
+2025-01-31 22:18:30,859 [INFO] dahdi_phone.api.server - [2m2025-01-31T22:18:30.859395Z[0m [[32m[1minfo     [0m] [1mStarting server with configuration:[0m
+2025-01-31 22:18:30,875 [INFO] uvicorn.error - Started server process [1]
+2025-01-31 22:18:30,876 [INFO] uvicorn.error - Waiting for application startup.
+2025-01-31 22:18:30,877 [ERROR] dahdi_phone.api.server - Startup failed: Logger._log() got an unexpected keyword argument 'dev_mode'
+Traceback (most recent call last):
+  File "/app/src/dahdi_phone/api/server.py", line 136, in startup_event
+    logger.info("Development mode settings",
+  File "/usr/lib/python3.10/logging/__init__.py", line 1477, in info
+    self._log(INFO, msg, args, **kwargs)
+TypeError: Logger._log() got an unexpected keyword argument 'dev_mode'
+2025-01-31 22:18:30,878 [ERROR] uvicorn.error - Traceback (most recent call last):
+  File "/app/src/dahdi_phone/api/server.py", line 136, in startup_event
+    logger.info("Development mode settings",
+  File "/usr/lib/python3.10/logging/__init__.py", line 1477, in info
+    self._log(INFO, msg, args, **kwargs)
+TypeError: Logger._log() got an unexpected keyword argument 'dev_mode'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 540, in lifespan
+    async for item in self.lifespan_context(app):
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 481, in default_lifespan
+    await self.startup()
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 516, in startup
+    await handler()
+  File "/app/src/dahdi_phone/api/server.py", line 203, in startup_event
+    sys.exit(1)  # Exit with error code
+SystemExit: 1
+
+2025-01-31 22:18:30,878 [ERROR] uvicorn.error - Application startup failed. Exiting.
+2025-01-31 22:18:37,975 [INFO] dahdi_phone.utils.logger - [2m2025-01-31T22:18:37.975801Z[0m [[32m[1minfo     [0m] [1mLogger configured             [0m [36mformat[0m=[35mtext[0m [36moutput_file[0m=[35m/var/log/dahdi_phone/dahdi_phone.log[0m
+2025-01-31 22:18:37,997 [INFO] __main__ - [2m2025-01-31T22:18:37.997762Z[0m [[32m[1minfo     [0m] [1mDAHDI logging system initialized[0m
+2025-01-31 22:18:37,999 [INFO] __main__ - [2m2025-01-31T22:18:37.999227Z[0m [[32m[1minfo     [0m] [1mInitializing DAHDI Phone API service...[0m
+2025-01-31 22:18:38,076 [INFO] dahdi_phone.api.server - DAHDI Phone API server initialized
+2025-01-31 22:18:38,077 [INFO] dahdi_phone.api.server - [2m2025-01-31T22:18:38.077311Z[0m [[32m[1minfo     [0m] [1mStarting server with configuration:[0m
+2025-01-31 22:18:38,120 [INFO] uvicorn.error - Started server process [1]
+2025-01-31 22:18:38,121 [INFO] uvicorn.error - Waiting for application startup.
+2025-01-31 22:18:38,121 [ERROR] dahdi_phone.api.server - Startup failed: Logger._log() got an unexpected keyword argument 'dev_mode'
+Traceback (most recent call last):
+  File "/app/src/dahdi_phone/api/server.py", line 136, in startup_event
+    logger.info("Development mode settings",
+  File "/usr/lib/python3.10/logging/__init__.py", line 1477, in info
+    self._log(INFO, msg, args, **kwargs)
+TypeError: Logger._log() got an unexpected keyword argument 'dev_mode'
+2025-01-31 22:18:38,127 [ERROR] uvicorn.error - Traceback (most recent call last):
+  File "/app/src/dahdi_phone/api/server.py", line 136, in startup_event
+    logger.info("Development mode settings",
+  File "/usr/lib/python3.10/logging/__init__.py", line 1477, in info
+    self._log(INFO, msg, args, **kwargs)
+TypeError: Logger._log() got an unexpected keyword argument 'dev_mode'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 540, in lifespan
+    async for item in self.lifespan_context(app):
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 481, in default_lifespan
+    await self.startup()
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 516, in startup
+    await handler()
+  File "/app/src/dahdi_phone/api/server.py", line 203, in startup_event
+    sys.exit(1)  # Exit with error code
+SystemExit: 1
+
+2025-01-31 22:18:38,128 [ERROR] uvicorn.error - Application startup failed. Exiting.
+2025-01-31 22:34:10,440 [INFO] dahdi_phone.utils.logger - [2m2025-01-31T22:34:10.440892Z[0m [[32m[1minfo     [0m] [1mLogger configured             [0m [36mformat[0m=[35mtext[0m [36moutput_file[0m=[35m/var/log/dahdi_phone/dahdi_phone.log[0m
+2025-01-31 22:34:10,441 [INFO] __main__ - [2m2025-01-31T22:34:10.441361Z[0m [[32m[1minfo     [0m] [1mDAHDI logging system initialized[0m
+2025-01-31 22:34:10,451 [INFO] __main__ - [2m2025-01-31T22:34:10.451874Z[0m [[32m[1minfo     [0m] [1mInitializing DAHDI Phone API service...[0m
+2025-01-31 22:34:10,543 [INFO] dahdi_phone.api.server - [2m2025-01-31T22:34:10.543645Z[0m [[32m[1minfo     [0m] [1mDAHDI Phone API server initialized[0m
+2025-01-31 22:34:10,544 [INFO] dahdi_phone.api.server - [2m2025-01-31T22:34:10.544149Z[0m [[32m[1minfo     [0m] [1mStarting server with configuration:[0m
+2025-01-31 22:34:10,562 [INFO] uvicorn.error - Started server process [1]
+2025-01-31 22:34:10,563 [INFO] uvicorn.error - Waiting for application startup.
+2025-01-31 22:34:10,563 [INFO] dahdi_phone.api.server - [2m2025-01-31T22:34:10.563445Z[0m [[32m[1minfo     [0m] [1mDevelopment mode settings     [0m [36mdev_mode[0m=[35mTrue[0m [36mmock_hardware[0m=[35mTrue[0m
+2025-01-31 22:34:10,563 [INFO] dahdi_phone.api.server - [2m2025-01-31T22:34:10.563753Z[0m [[32m[1minfo     [0m] [1mInitializing mock DAHDI interface for development[0m
+2025-01-31 22:34:10,563 [INFO] dahdi_phone.core.buffer_manager - Initialized CircularBuffer with size 3200
+2025-01-31 22:34:10,564 [INFO] dahdi_phone.core.dtmf_detector - [2m2025-01-31T22:34:10.564297Z[0m [[32m[1minfo     [0m] [1mdtmf_detector_init            [0m [36mconfig[0m=[35m{'sample_rate': 8000, 'frame_size': 320, 'detection_threshold': -30.0, 'min_duration': 40, 'energy_threshold': 0.1}[0m [36mmessage[0m=[35mInitializing DTMF detector[0m
+2025-01-31 22:34:10,564 [INFO] dahdi_phone.core.audio_processor - Initialized AudioProcessor with config: AudioConfig(sample_rate=8000, frame_size=320, channels=1, bit_depth=16)
+2025-01-31 22:34:10,564 [INFO] dahdi_phone.core.mock_dahdi_interface - [2m2025-01-31T22:34:10.564759Z[0m [[32m[1minfo     [0m] [1mmock_interface_init           [0m [36mbuffer_size[0m=[35m320[0m [36mcomponent[0m=[35mMockDAHDIInterface[0m [36mdevice_path[0m=[35m/dev/dahdi/channel001[0m [36mmessage[0m=[35mInitializing Mock DAHDI interface[0m
+2025-01-31 22:34:10,565 [INFO] dahdi_phone.core.mock_dahdi_interface - [2m2025-01-31T22:34:10.565108Z[0m [[32m[1minfo     [0m] [1mmock_init_start               [0m [36mbuffer_size[0m=[35m320[0m [36mcomponent[0m=[35mMockDAHDIInterface[0m [36mdevice_path[0m=[35m/dev/dahdi/channel001[0m [36mmessage[0m=[35mInitializing mock DAHDI interface[0m
+2025-01-31 22:34:10,565 [INFO] dahdi_phone.hardware.fxs - [2m2025-01-31T22:34:10.565462Z[0m [[32m[1minfo     [0m] [1mfxs_port_init                 [0m [36mchannel[0m=[35m1[0m [36mcomponent[0m=[35mFXSPort[0m [36mmessage[0m=[35mInitializing FXS port[0m
+2025-01-31 22:34:10,565 [INFO] dahdi_phone.hardware.fxs - [2m2025-01-31T22:34:10.565734Z[0m [[32m[1minfo     [0m] [1minitialization_start          [0m [36mchannel[0m=[35m1[0m [36mcomponent[0m=[35mFXSPort[0m [36mmessage[0m=[35mStarting FXS port initialization[0m
+2025-01-31 22:34:10,566 [ERROR] dahdi_phone.core.mock_dahdi_interface - [2m2025-01-31T22:34:10.565973Z[0m [[31m[1merror    [0m] [1mmock_ioctl_failed             [0m [36mbuffer_size[0m=[35m320[0m [36mcommand[0m=[35mDAHDI_SET_VOLTAGE[0m [36mcomponent[0m=[35mMockDAHDIInterface[0m [36mdevice_path[0m=[35m/dev/dahdi/channel001[0m [36merror[0m=[35m'MockDAHDIInterface' object has no attribute 'debug_stats'[0m [36mmessage[0m=[35mMock ioctl failed: DAHDI_SET_VOLTAGE[0m
+Traceback (most recent call last):
+  File "/app/src/dahdi_phone/core/mock_dahdi_interface.py", line 274, in _ioctl
+    self.debug_stats['ioctl_calls'] += 1
+AttributeError: 'MockDAHDIInterface' object has no attribute 'debug_stats'
+2025-01-31 22:34:10,566 [ERROR] dahdi_phone.hardware.fxs - [2m2025-01-31T22:34:10.566397Z[0m [[31m[1merror    [0m] [1minitialization_failed         [0m [36mchannel[0m=[35m1[0m [36mcomponent[0m=[35mFXSPort[0m [36merror[0m=[35m'MockDAHDIInterface' object has no attribute 'debug_stats'[0m [36mmessage[0m=[35mFailed to initialize FXS port[0m
+Traceback (most recent call last):
+  File "/app/src/dahdi_phone/core/mock_dahdi_interface.py", line 274, in _ioctl
+    self.debug_stats['ioctl_calls'] += 1
+AttributeError: 'MockDAHDIInterface' object has no attribute 'debug_stats'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/app/src/dahdi_phone/hardware/fxs.py", line 150, in initialize
+    await self._set_voltage(self.config.idle_voltage)
+  File "/app/src/dahdi_phone/hardware/fxs.py", line 340, in _set_voltage
+    await self.dahdi._ioctl(command, data_bytes)
+  File "/app/src/dahdi_phone/core/mock_dahdi_interface.py", line 295, in _ioctl
+    self.debug_stats['errors'] += 1
+AttributeError: 'MockDAHDIInterface' object has no attribute 'debug_stats'
+2025-01-31 22:34:10,566 [ERROR] dahdi_phone.core.mock_dahdi_interface - [2m2025-01-31T22:34:10.566734Z[0m [[31m[1merror    [0m] [1mmock_init_failed              [0m [36mbuffer_size[0m=[35m320[0m [36mcomponent[0m=[35mMockDAHDIInterface[0m [36mdevice_path[0m=[35m/dev/dahdi/channel001[0m [36merror[0m=[35mFXS initialization failed: 'MockDAHDIInterface' object has no attribute 'debug_stats'[0m [36mmessage[0m=[35mFailed to initialize mock interface[0m
+Traceback (most recent call last):
+  File "/app/src/dahdi_phone/core/mock_dahdi_interface.py", line 274, in _ioctl
+    self.debug_stats['ioctl_calls'] += 1
+AttributeError: 'MockDAHDIInterface' object has no attribute 'debug_stats'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/app/src/dahdi_phone/hardware/fxs.py", line 150, in initialize
+    await self._set_voltage(self.config.idle_voltage)
+  File "/app/src/dahdi_phone/hardware/fxs.py", line 340, in _set_voltage
+    await self.dahdi._ioctl(command, data_bytes)
+  File "/app/src/dahdi_phone/core/mock_dahdi_interface.py", line 295, in _ioctl
+    self.debug_stats['errors'] += 1
+AttributeError: 'MockDAHDIInterface' object has no attribute 'debug_stats'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/app/src/dahdi_phone/core/mock_dahdi_interface.py", line 76, in initialize
+    await self.fxs_port.initialize()
+  File "/app/src/dahdi_phone/hardware/fxs.py", line 165, in initialize
+    raise FXSError(f"FXS initialization failed: {str(e)}") from e
+dahdi_phone.hardware.fxs.FXSError: FXS initialization failed: 'MockDAHDIInterface' object has no attribute 'debug_stats'
+2025-01-31 22:34:10,567 [INFO] dahdi_phone.core.mock_dahdi_interface - [2m2025-01-31T22:34:10.567103Z[0m [[32m[1minfo     [0m] [1mmock_cleanup_start            [0m [36mbuffer_size[0m=[35m320[0m [36mcomponent[0m=[35mMockDAHDIInterface[0m [36mdevice_path[0m=[35m/dev/dahdi/channel001[0m [36mmessage[0m=[35mCleaning up mock interface[0m
+2025-01-31 22:34:10,567 [ERROR] dahdi_phone.core.mock_dahdi_interface - [2m2025-01-31T22:34:10.567398Z[0m [[31m[1merror    [0m] [1mmock_cleanup_error            [0m [36mbuffer_size[0m=[35m320[0m [36mcomponent[0m=[35mMockDAHDIInterface[0m [36mdevice_path[0m=[35m/dev/dahdi/channel001[0m [36merror[0m=[35m'MockDAHDIInterface' object has no attribute 'voltage_monitor_task'[0m [36mmessage[0m=[35mMock cleanup error[0m
+Traceback (most recent call last):
+  File "/app/src/dahdi_phone/core/mock_dahdi_interface.py", line 274, in _ioctl
+    self.debug_stats['ioctl_calls'] += 1
+AttributeError: 'MockDAHDIInterface' object has no attribute 'debug_stats'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/app/src/dahdi_phone/hardware/fxs.py", line 150, in initialize
+    await self._set_voltage(self.config.idle_voltage)
+  File "/app/src/dahdi_phone/hardware/fxs.py", line 340, in _set_voltage
+    await self.dahdi._ioctl(command, data_bytes)
+  File "/app/src/dahdi_phone/core/mock_dahdi_interface.py", line 295, in _ioctl
+    self.debug_stats['errors'] += 1
+AttributeError: 'MockDAHDIInterface' object has no attribute 'debug_stats'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/app/src/dahdi_phone/core/mock_dahdi_interface.py", line 76, in initialize
+    await self.fxs_port.initialize()
+  File "/app/src/dahdi_phone/hardware/fxs.py", line 165, in initialize
+    raise FXSError(f"FXS initialization failed: {str(e)}") from e
+dahdi_phone.hardware.fxs.FXSError: FXS initialization failed: 'MockDAHDIInterface' object has no attribute 'debug_stats'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/app/src/dahdi_phone/core/mock_dahdi_interface.py", line 99, in cleanup
+    if self.voltage_monitor_task:
+AttributeError: 'MockDAHDIInterface' object has no attribute 'voltage_monitor_task'
+2025-01-31 22:34:10,567 [ERROR] dahdi_phone.api.server - [2m2025-01-31T22:34:10.567861Z[0m [[31m[1merror    [0m] [1mDAHDI hardware error: Mock device initialization failed: FXS initialization failed: 'MockDAHDIInterface' object has no attribute 'debug_stats'[0m
+2025-01-31 22:34:10,568 [ERROR] uvicorn.error - Traceback (most recent call last):
+  File "/app/src/dahdi_phone/core/mock_dahdi_interface.py", line 274, in _ioctl
+    self.debug_stats['ioctl_calls'] += 1
+AttributeError: 'MockDAHDIInterface' object has no attribute 'debug_stats'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/app/src/dahdi_phone/hardware/fxs.py", line 150, in initialize
+    await self._set_voltage(self.config.idle_voltage)
+  File "/app/src/dahdi_phone/hardware/fxs.py", line 340, in _set_voltage
+    await self.dahdi._ioctl(command, data_bytes)
+  File "/app/src/dahdi_phone/core/mock_dahdi_interface.py", line 295, in _ioctl
+    self.debug_stats['errors'] += 1
+AttributeError: 'MockDAHDIInterface' object has no attribute 'debug_stats'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/app/src/dahdi_phone/core/mock_dahdi_interface.py", line 76, in initialize
+    await self.fxs_port.initialize()
+  File "/app/src/dahdi_phone/hardware/fxs.py", line 165, in initialize
+    raise FXSError(f"FXS initialization failed: {str(e)}") from e
+dahdi_phone.hardware.fxs.FXSError: FXS initialization failed: 'MockDAHDIInterface' object has no attribute 'debug_stats'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/app/src/dahdi_phone/api/server.py", line 171, in startup_event
+    await self.dahdi_interface.initialize()
+  File "/app/src/dahdi_phone/core/mock_dahdi_interface.py", line 90, in initialize
+    raise DAHDIIOError(f"Mock device initialization failed: {str(e)}") from e
+dahdi_phone.core.interfaces.DAHDIIOError: Mock device initialization failed: FXS initialization failed: 'MockDAHDIInterface' object has no attribute 'debug_stats'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 540, in lifespan
+    async for item in self.lifespan_context(app):
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 481, in default_lifespan
+    await self.startup()
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 516, in startup
+    await handler()
+  File "/app/src/dahdi_phone/api/server.py", line 198, in startup_event
+    sys.exit(1)  # Exit with error code
+SystemExit: 1
+
+2025-01-31 22:34:10,569 [ERROR] uvicorn.error - Application startup failed. Exiting.
+2025-01-31 22:34:11,078 [INFO] dahdi_phone.utils.logger - [2m2025-01-31T22:34:11.078012Z[0m [[32m[1minfo     [0m] [1mLogger configured             [0m [36mformat[0m=[35mtext[0m [36moutput_file[0m=[35m/var/log/dahdi_phone/dahdi_phone.log[0m
+2025-01-31 22:34:11,078 [INFO] __main__ - [2m2025-01-31T22:34:11.078726Z[0m [[32m[1minfo     [0m] [1mDAHDI logging system initialized[0m
+2025-01-31 22:34:11,079 [INFO] __main__ - [2m2025-01-31T22:34:11.079655Z[0m [[32m[1minfo     [0m] [1mInitializing DAHDI Phone API service...[0m
+2025-01-31 22:34:11,138 [INFO] dahdi_phone.api.server - [2m2025-01-31T22:34:11.138642Z[0m [[32m[1minfo     [0m] [1mDAHDI Phone API server initialized[0m
+2025-01-31 22:34:11,139 [INFO] dahdi_phone.api.server - [2m2025-01-31T22:34:11.139133Z[0m [[32m[1minfo     [0m] [1mStarting server with configuration:[0m
+2025-01-31 22:34:11,149 [INFO] uvicorn.error - Started server process [1]
+2025-01-31 22:34:11,150 [INFO] uvicorn.error - Waiting for application startup.
+2025-01-31 22:34:11,150 [INFO] dahdi_phone.api.server - [2m2025-01-31T22:34:11.150809Z[0m [[32m[1minfo     [0m] [1mDevelopment mode settings     [0m [36mdev_mode[0m=[35mTrue[0m [36mmock_hardware[0m=[35mTrue[0m
+2025-01-31 22:34:11,151 [INFO] dahdi_phone.api.server - [2m2025-01-31T22:34:11.151271Z[0m [[32m[1minfo     [0m] [1mInitializing mock DAHDI interface for development[0m
+2025-01-31 22:34:11,151 [INFO] dahdi_phone.core.buffer_manager - Initialized CircularBuffer with size 3200
+2025-01-31 22:34:11,152 [INFO] dahdi_phone.core.dtmf_detector - [2m2025-01-31T22:34:11.152197Z[0m [[32m[1minfo     [0m] [1mdtmf_detector_init            [0m [36mconfig[0m=[35m{'sample_rate': 8000, 'frame_size': 320, 'detection_threshold': -30.0, 'min_duration': 40, 'energy_threshold': 0.1}[0m [36mmessage[0m=[35mInitializing DTMF detector[0m
+2025-01-31 22:34:11,152 [INFO] dahdi_phone.core.audio_processor - Initialized AudioProcessor with config: AudioConfig(sample_rate=8000, frame_size=320, channels=1, bit_depth=16)
+2025-01-31 22:34:11,153 [INFO] dahdi_phone.core.mock_dahdi_interface - [2m2025-01-31T22:34:11.153072Z[0m [[32m[1minfo     [0m] [1mmock_interface_init           [0m [36mbuffer_size[0m=[35m320[0m [36mcomponent[0m=[35mMockDAHDIInterface[0m [36mdevice_path[0m=[35m/dev/dahdi/channel001[0m [36mmessage[0m=[35mInitializing Mock DAHDI interface[0m
+2025-01-31 22:34:11,153 [INFO] dahdi_phone.core.mock_dahdi_interface - [2m2025-01-31T22:34:11.153522Z[0m [[32m[1minfo     [0m] [1mmock_init_start               [0m [36mbuffer_size[0m=[35m320[0m [36mcomponent[0m=[35mMockDAHDIInterface[0m [36mdevice_path[0m=[35m/dev/dahdi/channel001[0m [36mmessage[0m=[35mInitializing mock DAHDI interface[0m
+2025-01-31 22:34:11,154 [INFO] dahdi_phone.hardware.fxs - [2m2025-01-31T22:34:11.153996Z[0m [[32m[1minfo     [0m] [1mfxs_port_init                 [0m [36mchannel[0m=[35m1[0m [36mcomponent[0m=[35mFXSPort[0m [36mmessage[0m=[35mInitializing FXS port[0m
+2025-01-31 22:34:11,154 [INFO] dahdi_phone.hardware.fxs - [2m2025-01-31T22:34:11.154262Z[0m [[32m[1minfo     [0m] [1minitialization_start          [0m [36mchannel[0m=[35m1[0m [36mcomponent[0m=[35mFXSPort[0m [36mmessage[0m=[35mStarting FXS port initialization[0m
+2025-01-31 22:34:11,154 [ERROR] dahdi_phone.core.mock_dahdi_interface - [2m2025-01-31T22:34:11.154642Z[0m [[31m[1merror    [0m] [1mmock_ioctl_failed             [0m [36mbuffer_size[0m=[35m320[0m [36mcommand[0m=[35mDAHDI_SET_VOLTAGE[0m [36mcomponent[0m=[35mMockDAHDIInterface[0m [36mdevice_path[0m=[35m/dev/dahdi/channel001[0m [36merror[0m=[35m'MockDAHDIInterface' object has no attribute 'debug_stats'[0m [36mmessage[0m=[35mMock ioctl failed: DAHDI_SET_VOLTAGE[0m
+Traceback (most recent call last):
+  File "/app/src/dahdi_phone/core/mock_dahdi_interface.py", line 274, in _ioctl
+    self.debug_stats['ioctl_calls'] += 1
+AttributeError: 'MockDAHDIInterface' object has no attribute 'debug_stats'
+2025-01-31 22:34:11,155 [ERROR] dahdi_phone.hardware.fxs - [2m2025-01-31T22:34:11.155262Z[0m [[31m[1merror    [0m] [1minitialization_failed         [0m [36mchannel[0m=[35m1[0m [36mcomponent[0m=[35mFXSPort[0m [36merror[0m=[35m'MockDAHDIInterface' object has no attribute 'debug_stats'[0m [36mmessage[0m=[35mFailed to initialize FXS port[0m
+Traceback (most recent call last):
+  File "/app/src/dahdi_phone/core/mock_dahdi_interface.py", line 274, in _ioctl
+    self.debug_stats['ioctl_calls'] += 1
+AttributeError: 'MockDAHDIInterface' object has no attribute 'debug_stats'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/app/src/dahdi_phone/hardware/fxs.py", line 150, in initialize
+    await self._set_voltage(self.config.idle_voltage)
+  File "/app/src/dahdi_phone/hardware/fxs.py", line 340, in _set_voltage
+    await self.dahdi._ioctl(command, data_bytes)
+  File "/app/src/dahdi_phone/core/mock_dahdi_interface.py", line 295, in _ioctl
+    self.debug_stats['errors'] += 1
+AttributeError: 'MockDAHDIInterface' object has no attribute 'debug_stats'
+2025-01-31 22:34:11,155 [ERROR] dahdi_phone.core.mock_dahdi_interface - [2m2025-01-31T22:34:11.155694Z[0m [[31m[1merror    [0m] [1mmock_init_failed              [0m [36mbuffer_size[0m=[35m320[0m [36mcomponent[0m=[35mMockDAHDIInterface[0m [36mdevice_path[0m=[35m/dev/dahdi/channel001[0m [36merror[0m=[35mFXS initialization failed: 'MockDAHDIInterface' object has no attribute 'debug_stats'[0m [36mmessage[0m=[35mFailed to initialize mock interface[0m
+Traceback (most recent call last):
+  File "/app/src/dahdi_phone/core/mock_dahdi_interface.py", line 274, in _ioctl
+    self.debug_stats['ioctl_calls'] += 1
+AttributeError: 'MockDAHDIInterface' object has no attribute 'debug_stats'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/app/src/dahdi_phone/hardware/fxs.py", line 150, in initialize
+    await self._set_voltage(self.config.idle_voltage)
+  File "/app/src/dahdi_phone/hardware/fxs.py", line 340, in _set_voltage
+    await self.dahdi._ioctl(command, data_bytes)
+  File "/app/src/dahdi_phone/core/mock_dahdi_interface.py", line 295, in _ioctl
+    self.debug_stats['errors'] += 1
+AttributeError: 'MockDAHDIInterface' object has no attribute 'debug_stats'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/app/src/dahdi_phone/core/mock_dahdi_interface.py", line 76, in initialize
+    await self.fxs_port.initialize()
+  File "/app/src/dahdi_phone/hardware/fxs.py", line 165, in initialize
+    raise FXSError(f"FXS initialization failed: {str(e)}") from e
+dahdi_phone.hardware.fxs.FXSError: FXS initialization failed: 'MockDAHDIInterface' object has no attribute 'debug_stats'
+2025-01-31 22:34:11,156 [INFO] dahdi_phone.core.mock_dahdi_interface - [2m2025-01-31T22:34:11.156212Z[0m [[32m[1minfo     [0m] [1mmock_cleanup_start            [0m [36mbuffer_size[0m=[35m320[0m [36mcomponent[0m=[35mMockDAHDIInterface[0m [36mdevice_path[0m=[35m/dev/dahdi/channel001[0m [36mmessage[0m=[35mCleaning up mock interface[0m
+2025-01-31 22:34:11,156 [ERROR] dahdi_phone.core.mock_dahdi_interface - [2m2025-01-31T22:34:11.156466Z[0m [[31m[1merror    [0m] [1mmock_cleanup_error            [0m [36mbuffer_size[0m=[35m320[0m [36mcomponent[0m=[35mMockDAHDIInterface[0m [36mdevice_path[0m=[35m/dev/dahdi/channel001[0m [36merror[0m=[35m'MockDAHDIInterface' object has no attribute 'voltage_monitor_task'[0m [36mmessage[0m=[35mMock cleanup error[0m
+Traceback (most recent call last):
+  File "/app/src/dahdi_phone/core/mock_dahdi_interface.py", line 274, in _ioctl
+    self.debug_stats['ioctl_calls'] += 1
+AttributeError: 'MockDAHDIInterface' object has no attribute 'debug_stats'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/app/src/dahdi_phone/hardware/fxs.py", line 150, in initialize
+    await self._set_voltage(self.config.idle_voltage)
+  File "/app/src/dahdi_phone/hardware/fxs.py", line 340, in _set_voltage
+    await self.dahdi._ioctl(command, data_bytes)
+  File "/app/src/dahdi_phone/core/mock_dahdi_interface.py", line 295, in _ioctl
+    self.debug_stats['errors'] += 1
+AttributeError: 'MockDAHDIInterface' object has no attribute 'debug_stats'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/app/src/dahdi_phone/core/mock_dahdi_interface.py", line 76, in initialize
+    await self.fxs_port.initialize()
+  File "/app/src/dahdi_phone/hardware/fxs.py", line 165, in initialize
+    raise FXSError(f"FXS initialization failed: {str(e)}") from e
+dahdi_phone.hardware.fxs.FXSError: FXS initialization failed: 'MockDAHDIInterface' object has no attribute 'debug_stats'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/app/src/dahdi_phone/core/mock_dahdi_interface.py", line 99, in cleanup
+    if self.voltage_monitor_task:
+AttributeError: 'MockDAHDIInterface' object has no attribute 'voltage_monitor_task'
+2025-01-31 22:34:11,157 [ERROR] dahdi_phone.api.server - [2m2025-01-31T22:34:11.157010Z[0m [[31m[1merror    [0m] [1mDAHDI hardware error: Mock device initialization failed: FXS initialization failed: 'MockDAHDIInterface' object has no attribute 'debug_stats'[0m
+2025-01-31 22:34:11,158 [ERROR] uvicorn.error - Traceback (most recent call last):
+  File "/app/src/dahdi_phone/core/mock_dahdi_interface.py", line 274, in _ioctl
+    self.debug_stats['ioctl_calls'] += 1
+AttributeError: 'MockDAHDIInterface' object has no attribute 'debug_stats'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/app/src/dahdi_phone/hardware/fxs.py", line 150, in initialize
+    await self._set_voltage(self.config.idle_voltage)
+  File "/app/src/dahdi_phone/hardware/fxs.py", line 340, in _set_voltage
+    await self.dahdi._ioctl(command, data_bytes)
+  File "/app/src/dahdi_phone/core/mock_dahdi_interface.py", line 295, in _ioctl
+    self.debug_stats['errors'] += 1
+AttributeError: 'MockDAHDIInterface' object has no attribute 'debug_stats'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/app/src/dahdi_phone/core/mock_dahdi_interface.py", line 76, in initialize
+    await self.fxs_port.initialize()
+  File "/app/src/dahdi_phone/hardware/fxs.py", line 165, in initialize
+    raise FXSError(f"FXS initialization failed: {str(e)}") from e
+dahdi_phone.hardware.fxs.FXSError: FXS initialization failed: 'MockDAHDIInterface' object has no attribute 'debug_stats'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/app/src/dahdi_phone/api/server.py", line 171, in startup_event
+    await self.dahdi_interface.initialize()
+  File "/app/src/dahdi_phone/core/mock_dahdi_interface.py", line 90, in initialize
+    raise DAHDIIOError(f"Mock device initialization failed: {str(e)}") from e
+dahdi_phone.core.interfaces.DAHDIIOError: Mock device initialization failed: FXS initialization failed: 'MockDAHDIInterface' object has no attribute 'debug_stats'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 540, in lifespan
+    async for item in self.lifespan_context(app):
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 481, in default_lifespan
+    await self.startup()
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 516, in startup
+    await handler()
+  File "/app/src/dahdi_phone/api/server.py", line 198, in startup_event
+    sys.exit(1)  # Exit with error code
+SystemExit: 1
+
+2025-01-31 22:34:11,158 [ERROR] uvicorn.error - Application startup failed. Exiting.
+2025-01-31 22:34:11,726 [INFO] dahdi_phone.utils.logger - [2m2025-01-31T22:34:11.726834Z[0m [[32m[1minfo     [0m] [1mLogger configured             [0m [36mformat[0m=[35mtext[0m [36moutput_file[0m=[35m/var/log/dahdi_phone/dahdi_phone.log[0m
+2025-01-31 22:34:11,728 [INFO] __main__ - [2m2025-01-31T22:34:11.728078Z[0m [[32m[1minfo     [0m] [1mDAHDI logging system initialized[0m
+2025-01-31 22:34:11,731 [INFO] __main__ - [2m2025-01-31T22:34:11.731377Z[0m [[32m[1minfo     [0m] [1mInitializing DAHDI Phone API service...[0m
+2025-01-31 22:34:11,797 [INFO] dahdi_phone.api.server - [2m2025-01-31T22:34:11.797710Z[0m [[32m[1minfo     [0m] [1mDAHDI Phone API server initialized[0m
+2025-01-31 22:34:11,798 [INFO] dahdi_phone.api.server - [2m2025-01-31T22:34:11.798152Z[0m [[32m[1minfo     [0m] [1mStarting server with configuration:[0m
+2025-01-31 22:34:11,808 [INFO] uvicorn.error - Started server process [1]
+2025-01-31 22:34:11,809 [INFO] uvicorn.error - Waiting for application startup.
+2025-01-31 22:34:11,809 [INFO] dahdi_phone.api.server - [2m2025-01-31T22:34:11.809895Z[0m [[32m[1minfo     [0m] [1mDevelopment mode settings     [0m [36mdev_mode[0m=[35mTrue[0m [36mmock_hardware[0m=[35mTrue[0m
+2025-01-31 22:34:11,810 [INFO] dahdi_phone.api.server - [2m2025-01-31T22:34:11.810396Z[0m [[32m[1minfo     [0m] [1mInitializing mock DAHDI interface for development[0m
+2025-01-31 22:34:11,811 [INFO] dahdi_phone.core.buffer_manager - Initialized CircularBuffer with size 3200
+2025-01-31 22:34:11,811 [INFO] dahdi_phone.core.dtmf_detector - [2m2025-01-31T22:34:11.811460Z[0m [[32m[1minfo     [0m] [1mdtmf_detector_init            [0m [36mconfig[0m=[35m{'sample_rate': 8000, 'frame_size': 320, 'detection_threshold': -30.0, 'min_duration': 40, 'energy_threshold': 0.1}[0m [36mmessage[0m=[35mInitializing DTMF detector[0m
+2025-01-31 22:34:11,811 [INFO] dahdi_phone.core.audio_processor - Initialized AudioProcessor with config: AudioConfig(sample_rate=8000, frame_size=320, channels=1, bit_depth=16)
+2025-01-31 22:34:11,812 [INFO] dahdi_phone.core.mock_dahdi_interface - [2m2025-01-31T22:34:11.812045Z[0m [[32m[1minfo     [0m] [1mmock_interface_init           [0m [36mbuffer_size[0m=[35m320[0m [36mcomponent[0m=[35mMockDAHDIInterface[0m [36mdevice_path[0m=[35m/dev/dahdi/channel001[0m [36mmessage[0m=[35mInitializing Mock DAHDI interface[0m
+2025-01-31 22:34:11,812 [INFO] dahdi_phone.core.mock_dahdi_interface - [2m2025-01-31T22:34:11.812498Z[0m [[32m[1minfo     [0m] [1mmock_init_start               [0m [36mbuffer_size[0m=[35m320[0m [36mcomponent[0m=[35mMockDAHDIInterface[0m [36mdevice_path[0m=[35m/dev/dahdi/channel001[0m [36mmessage[0m=[35mInitializing mock DAHDI interface[0m
+2025-01-31 22:34:11,813 [INFO] dahdi_phone.hardware.fxs - [2m2025-01-31T22:34:11.813000Z[0m [[32m[1minfo     [0m] [1mfxs_port_init                 [0m [36mchannel[0m=[35m1[0m [36mcomponent[0m=[35mFXSPort[0m [36mmessage[0m=[35mInitializing FXS port[0m
+2025-01-31 22:34:11,813 [INFO] dahdi_phone.hardware.fxs - [2m2025-01-31T22:34:11.813298Z[0m [[32m[1minfo     [0m] [1minitialization_start          [0m [36mchannel[0m=[35m1[0m [36mcomponent[0m=[35mFXSPort[0m [36mmessage[0m=[35mStarting FXS port initialization[0m
+2025-01-31 22:34:11,813 [ERROR] dahdi_phone.core.mock_dahdi_interface - [2m2025-01-31T22:34:11.813722Z[0m [[31m[1merror    [0m] [1mmock_ioctl_failed             [0m [36mbuffer_size[0m=[35m320[0m [36mcommand[0m=[35mDAHDI_SET_VOLTAGE[0m [36mcomponent[0m=[35mMockDAHDIInterface[0m [36mdevice_path[0m=[35m/dev/dahdi/channel001[0m [36merror[0m=[35m'MockDAHDIInterface' object has no attribute 'debug_stats'[0m [36mmessage[0m=[35mMock ioctl failed: DAHDI_SET_VOLTAGE[0m
+Traceback (most recent call last):
+  File "/app/src/dahdi_phone/core/mock_dahdi_interface.py", line 274, in _ioctl
+    self.debug_stats['ioctl_calls'] += 1
+AttributeError: 'MockDAHDIInterface' object has no attribute 'debug_stats'
+2025-01-31 22:34:11,814 [ERROR] dahdi_phone.hardware.fxs - [2m2025-01-31T22:34:11.814270Z[0m [[31m[1merror    [0m] [1minitialization_failed         [0m [36mchannel[0m=[35m1[0m [36mcomponent[0m=[35mFXSPort[0m [36merror[0m=[35m'MockDAHDIInterface' object has no attribute 'debug_stats'[0m [36mmessage[0m=[35mFailed to initialize FXS port[0m
+Traceback (most recent call last):
+  File "/app/src/dahdi_phone/core/mock_dahdi_interface.py", line 274, in _ioctl
+    self.debug_stats['ioctl_calls'] += 1
+AttributeError: 'MockDAHDIInterface' object has no attribute 'debug_stats'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/app/src/dahdi_phone/hardware/fxs.py", line 150, in initialize
+    await self._set_voltage(self.config.idle_voltage)
+  File "/app/src/dahdi_phone/hardware/fxs.py", line 340, in _set_voltage
+    await self.dahdi._ioctl(command, data_bytes)
+  File "/app/src/dahdi_phone/core/mock_dahdi_interface.py", line 295, in _ioctl
+    self.debug_stats['errors'] += 1
+AttributeError: 'MockDAHDIInterface' object has no attribute 'debug_stats'
+2025-01-31 22:34:11,814 [ERROR] dahdi_phone.core.mock_dahdi_interface - [2m2025-01-31T22:34:11.814673Z[0m [[31m[1merror    [0m] [1mmock_init_failed              [0m [36mbuffer_size[0m=[35m320[0m [36mcomponent[0m=[35mMockDAHDIInterface[0m [36mdevice_path[0m=[35m/dev/dahdi/channel001[0m [36merror[0m=[35mFXS initialization failed: 'MockDAHDIInterface' object has no attribute 'debug_stats'[0m [36mmessage[0m=[35mFailed to initialize mock interface[0m
+Traceback (most recent call last):
+  File "/app/src/dahdi_phone/core/mock_dahdi_interface.py", line 274, in _ioctl
+    self.debug_stats['ioctl_calls'] += 1
+AttributeError: 'MockDAHDIInterface' object has no attribute 'debug_stats'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/app/src/dahdi_phone/hardware/fxs.py", line 150, in initialize
+    await self._set_voltage(self.config.idle_voltage)
+  File "/app/src/dahdi_phone/hardware/fxs.py", line 340, in _set_voltage
+    await self.dahdi._ioctl(command, data_bytes)
+  File "/app/src/dahdi_phone/core/mock_dahdi_interface.py", line 295, in _ioctl
+    self.debug_stats['errors'] += 1
+AttributeError: 'MockDAHDIInterface' object has no attribute 'debug_stats'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/app/src/dahdi_phone/core/mock_dahdi_interface.py", line 76, in initialize
+    await self.fxs_port.initialize()
+  File "/app/src/dahdi_phone/hardware/fxs.py", line 165, in initialize
+    raise FXSError(f"FXS initialization failed: {str(e)}") from e
+dahdi_phone.hardware.fxs.FXSError: FXS initialization failed: 'MockDAHDIInterface' object has no attribute 'debug_stats'
+2025-01-31 22:34:11,815 [INFO] dahdi_phone.core.mock_dahdi_interface - [2m2025-01-31T22:34:11.815570Z[0m [[32m[1minfo     [0m] [1mmock_cleanup_start            [0m [36mbuffer_size[0m=[35m320[0m [36mcomponent[0m=[35mMockDAHDIInterface[0m [36mdevice_path[0m=[35m/dev/dahdi/channel001[0m [36mmessage[0m=[35mCleaning up mock interface[0m
+2025-01-31 22:34:11,816 [ERROR] dahdi_phone.core.mock_dahdi_interface - [2m2025-01-31T22:34:11.815991Z[0m [[31m[1merror    [0m] [1mmock_cleanup_error            [0m [36mbuffer_size[0m=[35m320[0m [36mcomponent[0m=[35mMockDAHDIInterface[0m [36mdevice_path[0m=[35m/dev/dahdi/channel001[0m [36merror[0m=[35m'MockDAHDIInterface' object has no attribute 'voltage_monitor_task'[0m [36mmessage[0m=[35mMock cleanup error[0m
+Traceback (most recent call last):
+  File "/app/src/dahdi_phone/core/mock_dahdi_interface.py", line 274, in _ioctl
+    self.debug_stats['ioctl_calls'] += 1
+AttributeError: 'MockDAHDIInterface' object has no attribute 'debug_stats'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/app/src/dahdi_phone/hardware/fxs.py", line 150, in initialize
+    await self._set_voltage(self.config.idle_voltage)
+  File "/app/src/dahdi_phone/hardware/fxs.py", line 340, in _set_voltage
+    await self.dahdi._ioctl(command, data_bytes)
+  File "/app/src/dahdi_phone/core/mock_dahdi_interface.py", line 295, in _ioctl
+    self.debug_stats['errors'] += 1
+AttributeError: 'MockDAHDIInterface' object has no attribute 'debug_stats'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/app/src/dahdi_phone/core/mock_dahdi_interface.py", line 76, in initialize
+    await self.fxs_port.initialize()
+  File "/app/src/dahdi_phone/hardware/fxs.py", line 165, in initialize
+    raise FXSError(f"FXS initialization failed: {str(e)}") from e
+dahdi_phone.hardware.fxs.FXSError: FXS initialization failed: 'MockDAHDIInterface' object has no attribute 'debug_stats'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/app/src/dahdi_phone/core/mock_dahdi_interface.py", line 99, in cleanup
+    if self.voltage_monitor_task:
+AttributeError: 'MockDAHDIInterface' object has no attribute 'voltage_monitor_task'
+2025-01-31 22:34:11,816 [ERROR] dahdi_phone.api.server - [2m2025-01-31T22:34:11.816707Z[0m [[31m[1merror    [0m] [1mDAHDI hardware error: Mock device initialization failed: FXS initialization failed: 'MockDAHDIInterface' object has no attribute 'debug_stats'[0m
+2025-01-31 22:34:11,817 [ERROR] uvicorn.error - Traceback (most recent call last):
+  File "/app/src/dahdi_phone/core/mock_dahdi_interface.py", line 274, in _ioctl
+    self.debug_stats['ioctl_calls'] += 1
+AttributeError: 'MockDAHDIInterface' object has no attribute 'debug_stats'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/app/src/dahdi_phone/hardware/fxs.py", line 150, in initialize
+    await self._set_voltage(self.config.idle_voltage)
+  File "/app/src/dahdi_phone/hardware/fxs.py", line 340, in _set_voltage
+    await self.dahdi._ioctl(command, data_bytes)
+  File "/app/src/dahdi_phone/core/mock_dahdi_interface.py", line 295, in _ioctl
+    self.debug_stats['errors'] += 1
+AttributeError: 'MockDAHDIInterface' object has no attribute 'debug_stats'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/app/src/dahdi_phone/core/mock_dahdi_interface.py", line 76, in initialize
+    await self.fxs_port.initialize()
+  File "/app/src/dahdi_phone/hardware/fxs.py", line 165, in initialize
+    raise FXSError(f"FXS initialization failed: {str(e)}") from e
+dahdi_phone.hardware.fxs.FXSError: FXS initialization failed: 'MockDAHDIInterface' object has no attribute 'debug_stats'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/app/src/dahdi_phone/api/server.py", line 171, in startup_event
+    await self.dahdi_interface.initialize()
+  File "/app/src/dahdi_phone/core/mock_dahdi_interface.py", line 90, in initialize
+    raise DAHDIIOError(f"Mock device initialization failed: {str(e)}") from e
+dahdi_phone.core.interfaces.DAHDIIOError: Mock device initialization failed: FXS initialization failed: 'MockDAHDIInterface' object has no attribute 'debug_stats'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 540, in lifespan
+    async for item in self.lifespan_context(app):
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 481, in default_lifespan
+    await self.startup()
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 516, in startup
+    await handler()
+  File "/app/src/dahdi_phone/api/server.py", line 198, in startup_event
+    sys.exit(1)  # Exit with error code
+SystemExit: 1
+
+2025-01-31 22:34:11,818 [ERROR] uvicorn.error - Application startup failed. Exiting.
+2025-01-31 22:37:11,140 [INFO] dahdi_phone.utils.logger - [2m2025-01-31T22:37:11.140264Z[0m [[32m[1minfo     [0m] [1mLogger configured             [0m [36mformat[0m=[35mtext[0m [36moutput_file[0m=[35m/var/log/dahdi_phone/dahdi_phone.log[0m
+2025-01-31 22:37:11,144 [INFO] __main__ - [2m2025-01-31T22:37:11.144240Z[0m [[32m[1minfo     [0m] [1mDAHDI logging system initialized[0m
+2025-01-31 22:37:11,146 [INFO] __main__ - [2m2025-01-31T22:37:11.146833Z[0m [[32m[1minfo     [0m] [1mInitializing DAHDI Phone API service...[0m
+2025-01-31 22:37:11,202 [INFO] dahdi_phone.api.server - [2m2025-01-31T22:37:11.202476Z[0m [[32m[1minfo     [0m] [1mDAHDI Phone API server initialized[0m
+2025-01-31 22:37:11,203 [INFO] dahdi_phone.api.server - [2m2025-01-31T22:37:11.203017Z[0m [[32m[1minfo     [0m] [1mStarting server with configuration:[0m
+2025-01-31 22:37:11,214 [INFO] uvicorn.error - Started server process [1]
+2025-01-31 22:37:11,215 [INFO] uvicorn.error - Waiting for application startup.
+2025-01-31 22:37:11,216 [INFO] dahdi_phone.api.server - [2m2025-01-31T22:37:11.216106Z[0m [[32m[1minfo     [0m] [1mDevelopment mode settings     [0m [36mdev_mode[0m=[35mTrue[0m [36mmock_hardware[0m=[35mTrue[0m
+2025-01-31 22:37:11,216 [INFO] dahdi_phone.api.server - [2m2025-01-31T22:37:11.216443Z[0m [[32m[1minfo     [0m] [1mInitializing mock DAHDI interface for development[0m
+2025-01-31 22:37:11,216 [INFO] dahdi_phone.core.buffer_manager - Initialized CircularBuffer with size 3200
+2025-01-31 22:37:11,217 [INFO] dahdi_phone.core.dtmf_detector - [2m2025-01-31T22:37:11.217203Z[0m [[32m[1minfo     [0m] [1mdtmf_detector_init            [0m [36mconfig[0m=[35m{'sample_rate': 8000, 'frame_size': 320, 'detection_threshold': -30.0, 'min_duration': 40, 'energy_threshold': 0.1}[0m [36mmessage[0m=[35mInitializing DTMF detector[0m
+2025-01-31 22:37:11,217 [INFO] dahdi_phone.core.audio_processor - Initialized AudioProcessor with config: AudioConfig(sample_rate=8000, frame_size=320, channels=1, bit_depth=16)
+2025-01-31 22:37:11,217 [INFO] dahdi_phone.core.mock_dahdi_interface - [2m2025-01-31T22:37:11.217788Z[0m [[32m[1minfo     [0m] [1mmock_interface_init           [0m [36mbuffer_size[0m=[35m320[0m [36mcomponent[0m=[35mMockDAHDIInterface[0m [36mdevice_path[0m=[35m/dev/dahdi/channel001[0m [36mmessage[0m=[35mInitializing Mock DAHDI interface[0m
+2025-01-31 22:37:11,218 [INFO] dahdi_phone.core.mock_dahdi_interface - [2m2025-01-31T22:37:11.218142Z[0m [[32m[1minfo     [0m] [1mmock_init_start               [0m [36mbuffer_size[0m=[35m320[0m [36mcomponent[0m=[35mMockDAHDIInterface[0m [36mdevice_path[0m=[35m/dev/dahdi/channel001[0m [36mmessage[0m=[35mInitializing mock DAHDI interface[0m
+2025-01-31 22:37:11,218 [INFO] dahdi_phone.hardware.fxs - [2m2025-01-31T22:37:11.218524Z[0m [[32m[1minfo     [0m] [1mfxs_port_init                 [0m [36mchannel[0m=[35m1[0m [36mcomponent[0m=[35mFXSPort[0m [36mmessage[0m=[35mInitializing FXS port[0m
+2025-01-31 22:37:11,218 [INFO] dahdi_phone.hardware.fxs - [2m2025-01-31T22:37:11.218860Z[0m [[32m[1minfo     [0m] [1minitialization_start          [0m [36mchannel[0m=[35m1[0m [36mcomponent[0m=[35mFXSPort[0m [36mmessage[0m=[35mStarting FXS port initialization[0m
+2025-01-31 22:37:11,219 [ERROR] dahdi_phone.core.mock_dahdi_interface - [2m2025-01-31T22:37:11.219117Z[0m [[31m[1merror    [0m] [1mmock_ioctl_failed             [0m [36mbuffer_size[0m=[35m320[0m [36mcommand[0m=[35mDAHDI_SET_VOLTAGE[0m [36mcomponent[0m=[35mMockDAHDIInterface[0m [36mdevice_path[0m=[35m/dev/dahdi/channel001[0m [36merror[0m=[35m'MockDAHDIInterface' object has no attribute 'debug_stats'[0m [36mmessage[0m=[35mMock ioctl failed: DAHDI_SET_VOLTAGE[0m
+Traceback (most recent call last):
+  File "/app/src/dahdi_phone/core/mock_dahdi_interface.py", line 274, in _ioctl
+    self.debug_stats['ioctl_calls'] += 1
+AttributeError: 'MockDAHDIInterface' object has no attribute 'debug_stats'
+2025-01-31 22:37:11,220 [ERROR] dahdi_phone.hardware.fxs - [2m2025-01-31T22:37:11.220310Z[0m [[31m[1merror    [0m] [1minitialization_failed         [0m [36mchannel[0m=[35m1[0m [36mcomponent[0m=[35mFXSPort[0m [36merror[0m=[35m'MockDAHDIInterface' object has no attribute 'debug_stats'[0m [36mmessage[0m=[35mFailed to initialize FXS port[0m
+Traceback (most recent call last):
+  File "/app/src/dahdi_phone/core/mock_dahdi_interface.py", line 274, in _ioctl
+    self.debug_stats['ioctl_calls'] += 1
+AttributeError: 'MockDAHDIInterface' object has no attribute 'debug_stats'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/app/src/dahdi_phone/hardware/fxs.py", line 150, in initialize
+    await self._set_voltage(self.config.idle_voltage)
+  File "/app/src/dahdi_phone/hardware/fxs.py", line 340, in _set_voltage
+    await self.dahdi._ioctl(command, data_bytes)
+  File "/app/src/dahdi_phone/core/mock_dahdi_interface.py", line 295, in _ioctl
+    self.debug_stats['errors'] += 1
+AttributeError: 'MockDAHDIInterface' object has no attribute 'debug_stats'
+2025-01-31 22:37:11,221 [ERROR] dahdi_phone.core.mock_dahdi_interface - [2m2025-01-31T22:37:11.221424Z[0m [[31m[1merror    [0m] [1mmock_init_failed              [0m [36mbuffer_size[0m=[35m320[0m [36mcomponent[0m=[35mMockDAHDIInterface[0m [36mdevice_path[0m=[35m/dev/dahdi/channel001[0m [36merror[0m=[35mFXS initialization failed: 'MockDAHDIInterface' object has no attribute 'debug_stats'[0m [36mmessage[0m=[35mFailed to initialize mock interface[0m
+Traceback (most recent call last):
+  File "/app/src/dahdi_phone/core/mock_dahdi_interface.py", line 274, in _ioctl
+    self.debug_stats['ioctl_calls'] += 1
+AttributeError: 'MockDAHDIInterface' object has no attribute 'debug_stats'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/app/src/dahdi_phone/hardware/fxs.py", line 150, in initialize
+    await self._set_voltage(self.config.idle_voltage)
+  File "/app/src/dahdi_phone/hardware/fxs.py", line 340, in _set_voltage
+    await self.dahdi._ioctl(command, data_bytes)
+  File "/app/src/dahdi_phone/core/mock_dahdi_interface.py", line 295, in _ioctl
+    self.debug_stats['errors'] += 1
+AttributeError: 'MockDAHDIInterface' object has no attribute 'debug_stats'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/app/src/dahdi_phone/core/mock_dahdi_interface.py", line 76, in initialize
+    await self.fxs_port.initialize()
+  File "/app/src/dahdi_phone/hardware/fxs.py", line 165, in initialize
+    raise FXSError(f"FXS initialization failed: {str(e)}") from e
+dahdi_phone.hardware.fxs.FXSError: FXS initialization failed: 'MockDAHDIInterface' object has no attribute 'debug_stats'
+2025-01-31 22:37:11,222 [INFO] dahdi_phone.core.mock_dahdi_interface - [2m2025-01-31T22:37:11.222178Z[0m [[32m[1minfo     [0m] [1mmock_cleanup_start            [0m [36mbuffer_size[0m=[35m320[0m [36mcomponent[0m=[35mMockDAHDIInterface[0m [36mdevice_path[0m=[35m/dev/dahdi/channel001[0m [36mmessage[0m=[35mCleaning up mock interface[0m
+2025-01-31 22:37:11,222 [ERROR] dahdi_phone.core.mock_dahdi_interface - [2m2025-01-31T22:37:11.222513Z[0m [[31m[1merror    [0m] [1mmock_cleanup_error            [0m [36mbuffer_size[0m=[35m320[0m [36mcomponent[0m=[35mMockDAHDIInterface[0m [36mdevice_path[0m=[35m/dev/dahdi/channel001[0m [36merror[0m=[35m'MockDAHDIInterface' object has no attribute 'voltage_monitor_task'[0m [36mmessage[0m=[35mMock cleanup error[0m
+Traceback (most recent call last):
+  File "/app/src/dahdi_phone/core/mock_dahdi_interface.py", line 274, in _ioctl
+    self.debug_stats['ioctl_calls'] += 1
+AttributeError: 'MockDAHDIInterface' object has no attribute 'debug_stats'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/app/src/dahdi_phone/hardware/fxs.py", line 150, in initialize
+    await self._set_voltage(self.config.idle_voltage)
+  File "/app/src/dahdi_phone/hardware/fxs.py", line 340, in _set_voltage
+    await self.dahdi._ioctl(command, data_bytes)
+  File "/app/src/dahdi_phone/core/mock_dahdi_interface.py", line 295, in _ioctl
+    self.debug_stats['errors'] += 1
+AttributeError: 'MockDAHDIInterface' object has no attribute 'debug_stats'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/app/src/dahdi_phone/core/mock_dahdi_interface.py", line 76, in initialize
+    await self.fxs_port.initialize()
+  File "/app/src/dahdi_phone/hardware/fxs.py", line 165, in initialize
+    raise FXSError(f"FXS initialization failed: {str(e)}") from e
+dahdi_phone.hardware.fxs.FXSError: FXS initialization failed: 'MockDAHDIInterface' object has no attribute 'debug_stats'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/app/src/dahdi_phone/core/mock_dahdi_interface.py", line 99, in cleanup
+    if self.voltage_monitor_task:
+AttributeError: 'MockDAHDIInterface' object has no attribute 'voltage_monitor_task'
+2025-01-31 22:37:11,223 [ERROR] dahdi_phone.api.server - [2m2025-01-31T22:37:11.223083Z[0m [[31m[1merror    [0m] [1mDAHDI hardware error: Mock device initialization failed: FXS initialization failed: 'MockDAHDIInterface' object has no attribute 'debug_stats'[0m
+2025-01-31 22:37:11,223 [ERROR] uvicorn.error - Traceback (most recent call last):
+  File "/app/src/dahdi_phone/core/mock_dahdi_interface.py", line 274, in _ioctl
+    self.debug_stats['ioctl_calls'] += 1
+AttributeError: 'MockDAHDIInterface' object has no attribute 'debug_stats'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/app/src/dahdi_phone/hardware/fxs.py", line 150, in initialize
+    await self._set_voltage(self.config.idle_voltage)
+  File "/app/src/dahdi_phone/hardware/fxs.py", line 340, in _set_voltage
+    await self.dahdi._ioctl(command, data_bytes)
+  File "/app/src/dahdi_phone/core/mock_dahdi_interface.py", line 295, in _ioctl
+    self.debug_stats['errors'] += 1
+AttributeError: 'MockDAHDIInterface' object has no attribute 'debug_stats'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/app/src/dahdi_phone/core/mock_dahdi_interface.py", line 76, in initialize
+    await self.fxs_port.initialize()
+  File "/app/src/dahdi_phone/hardware/fxs.py", line 165, in initialize
+    raise FXSError(f"FXS initialization failed: {str(e)}") from e
+dahdi_phone.hardware.fxs.FXSError: FXS initialization failed: 'MockDAHDIInterface' object has no attribute 'debug_stats'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/app/src/dahdi_phone/api/server.py", line 171, in startup_event
+    await self.dahdi_interface.initialize()
+  File "/app/src/dahdi_phone/core/mock_dahdi_interface.py", line 90, in initialize
+    raise DAHDIIOError(f"Mock device initialization failed: {str(e)}") from e
+dahdi_phone.core.interfaces.DAHDIIOError: Mock device initialization failed: FXS initialization failed: 'MockDAHDIInterface' object has no attribute 'debug_stats'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 540, in lifespan
+    async for item in self.lifespan_context(app):
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 481, in default_lifespan
+    await self.startup()
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 516, in startup
+    await handler()
+  File "/app/src/dahdi_phone/api/server.py", line 198, in startup_event
+    sys.exit(1)  # Exit with error code
+SystemExit: 1
+
+2025-01-31 22:37:11,224 [ERROR] uvicorn.error - Application startup failed. Exiting.
+2025-01-31 22:37:11,738 [INFO] dahdi_phone.utils.logger - [2m2025-01-31T22:37:11.738369Z[0m [[32m[1minfo     [0m] [1mLogger configured             [0m [36mformat[0m=[35mtext[0m [36moutput_file[0m=[35m/var/log/dahdi_phone/dahdi_phone.log[0m
+2025-01-31 22:37:11,738 [INFO] __main__ - [2m2025-01-31T22:37:11.738671Z[0m [[32m[1minfo     [0m] [1mDAHDI logging system initialized[0m
+2025-01-31 22:37:11,739 [INFO] __main__ - [2m2025-01-31T22:37:11.739138Z[0m [[32m[1minfo     [0m] [1mInitializing DAHDI Phone API service...[0m
+2025-01-31 22:37:11,797 [INFO] dahdi_phone.api.server - [2m2025-01-31T22:37:11.797053Z[0m [[32m[1minfo     [0m] [1mDAHDI Phone API server initialized[0m
+2025-01-31 22:37:11,797 [INFO] dahdi_phone.api.server - [2m2025-01-31T22:37:11.797608Z[0m [[32m[1minfo     [0m] [1mStarting server with configuration:[0m
+2025-01-31 22:37:11,809 [INFO] uvicorn.error - Started server process [1]
+2025-01-31 22:37:11,810 [INFO] uvicorn.error - Waiting for application startup.
+2025-01-31 22:37:11,811 [INFO] dahdi_phone.api.server - [2m2025-01-31T22:37:11.811191Z[0m [[32m[1minfo     [0m] [1mDevelopment mode settings     [0m [36mdev_mode[0m=[35mTrue[0m [36mmock_hardware[0m=[35mTrue[0m
+2025-01-31 22:37:11,811 [INFO] dahdi_phone.api.server - [2m2025-01-31T22:37:11.811681Z[0m [[32m[1minfo     [0m] [1mInitializing mock DAHDI interface for development[0m
+2025-01-31 22:37:11,811 [INFO] dahdi_phone.core.buffer_manager - Initialized CircularBuffer with size 3200
+2025-01-31 22:37:11,812 [INFO] dahdi_phone.core.dtmf_detector - [2m2025-01-31T22:37:11.812419Z[0m [[32m[1minfo     [0m] [1mdtmf_detector_init            [0m [36mconfig[0m=[35m{'sample_rate': 8000, 'frame_size': 320, 'detection_threshold': -30.0, 'min_duration': 40, 'energy_threshold': 0.1}[0m [36mmessage[0m=[35mInitializing DTMF detector[0m
+2025-01-31 22:37:11,812 [INFO] dahdi_phone.core.audio_processor - Initialized AudioProcessor with config: AudioConfig(sample_rate=8000, frame_size=320, channels=1, bit_depth=16)
+2025-01-31 22:37:11,813 [INFO] dahdi_phone.core.mock_dahdi_interface - [2m2025-01-31T22:37:11.813145Z[0m [[32m[1minfo     [0m] [1mmock_interface_init           [0m [36mbuffer_size[0m=[35m320[0m [36mcomponent[0m=[35mMockDAHDIInterface[0m [36mdevice_path[0m=[35m/dev/dahdi/channel001[0m [36mmessage[0m=[35mInitializing Mock DAHDI interface[0m
+2025-01-31 22:37:11,813 [INFO] dahdi_phone.core.mock_dahdi_interface - [2m2025-01-31T22:37:11.813589Z[0m [[32m[1minfo     [0m] [1mmock_init_start               [0m [36mbuffer_size[0m=[35m320[0m [36mcomponent[0m=[35mMockDAHDIInterface[0m [36mdevice_path[0m=[35m/dev/dahdi/channel001[0m [36mmessage[0m=[35mInitializing mock DAHDI interface[0m
+2025-01-31 22:37:11,814 [INFO] dahdi_phone.hardware.fxs - [2m2025-01-31T22:37:11.814071Z[0m [[32m[1minfo     [0m] [1mfxs_port_init                 [0m [36mchannel[0m=[35m1[0m [36mcomponent[0m=[35mFXSPort[0m [36mmessage[0m=[35mInitializing FXS port[0m
+2025-01-31 22:37:11,814 [INFO] dahdi_phone.hardware.fxs - [2m2025-01-31T22:37:11.814426Z[0m [[32m[1minfo     [0m] [1minitialization_start          [0m [36mchannel[0m=[35m1[0m [36mcomponent[0m=[35mFXSPort[0m [36mmessage[0m=[35mStarting FXS port initialization[0m
+2025-01-31 22:37:11,814 [ERROR] dahdi_phone.core.mock_dahdi_interface - [2m2025-01-31T22:37:11.814755Z[0m [[31m[1merror    [0m] [1mmock_ioctl_failed             [0m [36mbuffer_size[0m=[35m320[0m [36mcommand[0m=[35mDAHDI_SET_VOLTAGE[0m [36mcomponent[0m=[35mMockDAHDIInterface[0m [36mdevice_path[0m=[35m/dev/dahdi/channel001[0m [36merror[0m=[35m'MockDAHDIInterface' object has no attribute 'debug_stats'[0m [36mmessage[0m=[35mMock ioctl failed: DAHDI_SET_VOLTAGE[0m
+Traceback (most recent call last):
+  File "/app/src/dahdi_phone/core/mock_dahdi_interface.py", line 274, in _ioctl
+    self.debug_stats['ioctl_calls'] += 1
+AttributeError: 'MockDAHDIInterface' object has no attribute 'debug_stats'
+2025-01-31 22:37:11,815 [ERROR] dahdi_phone.hardware.fxs - [2m2025-01-31T22:37:11.815330Z[0m [[31m[1merror    [0m] [1minitialization_failed         [0m [36mchannel[0m=[35m1[0m [36mcomponent[0m=[35mFXSPort[0m [36merror[0m=[35m'MockDAHDIInterface' object has no attribute 'debug_stats'[0m [36mmessage[0m=[35mFailed to initialize FXS port[0m
+Traceback (most recent call last):
+  File "/app/src/dahdi_phone/core/mock_dahdi_interface.py", line 274, in _ioctl
+    self.debug_stats['ioctl_calls'] += 1
+AttributeError: 'MockDAHDIInterface' object has no attribute 'debug_stats'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/app/src/dahdi_phone/hardware/fxs.py", line 150, in initialize
+    await self._set_voltage(self.config.idle_voltage)
+  File "/app/src/dahdi_phone/hardware/fxs.py", line 340, in _set_voltage
+    await self.dahdi._ioctl(command, data_bytes)
+  File "/app/src/dahdi_phone/core/mock_dahdi_interface.py", line 295, in _ioctl
+    self.debug_stats['errors'] += 1
+AttributeError: 'MockDAHDIInterface' object has no attribute 'debug_stats'
+2025-01-31 22:37:11,816 [ERROR] dahdi_phone.core.mock_dahdi_interface - [2m2025-01-31T22:37:11.815971Z[0m [[31m[1merror    [0m] [1mmock_init_failed              [0m [36mbuffer_size[0m=[35m320[0m [36mcomponent[0m=[35mMockDAHDIInterface[0m [36mdevice_path[0m=[35m/dev/dahdi/channel001[0m [36merror[0m=[35mFXS initialization failed: 'MockDAHDIInterface' object has no attribute 'debug_stats'[0m [36mmessage[0m=[35mFailed to initialize mock interface[0m
+Traceback (most recent call last):
+  File "/app/src/dahdi_phone/core/mock_dahdi_interface.py", line 274, in _ioctl
+    self.debug_stats['ioctl_calls'] += 1
+AttributeError: 'MockDAHDIInterface' object has no attribute 'debug_stats'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/app/src/dahdi_phone/hardware/fxs.py", line 150, in initialize
+    await self._set_voltage(self.config.idle_voltage)
+  File "/app/src/dahdi_phone/hardware/fxs.py", line 340, in _set_voltage
+    await self.dahdi._ioctl(command, data_bytes)
+  File "/app/src/dahdi_phone/core/mock_dahdi_interface.py", line 295, in _ioctl
+    self.debug_stats['errors'] += 1
+AttributeError: 'MockDAHDIInterface' object has no attribute 'debug_stats'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/app/src/dahdi_phone/core/mock_dahdi_interface.py", line 76, in initialize
+    await self.fxs_port.initialize()
+  File "/app/src/dahdi_phone/hardware/fxs.py", line 165, in initialize
+    raise FXSError(f"FXS initialization failed: {str(e)}") from e
+dahdi_phone.hardware.fxs.FXSError: FXS initialization failed: 'MockDAHDIInterface' object has no attribute 'debug_stats'
+2025-01-31 22:37:11,816 [INFO] dahdi_phone.core.mock_dahdi_interface - [2m2025-01-31T22:37:11.816484Z[0m [[32m[1minfo     [0m] [1mmock_cleanup_start            [0m [36mbuffer_size[0m=[35m320[0m [36mcomponent[0m=[35mMockDAHDIInterface[0m [36mdevice_path[0m=[35m/dev/dahdi/channel001[0m [36mmessage[0m=[35mCleaning up mock interface[0m
+2025-01-31 22:37:11,816 [ERROR] dahdi_phone.core.mock_dahdi_interface - [2m2025-01-31T22:37:11.816781Z[0m [[31m[1merror    [0m] [1mmock_cleanup_error            [0m [36mbuffer_size[0m=[35m320[0m [36mcomponent[0m=[35mMockDAHDIInterface[0m [36mdevice_path[0m=[35m/dev/dahdi/channel001[0m [36merror[0m=[35m'MockDAHDIInterface' object has no attribute 'voltage_monitor_task'[0m [36mmessage[0m=[35mMock cleanup error[0m
+Traceback (most recent call last):
+  File "/app/src/dahdi_phone/core/mock_dahdi_interface.py", line 274, in _ioctl
+    self.debug_stats['ioctl_calls'] += 1
+AttributeError: 'MockDAHDIInterface' object has no attribute 'debug_stats'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/app/src/dahdi_phone/hardware/fxs.py", line 150, in initialize
+    await self._set_voltage(self.config.idle_voltage)
+  File "/app/src/dahdi_phone/hardware/fxs.py", line 340, in _set_voltage
+    await self.dahdi._ioctl(command, data_bytes)
+  File "/app/src/dahdi_phone/core/mock_dahdi_interface.py", line 295, in _ioctl
+    self.debug_stats['errors'] += 1
+AttributeError: 'MockDAHDIInterface' object has no attribute 'debug_stats'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/app/src/dahdi_phone/core/mock_dahdi_interface.py", line 76, in initialize
+    await self.fxs_port.initialize()
+  File "/app/src/dahdi_phone/hardware/fxs.py", line 165, in initialize
+    raise FXSError(f"FXS initialization failed: {str(e)}") from e
+dahdi_phone.hardware.fxs.FXSError: FXS initialization failed: 'MockDAHDIInterface' object has no attribute 'debug_stats'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/app/src/dahdi_phone/core/mock_dahdi_interface.py", line 99, in cleanup
+    if self.voltage_monitor_task:
+AttributeError: 'MockDAHDIInterface' object has no attribute 'voltage_monitor_task'
+2025-01-31 22:37:11,817 [ERROR] dahdi_phone.api.server - [2m2025-01-31T22:37:11.817627Z[0m [[31m[1merror    [0m] [1mDAHDI hardware error: Mock device initialization failed: FXS initialization failed: 'MockDAHDIInterface' object has no attribute 'debug_stats'[0m
+2025-01-31 22:37:11,818 [ERROR] uvicorn.error - Traceback (most recent call last):
+  File "/app/src/dahdi_phone/core/mock_dahdi_interface.py", line 274, in _ioctl
+    self.debug_stats['ioctl_calls'] += 1
+AttributeError: 'MockDAHDIInterface' object has no attribute 'debug_stats'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/app/src/dahdi_phone/hardware/fxs.py", line 150, in initialize
+    await self._set_voltage(self.config.idle_voltage)
+  File "/app/src/dahdi_phone/hardware/fxs.py", line 340, in _set_voltage
+    await self.dahdi._ioctl(command, data_bytes)
+  File "/app/src/dahdi_phone/core/mock_dahdi_interface.py", line 295, in _ioctl
+    self.debug_stats['errors'] += 1
+AttributeError: 'MockDAHDIInterface' object has no attribute 'debug_stats'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/app/src/dahdi_phone/core/mock_dahdi_interface.py", line 76, in initialize
+    await self.fxs_port.initialize()
+  File "/app/src/dahdi_phone/hardware/fxs.py", line 165, in initialize
+    raise FXSError(f"FXS initialization failed: {str(e)}") from e
+dahdi_phone.hardware.fxs.FXSError: FXS initialization failed: 'MockDAHDIInterface' object has no attribute 'debug_stats'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/app/src/dahdi_phone/api/server.py", line 171, in startup_event
+    await self.dahdi_interface.initialize()
+  File "/app/src/dahdi_phone/core/mock_dahdi_interface.py", line 90, in initialize
+    raise DAHDIIOError(f"Mock device initialization failed: {str(e)}") from e
+dahdi_phone.core.interfaces.DAHDIIOError: Mock device initialization failed: FXS initialization failed: 'MockDAHDIInterface' object has no attribute 'debug_stats'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 540, in lifespan
+    async for item in self.lifespan_context(app):
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 481, in default_lifespan
+    await self.startup()
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 516, in startup
+    await handler()
+  File "/app/src/dahdi_phone/api/server.py", line 198, in startup_event
+    sys.exit(1)  # Exit with error code
+SystemExit: 1
+
+2025-01-31 22:37:11,818 [ERROR] uvicorn.error - Application startup failed. Exiting.
+2025-01-31 22:37:12,475 [INFO] dahdi_phone.utils.logger - [2m2025-01-31T22:37:12.474955Z[0m [[32m[1minfo     [0m] [1mLogger configured             [0m [36mformat[0m=[35mtext[0m [36moutput_file[0m=[35m/var/log/dahdi_phone/dahdi_phone.log[0m
+2025-01-31 22:37:12,486 [INFO] __main__ - [2m2025-01-31T22:37:12.486064Z[0m [[32m[1minfo     [0m] [1mDAHDI logging system initialized[0m
+2025-01-31 22:37:12,489 [INFO] __main__ - [2m2025-01-31T22:37:12.488987Z[0m [[32m[1minfo     [0m] [1mInitializing DAHDI Phone API service...[0m
+2025-01-31 22:37:12,539 [INFO] dahdi_phone.api.server - [2m2025-01-31T22:37:12.539419Z[0m [[32m[1minfo     [0m] [1mDAHDI Phone API server initialized[0m
+2025-01-31 22:37:12,539 [INFO] dahdi_phone.api.server - [2m2025-01-31T22:37:12.539770Z[0m [[32m[1minfo     [0m] [1mStarting server with configuration:[0m
+2025-01-31 22:37:12,549 [INFO] uvicorn.error - Started server process [1]
+2025-01-31 22:37:12,550 [INFO] uvicorn.error - Waiting for application startup.
+2025-01-31 22:37:12,550 [INFO] dahdi_phone.api.server - [2m2025-01-31T22:37:12.550890Z[0m [[32m[1minfo     [0m] [1mDevelopment mode settings     [0m [36mdev_mode[0m=[35mTrue[0m [36mmock_hardware[0m=[35mTrue[0m
+2025-01-31 22:37:12,551 [INFO] dahdi_phone.api.server - [2m2025-01-31T22:37:12.551212Z[0m [[32m[1minfo     [0m] [1mInitializing mock DAHDI interface for development[0m
+2025-01-31 22:37:12,551 [INFO] dahdi_phone.core.buffer_manager - Initialized CircularBuffer with size 3200
+2025-01-31 22:37:12,553 [INFO] dahdi_phone.core.dtmf_detector - [2m2025-01-31T22:37:12.553041Z[0m [[32m[1minfo     [0m] [1mdtmf_detector_init            [0m [36mconfig[0m=[35m{'sample_rate': 8000, 'frame_size': 320, 'detection_threshold': -30.0, 'min_duration': 40, 'energy_threshold': 0.1}[0m [36mmessage[0m=[35mInitializing DTMF detector[0m
+2025-01-31 22:37:12,553 [INFO] dahdi_phone.core.audio_processor - Initialized AudioProcessor with config: AudioConfig(sample_rate=8000, frame_size=320, channels=1, bit_depth=16)
+2025-01-31 22:37:12,554 [INFO] dahdi_phone.core.mock_dahdi_interface - [2m2025-01-31T22:37:12.554001Z[0m [[32m[1minfo     [0m] [1mmock_interface_init           [0m [36mbuffer_size[0m=[35m320[0m [36mcomponent[0m=[35mMockDAHDIInterface[0m [36mdevice_path[0m=[35m/dev/dahdi/channel001[0m [36mmessage[0m=[35mInitializing Mock DAHDI interface[0m
+2025-01-31 22:37:12,554 [INFO] dahdi_phone.core.mock_dahdi_interface - [2m2025-01-31T22:37:12.554509Z[0m [[32m[1minfo     [0m] [1mmock_init_start               [0m [36mbuffer_size[0m=[35m320[0m [36mcomponent[0m=[35mMockDAHDIInterface[0m [36mdevice_path[0m=[35m/dev/dahdi/channel001[0m [36mmessage[0m=[35mInitializing mock DAHDI interface[0m
+2025-01-31 22:37:12,555 [INFO] dahdi_phone.hardware.fxs - [2m2025-01-31T22:37:12.555006Z[0m [[32m[1minfo     [0m] [1mfxs_port_init                 [0m [36mchannel[0m=[35m1[0m [36mcomponent[0m=[35mFXSPort[0m [36mmessage[0m=[35mInitializing FXS port[0m
+2025-01-31 22:37:12,555 [INFO] dahdi_phone.hardware.fxs - [2m2025-01-31T22:37:12.555426Z[0m [[32m[1minfo     [0m] [1minitialization_start          [0m [36mchannel[0m=[35m1[0m [36mcomponent[0m=[35mFXSPort[0m [36mmessage[0m=[35mStarting FXS port initialization[0m
+2025-01-31 22:37:12,556 [ERROR] dahdi_phone.core.mock_dahdi_interface - [2m2025-01-31T22:37:12.555727Z[0m [[31m[1merror    [0m] [1mmock_ioctl_failed             [0m [36mbuffer_size[0m=[35m320[0m [36mcommand[0m=[35mDAHDI_SET_VOLTAGE[0m [36mcomponent[0m=[35mMockDAHDIInterface[0m [36mdevice_path[0m=[35m/dev/dahdi/channel001[0m [36merror[0m=[35m'MockDAHDIInterface' object has no attribute 'debug_stats'[0m [36mmessage[0m=[35mMock ioctl failed: DAHDI_SET_VOLTAGE[0m
+Traceback (most recent call last):
+  File "/app/src/dahdi_phone/core/mock_dahdi_interface.py", line 274, in _ioctl
+    self.debug_stats['ioctl_calls'] += 1
+AttributeError: 'MockDAHDIInterface' object has no attribute 'debug_stats'
+2025-01-31 22:37:12,556 [ERROR] dahdi_phone.hardware.fxs - [2m2025-01-31T22:37:12.556193Z[0m [[31m[1merror    [0m] [1minitialization_failed         [0m [36mchannel[0m=[35m1[0m [36mcomponent[0m=[35mFXSPort[0m [36merror[0m=[35m'MockDAHDIInterface' object has no attribute 'debug_stats'[0m [36mmessage[0m=[35mFailed to initialize FXS port[0m
+Traceback (most recent call last):
+  File "/app/src/dahdi_phone/core/mock_dahdi_interface.py", line 274, in _ioctl
+    self.debug_stats['ioctl_calls'] += 1
+AttributeError: 'MockDAHDIInterface' object has no attribute 'debug_stats'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/app/src/dahdi_phone/hardware/fxs.py", line 150, in initialize
+    await self._set_voltage(self.config.idle_voltage)
+  File "/app/src/dahdi_phone/hardware/fxs.py", line 340, in _set_voltage
+    await self.dahdi._ioctl(command, data_bytes)
+  File "/app/src/dahdi_phone/core/mock_dahdi_interface.py", line 295, in _ioctl
+    self.debug_stats['errors'] += 1
+AttributeError: 'MockDAHDIInterface' object has no attribute 'debug_stats'
+2025-01-31 22:37:12,556 [ERROR] dahdi_phone.core.mock_dahdi_interface - [2m2025-01-31T22:37:12.556861Z[0m [[31m[1merror    [0m] [1mmock_init_failed              [0m [36mbuffer_size[0m=[35m320[0m [36mcomponent[0m=[35mMockDAHDIInterface[0m [36mdevice_path[0m=[35m/dev/dahdi/channel001[0m [36merror[0m=[35mFXS initialization failed: 'MockDAHDIInterface' object has no attribute 'debug_stats'[0m [36mmessage[0m=[35mFailed to initialize mock interface[0m
+Traceback (most recent call last):
+  File "/app/src/dahdi_phone/core/mock_dahdi_interface.py", line 274, in _ioctl
+    self.debug_stats['ioctl_calls'] += 1
+AttributeError: 'MockDAHDIInterface' object has no attribute 'debug_stats'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/app/src/dahdi_phone/hardware/fxs.py", line 150, in initialize
+    await self._set_voltage(self.config.idle_voltage)
+  File "/app/src/dahdi_phone/hardware/fxs.py", line 340, in _set_voltage
+    await self.dahdi._ioctl(command, data_bytes)
+  File "/app/src/dahdi_phone/core/mock_dahdi_interface.py", line 295, in _ioctl
+    self.debug_stats['errors'] += 1
+AttributeError: 'MockDAHDIInterface' object has no attribute 'debug_stats'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/app/src/dahdi_phone/core/mock_dahdi_interface.py", line 76, in initialize
+    await self.fxs_port.initialize()
+  File "/app/src/dahdi_phone/hardware/fxs.py", line 165, in initialize
+    raise FXSError(f"FXS initialization failed: {str(e)}") from e
+dahdi_phone.hardware.fxs.FXSError: FXS initialization failed: 'MockDAHDIInterface' object has no attribute 'debug_stats'
+2025-01-31 22:37:12,557 [INFO] dahdi_phone.core.mock_dahdi_interface - [2m2025-01-31T22:37:12.557330Z[0m [[32m[1minfo     [0m] [1mmock_cleanup_start            [0m [36mbuffer_size[0m=[35m320[0m [36mcomponent[0m=[35mMockDAHDIInterface[0m [36mdevice_path[0m=[35m/dev/dahdi/channel001[0m [36mmessage[0m=[35mCleaning up mock interface[0m
+2025-01-31 22:37:12,557 [ERROR] dahdi_phone.core.mock_dahdi_interface - [2m2025-01-31T22:37:12.557701Z[0m [[31m[1merror    [0m] [1mmock_cleanup_error            [0m [36mbuffer_size[0m=[35m320[0m [36mcomponent[0m=[35mMockDAHDIInterface[0m [36mdevice_path[0m=[35m/dev/dahdi/channel001[0m [36merror[0m=[35m'MockDAHDIInterface' object has no attribute 'voltage_monitor_task'[0m [36mmessage[0m=[35mMock cleanup error[0m
+Traceback (most recent call last):
+  File "/app/src/dahdi_phone/core/mock_dahdi_interface.py", line 274, in _ioctl
+    self.debug_stats['ioctl_calls'] += 1
+AttributeError: 'MockDAHDIInterface' object has no attribute 'debug_stats'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/app/src/dahdi_phone/hardware/fxs.py", line 150, in initialize
+    await self._set_voltage(self.config.idle_voltage)
+  File "/app/src/dahdi_phone/hardware/fxs.py", line 340, in _set_voltage
+    await self.dahdi._ioctl(command, data_bytes)
+  File "/app/src/dahdi_phone/core/mock_dahdi_interface.py", line 295, in _ioctl
+    self.debug_stats['errors'] += 1
+AttributeError: 'MockDAHDIInterface' object has no attribute 'debug_stats'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/app/src/dahdi_phone/core/mock_dahdi_interface.py", line 76, in initialize
+    await self.fxs_port.initialize()
+  File "/app/src/dahdi_phone/hardware/fxs.py", line 165, in initialize
+    raise FXSError(f"FXS initialization failed: {str(e)}") from e
+dahdi_phone.hardware.fxs.FXSError: FXS initialization failed: 'MockDAHDIInterface' object has no attribute 'debug_stats'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/app/src/dahdi_phone/core/mock_dahdi_interface.py", line 99, in cleanup
+    if self.voltage_monitor_task:
+AttributeError: 'MockDAHDIInterface' object has no attribute 'voltage_monitor_task'
+2025-01-31 22:37:12,558 [ERROR] dahdi_phone.api.server - [2m2025-01-31T22:37:12.558138Z[0m [[31m[1merror    [0m] [1mDAHDI hardware error: Mock device initialization failed: FXS initialization failed: 'MockDAHDIInterface' object has no attribute 'debug_stats'[0m
+2025-01-31 22:37:12,558 [ERROR] uvicorn.error - Traceback (most recent call last):
+  File "/app/src/dahdi_phone/core/mock_dahdi_interface.py", line 274, in _ioctl
+    self.debug_stats['ioctl_calls'] += 1
+AttributeError: 'MockDAHDIInterface' object has no attribute 'debug_stats'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/app/src/dahdi_phone/hardware/fxs.py", line 150, in initialize
+    await self._set_voltage(self.config.idle_voltage)
+  File "/app/src/dahdi_phone/hardware/fxs.py", line 340, in _set_voltage
+    await self.dahdi._ioctl(command, data_bytes)
+  File "/app/src/dahdi_phone/core/mock_dahdi_interface.py", line 295, in _ioctl
+    self.debug_stats['errors'] += 1
+AttributeError: 'MockDAHDIInterface' object has no attribute 'debug_stats'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/app/src/dahdi_phone/core/mock_dahdi_interface.py", line 76, in initialize
+    await self.fxs_port.initialize()
+  File "/app/src/dahdi_phone/hardware/fxs.py", line 165, in initialize
+    raise FXSError(f"FXS initialization failed: {str(e)}") from e
+dahdi_phone.hardware.fxs.FXSError: FXS initialization failed: 'MockDAHDIInterface' object has no attribute 'debug_stats'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/app/src/dahdi_phone/api/server.py", line 171, in startup_event
+    await self.dahdi_interface.initialize()
+  File "/app/src/dahdi_phone/core/mock_dahdi_interface.py", line 90, in initialize
+    raise DAHDIIOError(f"Mock device initialization failed: {str(e)}") from e
+dahdi_phone.core.interfaces.DAHDIIOError: Mock device initialization failed: FXS initialization failed: 'MockDAHDIInterface' object has no attribute 'debug_stats'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 540, in lifespan
+    async for item in self.lifespan_context(app):
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 481, in default_lifespan
+    await self.startup()
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 516, in startup
+    await handler()
+  File "/app/src/dahdi_phone/api/server.py", line 198, in startup_event
+    sys.exit(1)  # Exit with error code
+SystemExit: 1
+
+2025-01-31 22:37:12,559 [ERROR] uvicorn.error - Application startup failed. Exiting.
+2025-01-31 22:37:13,421 [INFO] dahdi_phone.utils.logger - [2m2025-01-31T22:37:13.421907Z[0m [[32m[1minfo     [0m] [1mLogger configured             [0m [36mformat[0m=[35mtext[0m [36moutput_file[0m=[35m/var/log/dahdi_phone/dahdi_phone.log[0m
+2025-01-31 22:37:13,422 [INFO] __main__ - [2m2025-01-31T22:37:13.422520Z[0m [[32m[1minfo     [0m] [1mDAHDI logging system initialized[0m
+2025-01-31 22:37:13,422 [INFO] __main__ - [2m2025-01-31T22:37:13.422981Z[0m [[32m[1minfo     [0m] [1mInitializing DAHDI Phone API service...[0m
+2025-01-31 22:37:13,468 [INFO] dahdi_phone.api.server - [2m2025-01-31T22:37:13.468843Z[0m [[32m[1minfo     [0m] [1mDAHDI Phone API server initialized[0m
+2025-01-31 22:37:13,469 [INFO] dahdi_phone.api.server - [2m2025-01-31T22:37:13.469169Z[0m [[32m[1minfo     [0m] [1mStarting server with configuration:[0m
+2025-01-31 22:37:13,480 [INFO] uvicorn.error - Started server process [1]
+2025-01-31 22:37:13,480 [INFO] uvicorn.error - Waiting for application startup.
+2025-01-31 22:37:13,481 [INFO] dahdi_phone.api.server - [2m2025-01-31T22:37:13.481127Z[0m [[32m[1minfo     [0m] [1mDevelopment mode settings     [0m [36mdev_mode[0m=[35mTrue[0m [36mmock_hardware[0m=[35mTrue[0m
+2025-01-31 22:37:13,481 [INFO] dahdi_phone.api.server - [2m2025-01-31T22:37:13.481795Z[0m [[32m[1minfo     [0m] [1mInitializing mock DAHDI interface for development[0m
+2025-01-31 22:37:13,482 [INFO] dahdi_phone.core.buffer_manager - Initialized CircularBuffer with size 3200
+2025-01-31 22:37:13,482 [INFO] dahdi_phone.core.dtmf_detector - [2m2025-01-31T22:37:13.482453Z[0m [[32m[1minfo     [0m] [1mdtmf_detector_init            [0m [36mconfig[0m=[35m{'sample_rate': 8000, 'frame_size': 320, 'detection_threshold': -30.0, 'min_duration': 40, 'energy_threshold': 0.1}[0m [36mmessage[0m=[35mInitializing DTMF detector[0m
+2025-01-31 22:37:13,482 [INFO] dahdi_phone.core.audio_processor - Initialized AudioProcessor with config: AudioConfig(sample_rate=8000, frame_size=320, channels=1, bit_depth=16)
+2025-01-31 22:37:13,483 [INFO] dahdi_phone.core.mock_dahdi_interface - [2m2025-01-31T22:37:13.482987Z[0m [[32m[1minfo     [0m] [1mmock_interface_init           [0m [36mbuffer_size[0m=[35m320[0m [36mcomponent[0m=[35mMockDAHDIInterface[0m [36mdevice_path[0m=[35m/dev/dahdi/channel001[0m [36mmessage[0m=[35mInitializing Mock DAHDI interface[0m
+2025-01-31 22:37:13,483 [INFO] dahdi_phone.core.mock_dahdi_interface - [2m2025-01-31T22:37:13.483263Z[0m [[32m[1minfo     [0m] [1mmock_init_start               [0m [36mbuffer_size[0m=[35m320[0m [36mcomponent[0m=[35mMockDAHDIInterface[0m [36mdevice_path[0m=[35m/dev/dahdi/channel001[0m [36mmessage[0m=[35mInitializing mock DAHDI interface[0m
+2025-01-31 22:37:13,483 [INFO] dahdi_phone.hardware.fxs - [2m2025-01-31T22:37:13.483651Z[0m [[32m[1minfo     [0m] [1mfxs_port_init                 [0m [36mchannel[0m=[35m1[0m [36mcomponent[0m=[35mFXSPort[0m [36mmessage[0m=[35mInitializing FXS port[0m
+2025-01-31 22:37:13,484 [INFO] dahdi_phone.hardware.fxs - [2m2025-01-31T22:37:13.484025Z[0m [[32m[1minfo     [0m] [1minitialization_start          [0m [36mchannel[0m=[35m1[0m [36mcomponent[0m=[35mFXSPort[0m [36mmessage[0m=[35mStarting FXS port initialization[0m
+2025-01-31 22:37:13,484 [ERROR] dahdi_phone.core.mock_dahdi_interface - [2m2025-01-31T22:37:13.484320Z[0m [[31m[1merror    [0m] [1mmock_ioctl_failed             [0m [36mbuffer_size[0m=[35m320[0m [36mcommand[0m=[35mDAHDI_SET_VOLTAGE[0m [36mcomponent[0m=[35mMockDAHDIInterface[0m [36mdevice_path[0m=[35m/dev/dahdi/channel001[0m [36merror[0m=[35m'MockDAHDIInterface' object has no attribute 'debug_stats'[0m [36mmessage[0m=[35mMock ioctl failed: DAHDI_SET_VOLTAGE[0m
+Traceback (most recent call last):
+  File "/app/src/dahdi_phone/core/mock_dahdi_interface.py", line 274, in _ioctl
+    self.debug_stats['ioctl_calls'] += 1
+AttributeError: 'MockDAHDIInterface' object has no attribute 'debug_stats'
+2025-01-31 22:37:13,484 [ERROR] dahdi_phone.hardware.fxs - [2m2025-01-31T22:37:13.484669Z[0m [[31m[1merror    [0m] [1minitialization_failed         [0m [36mchannel[0m=[35m1[0m [36mcomponent[0m=[35mFXSPort[0m [36merror[0m=[35m'MockDAHDIInterface' object has no attribute 'debug_stats'[0m [36mmessage[0m=[35mFailed to initialize FXS port[0m
+Traceback (most recent call last):
+  File "/app/src/dahdi_phone/core/mock_dahdi_interface.py", line 274, in _ioctl
+    self.debug_stats['ioctl_calls'] += 1
+AttributeError: 'MockDAHDIInterface' object has no attribute 'debug_stats'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/app/src/dahdi_phone/hardware/fxs.py", line 150, in initialize
+    await self._set_voltage(self.config.idle_voltage)
+  File "/app/src/dahdi_phone/hardware/fxs.py", line 340, in _set_voltage
+    await self.dahdi._ioctl(command, data_bytes)
+  File "/app/src/dahdi_phone/core/mock_dahdi_interface.py", line 295, in _ioctl
+    self.debug_stats['errors'] += 1
+AttributeError: 'MockDAHDIInterface' object has no attribute 'debug_stats'
+2025-01-31 22:37:13,485 [ERROR] dahdi_phone.core.mock_dahdi_interface - [2m2025-01-31T22:37:13.485224Z[0m [[31m[1merror    [0m] [1mmock_init_failed              [0m [36mbuffer_size[0m=[35m320[0m [36mcomponent[0m=[35mMockDAHDIInterface[0m [36mdevice_path[0m=[35m/dev/dahdi/channel001[0m [36merror[0m=[35mFXS initialization failed: 'MockDAHDIInterface' object has no attribute 'debug_stats'[0m [36mmessage[0m=[35mFailed to initialize mock interface[0m
+Traceback (most recent call last):
+  File "/app/src/dahdi_phone/core/mock_dahdi_interface.py", line 274, in _ioctl
+    self.debug_stats['ioctl_calls'] += 1
+AttributeError: 'MockDAHDIInterface' object has no attribute 'debug_stats'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/app/src/dahdi_phone/hardware/fxs.py", line 150, in initialize
+    await self._set_voltage(self.config.idle_voltage)
+  File "/app/src/dahdi_phone/hardware/fxs.py", line 340, in _set_voltage
+    await self.dahdi._ioctl(command, data_bytes)
+  File "/app/src/dahdi_phone/core/mock_dahdi_interface.py", line 295, in _ioctl
+    self.debug_stats['errors'] += 1
+AttributeError: 'MockDAHDIInterface' object has no attribute 'debug_stats'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/app/src/dahdi_phone/core/mock_dahdi_interface.py", line 76, in initialize
+    await self.fxs_port.initialize()
+  File "/app/src/dahdi_phone/hardware/fxs.py", line 165, in initialize
+    raise FXSError(f"FXS initialization failed: {str(e)}") from e
+dahdi_phone.hardware.fxs.FXSError: FXS initialization failed: 'MockDAHDIInterface' object has no attribute 'debug_stats'
+2025-01-31 22:37:13,485 [INFO] dahdi_phone.core.mock_dahdi_interface - [2m2025-01-31T22:37:13.485652Z[0m [[32m[1minfo     [0m] [1mmock_cleanup_start            [0m [36mbuffer_size[0m=[35m320[0m [36mcomponent[0m=[35mMockDAHDIInterface[0m [36mdevice_path[0m=[35m/dev/dahdi/channel001[0m [36mmessage[0m=[35mCleaning up mock interface[0m
+2025-01-31 22:37:13,486 [ERROR] dahdi_phone.core.mock_dahdi_interface - [2m2025-01-31T22:37:13.485933Z[0m [[31m[1merror    [0m] [1mmock_cleanup_error            [0m [36mbuffer_size[0m=[35m320[0m [36mcomponent[0m=[35mMockDAHDIInterface[0m [36mdevice_path[0m=[35m/dev/dahdi/channel001[0m [36merror[0m=[35m'MockDAHDIInterface' object has no attribute 'voltage_monitor_task'[0m [36mmessage[0m=[35mMock cleanup error[0m
+Traceback (most recent call last):
+  File "/app/src/dahdi_phone/core/mock_dahdi_interface.py", line 274, in _ioctl
+    self.debug_stats['ioctl_calls'] += 1
+AttributeError: 'MockDAHDIInterface' object has no attribute 'debug_stats'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/app/src/dahdi_phone/hardware/fxs.py", line 150, in initialize
+    await self._set_voltage(self.config.idle_voltage)
+  File "/app/src/dahdi_phone/hardware/fxs.py", line 340, in _set_voltage
+    await self.dahdi._ioctl(command, data_bytes)
+  File "/app/src/dahdi_phone/core/mock_dahdi_interface.py", line 295, in _ioctl
+    self.debug_stats['errors'] += 1
+AttributeError: 'MockDAHDIInterface' object has no attribute 'debug_stats'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/app/src/dahdi_phone/core/mock_dahdi_interface.py", line 76, in initialize
+    await self.fxs_port.initialize()
+  File "/app/src/dahdi_phone/hardware/fxs.py", line 165, in initialize
+    raise FXSError(f"FXS initialization failed: {str(e)}") from e
+dahdi_phone.hardware.fxs.FXSError: FXS initialization failed: 'MockDAHDIInterface' object has no attribute 'debug_stats'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/app/src/dahdi_phone/core/mock_dahdi_interface.py", line 99, in cleanup
+    if self.voltage_monitor_task:
+AttributeError: 'MockDAHDIInterface' object has no attribute 'voltage_monitor_task'
+2025-01-31 22:37:13,486 [ERROR] dahdi_phone.api.server - [2m2025-01-31T22:37:13.486341Z[0m [[31m[1merror    [0m] [1mDAHDI hardware error: Mock device initialization failed: FXS initialization failed: 'MockDAHDIInterface' object has no attribute 'debug_stats'[0m
+2025-01-31 22:37:13,486 [ERROR] uvicorn.error - Traceback (most recent call last):
+  File "/app/src/dahdi_phone/core/mock_dahdi_interface.py", line 274, in _ioctl
+    self.debug_stats['ioctl_calls'] += 1
+AttributeError: 'MockDAHDIInterface' object has no attribute 'debug_stats'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/app/src/dahdi_phone/hardware/fxs.py", line 150, in initialize
+    await self._set_voltage(self.config.idle_voltage)
+  File "/app/src/dahdi_phone/hardware/fxs.py", line 340, in _set_voltage
+    await self.dahdi._ioctl(command, data_bytes)
+  File "/app/src/dahdi_phone/core/mock_dahdi_interface.py", line 295, in _ioctl
+    self.debug_stats['errors'] += 1
+AttributeError: 'MockDAHDIInterface' object has no attribute 'debug_stats'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/app/src/dahdi_phone/core/mock_dahdi_interface.py", line 76, in initialize
+    await self.fxs_port.initialize()
+  File "/app/src/dahdi_phone/hardware/fxs.py", line 165, in initialize
+    raise FXSError(f"FXS initialization failed: {str(e)}") from e
+dahdi_phone.hardware.fxs.FXSError: FXS initialization failed: 'MockDAHDIInterface' object has no attribute 'debug_stats'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/app/src/dahdi_phone/api/server.py", line 171, in startup_event
+    await self.dahdi_interface.initialize()
+  File "/app/src/dahdi_phone/core/mock_dahdi_interface.py", line 90, in initialize
+    raise DAHDIIOError(f"Mock device initialization failed: {str(e)}") from e
+dahdi_phone.core.interfaces.DAHDIIOError: Mock device initialization failed: FXS initialization failed: 'MockDAHDIInterface' object has no attribute 'debug_stats'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 540, in lifespan
+    async for item in self.lifespan_context(app):
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 481, in default_lifespan
+    await self.startup()
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 516, in startup
+    await handler()
+  File "/app/src/dahdi_phone/api/server.py", line 198, in startup_event
+    sys.exit(1)  # Exit with error code
+SystemExit: 1
+
+2025-01-31 22:37:13,487 [ERROR] uvicorn.error - Application startup failed. Exiting.
+2025-01-31 22:39:11,602 [INFO] dahdi_phone.utils.logger - [2m2025-01-31T22:39:11.602722Z[0m [[32m[1minfo     [0m] [1mLogger configured             [0m [36mformat[0m=[35mtext[0m [36moutput_file[0m=[35m/var/log/dahdi_phone/dahdi_phone.log[0m
+2025-01-31 22:39:11,604 [INFO] __main__ - [2m2025-01-31T22:39:11.604718Z[0m [[32m[1minfo     [0m] [1mDAHDI logging system initialized[0m
+2025-01-31 22:39:11,606 [INFO] __main__ - [2m2025-01-31T22:39:11.606162Z[0m [[32m[1minfo     [0m] [1mInitializing DAHDI Phone API service...[0m
+2025-01-31 22:39:11,665 [INFO] dahdi_phone.api.server - [2m2025-01-31T22:39:11.665652Z[0m [[32m[1minfo     [0m] [1mDAHDI Phone API server initialized[0m
+2025-01-31 22:39:11,666 [INFO] dahdi_phone.api.server - [2m2025-01-31T22:39:11.666307Z[0m [[32m[1minfo     [0m] [1mStarting server with configuration:[0m
+2025-01-31 22:39:11,679 [INFO] uvicorn.error - Started server process [1]
+2025-01-31 22:39:11,680 [INFO] uvicorn.error - Waiting for application startup.
+2025-01-31 22:39:11,681 [ERROR] dahdi_phone.api.server - [2m2025-01-31T22:39:11.681643Z[0m [[31m[1merror    [0m] [1mDAHDI device not found at /dev/dahdi/channel001[0m
+2025-01-31 22:39:11,682 [ERROR] dahdi_phone.api.server - [2m2025-01-31T22:39:11.682524Z[0m [[31m[1merror    [0m] [1mDAHDI hardware error: DAHDI device not found at /dev/dahdi/channel001[0m
+2025-01-31 22:39:11,683 [ERROR] uvicorn.error - Traceback (most recent call last):
+  File "/app/src/dahdi_phone/api/server.py", line 143, in startup_event
+    raise DAHDIIOError(error_msg)
+dahdi_phone.core.interfaces.DAHDIIOError: DAHDI device not found at /dev/dahdi/channel001
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 540, in lifespan
+    async for item in self.lifespan_context(app):
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 481, in default_lifespan
+    await self.startup()
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 516, in startup
+    await handler()
+  File "/app/src/dahdi_phone/api/server.py", line 181, in startup_event
+    sys.exit(1)  # Exit with error code
+SystemExit: 1
+
+2025-01-31 22:39:11,683 [ERROR] uvicorn.error - Application startup failed. Exiting.
+2025-01-31 22:39:12,202 [INFO] dahdi_phone.utils.logger - [2m2025-01-31T22:39:12.202445Z[0m [[32m[1minfo     [0m] [1mLogger configured             [0m [36mformat[0m=[35mtext[0m [36moutput_file[0m=[35m/var/log/dahdi_phone/dahdi_phone.log[0m
+2025-01-31 22:39:12,204 [INFO] __main__ - [2m2025-01-31T22:39:12.204490Z[0m [[32m[1minfo     [0m] [1mDAHDI logging system initialized[0m
+2025-01-31 22:39:12,211 [INFO] __main__ - [2m2025-01-31T22:39:12.211612Z[0m [[32m[1minfo     [0m] [1mInitializing DAHDI Phone API service...[0m
+2025-01-31 22:39:12,264 [INFO] dahdi_phone.api.server - [2m2025-01-31T22:39:12.264778Z[0m [[32m[1minfo     [0m] [1mDAHDI Phone API server initialized[0m
+2025-01-31 22:39:12,265 [INFO] dahdi_phone.api.server - [2m2025-01-31T22:39:12.265103Z[0m [[32m[1minfo     [0m] [1mStarting server with configuration:[0m
+2025-01-31 22:39:12,276 [INFO] uvicorn.error - Started server process [1]
+2025-01-31 22:39:12,276 [INFO] uvicorn.error - Waiting for application startup.
+2025-01-31 22:39:12,277 [ERROR] dahdi_phone.api.server - [2m2025-01-31T22:39:12.277627Z[0m [[31m[1merror    [0m] [1mDAHDI device not found at /dev/dahdi/channel001[0m
+2025-01-31 22:39:12,277 [ERROR] dahdi_phone.api.server - [2m2025-01-31T22:39:12.277895Z[0m [[31m[1merror    [0m] [1mDAHDI hardware error: DAHDI device not found at /dev/dahdi/channel001[0m
+2025-01-31 22:39:12,278 [ERROR] uvicorn.error - Traceback (most recent call last):
+  File "/app/src/dahdi_phone/api/server.py", line 143, in startup_event
+    raise DAHDIIOError(error_msg)
+dahdi_phone.core.interfaces.DAHDIIOError: DAHDI device not found at /dev/dahdi/channel001
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 540, in lifespan
+    async for item in self.lifespan_context(app):
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 481, in default_lifespan
+    await self.startup()
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 516, in startup
+    await handler()
+  File "/app/src/dahdi_phone/api/server.py", line 181, in startup_event
+    sys.exit(1)  # Exit with error code
+SystemExit: 1
+
+2025-01-31 22:39:12,278 [ERROR] uvicorn.error - Application startup failed. Exiting.
+2025-01-31 22:39:12,895 [INFO] dahdi_phone.utils.logger - [2m2025-01-31T22:39:12.895273Z[0m [[32m[1minfo     [0m] [1mLogger configured             [0m [36mformat[0m=[35mtext[0m [36moutput_file[0m=[35m/var/log/dahdi_phone/dahdi_phone.log[0m
+2025-01-31 22:39:12,896 [INFO] __main__ - [2m2025-01-31T22:39:12.896371Z[0m [[32m[1minfo     [0m] [1mDAHDI logging system initialized[0m
+2025-01-31 22:39:12,896 [INFO] __main__ - [2m2025-01-31T22:39:12.896973Z[0m [[32m[1minfo     [0m] [1mInitializing DAHDI Phone API service...[0m
+2025-01-31 22:39:12,956 [INFO] dahdi_phone.api.server - [2m2025-01-31T22:39:12.956190Z[0m [[32m[1minfo     [0m] [1mDAHDI Phone API server initialized[0m
+2025-01-31 22:39:12,956 [INFO] dahdi_phone.api.server - [2m2025-01-31T22:39:12.956718Z[0m [[32m[1minfo     [0m] [1mStarting server with configuration:[0m
+2025-01-31 22:39:12,967 [INFO] uvicorn.error - Started server process [1]
+2025-01-31 22:39:12,968 [INFO] uvicorn.error - Waiting for application startup.
+2025-01-31 22:39:12,968 [ERROR] dahdi_phone.api.server - [2m2025-01-31T22:39:12.968777Z[0m [[31m[1merror    [0m] [1mDAHDI device not found at /dev/dahdi/channel001[0m
+2025-01-31 22:39:12,969 [ERROR] dahdi_phone.api.server - [2m2025-01-31T22:39:12.969193Z[0m [[31m[1merror    [0m] [1mDAHDI hardware error: DAHDI device not found at /dev/dahdi/channel001[0m
+2025-01-31 22:39:12,969 [ERROR] uvicorn.error - Traceback (most recent call last):
+  File "/app/src/dahdi_phone/api/server.py", line 143, in startup_event
+    raise DAHDIIOError(error_msg)
+dahdi_phone.core.interfaces.DAHDIIOError: DAHDI device not found at /dev/dahdi/channel001
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 540, in lifespan
+    async for item in self.lifespan_context(app):
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 481, in default_lifespan
+    await self.startup()
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 516, in startup
+    await handler()
+  File "/app/src/dahdi_phone/api/server.py", line 181, in startup_event
+    sys.exit(1)  # Exit with error code
+SystemExit: 1
+
+2025-01-31 22:39:12,969 [ERROR] uvicorn.error - Application startup failed. Exiting.
+2025-01-31 22:39:13,812 [INFO] dahdi_phone.utils.logger - [2m2025-01-31T22:39:13.812627Z[0m [[32m[1minfo     [0m] [1mLogger configured             [0m [36mformat[0m=[35mtext[0m [36moutput_file[0m=[35m/var/log/dahdi_phone/dahdi_phone.log[0m
+2025-01-31 22:39:13,814 [INFO] __main__ - [2m2025-01-31T22:39:13.814430Z[0m [[32m[1minfo     [0m] [1mDAHDI logging system initialized[0m
+2025-01-31 22:39:13,821 [INFO] __main__ - [2m2025-01-31T22:39:13.821058Z[0m [[32m[1minfo     [0m] [1mInitializing DAHDI Phone API service...[0m
+2025-01-31 22:39:13,869 [INFO] dahdi_phone.api.server - [2m2025-01-31T22:39:13.869932Z[0m [[32m[1minfo     [0m] [1mDAHDI Phone API server initialized[0m
+2025-01-31 22:39:13,870 [INFO] dahdi_phone.api.server - [2m2025-01-31T22:39:13.870418Z[0m [[32m[1minfo     [0m] [1mStarting server with configuration:[0m
+2025-01-31 22:39:13,881 [INFO] uvicorn.error - Started server process [1]
+2025-01-31 22:39:13,881 [INFO] uvicorn.error - Waiting for application startup.
+2025-01-31 22:39:13,882 [ERROR] dahdi_phone.api.server - [2m2025-01-31T22:39:13.882108Z[0m [[31m[1merror    [0m] [1mDAHDI device not found at /dev/dahdi/channel001[0m
+2025-01-31 22:39:13,882 [ERROR] dahdi_phone.api.server - [2m2025-01-31T22:39:13.882413Z[0m [[31m[1merror    [0m] [1mDAHDI hardware error: DAHDI device not found at /dev/dahdi/channel001[0m
+2025-01-31 22:39:13,883 [ERROR] uvicorn.error - Traceback (most recent call last):
+  File "/app/src/dahdi_phone/api/server.py", line 143, in startup_event
+    raise DAHDIIOError(error_msg)
+dahdi_phone.core.interfaces.DAHDIIOError: DAHDI device not found at /dev/dahdi/channel001
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 540, in lifespan
+    async for item in self.lifespan_context(app):
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 481, in default_lifespan
+    await self.startup()
+  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 516, in startup
+    await handler()
+  File "/app/src/dahdi_phone/api/server.py", line 181, in startup_event
+    sys.exit(1)  # Exit with error code
+SystemExit: 1
+
+2025-01-31 22:39:13,883 [ERROR] uvicorn.error - Application startup failed. Exiting.

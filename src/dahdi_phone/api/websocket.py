@@ -1,5 +1,12 @@
 # dahdi-phone-api/src/dahdi_phone/api/websocket.py
 
+from enum import Enum
+from fastapi import WebSocket, WebSocketDisconnect, Depends
+from fastapi.routing import APIRouter
+from .server import get_dahdi_interface, DAHDIInterface
+
+router = APIRouter()
+
 class PhoneEventTypes(str, Enum):
     """Types of events that can be sent over WebSocket"""
     OFF_HOOK = "off_hook"
@@ -11,15 +18,19 @@ class PhoneEventTypes(str, Enum):
     ERROR = "error"
 
 @router.websocket("/ws")
-async def websocket_endpoint(websocket: WebSocket):
+async def websocket_endpoint(
+    websocket: WebSocket,
+    dahdi_interface: DAHDIInterface = Depends(get_dahdi_interface)
+):
     """WebSocket connection for real-time phone events"""
     await websocket.accept()
     try:
         # Subscribe to phone events
         while True:
             # Send events as they occur
-            event = await get_next_event()
-            await websocket.send_json(event.dict())
+            event = await dahdi_interface.get_next_event()
+            if event:
+                await websocket.send_json(event)
     except WebSocketDisconnect:
         # Clean up subscription
         pass
